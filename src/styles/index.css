@@ -67,11 +67,10 @@ body {
 
 @media (max-width: 830px) {
   .activeHamMenu-container {
-    @apply  flex flex-col items-center;
+    @apply flex flex-col items-center;
   }
   .activeHamMenu {
     @apply w-full  flex flex-col justify-center items-center;
-   
   }
 
   .activeHamMenu li {
@@ -83,13 +82,45 @@ body {
 }
 
 @keyframes hamMenu {
-    from{ transform: translateX(1000px);}
-    to{transform: translateX(0px);}
-    
+  from {
+    transform: translateX(1000px);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }
 
 /*: Main style  */
 /*? desktop */
+.flex-desktop-hero {
+  @apply flex justify-between items-center;
+}
+.size-hero-title {
+  @apply xl:text-[2.8rem] lg:text-[2.5rem] md:text-[2.2rem] sm:text-[1.8rem];
+}
+
+.size-hero-text {
+  @apply xl:text-[1.1rem] lg:text-[1rem] md:text-[0.9rem] sm:text-[0.8rem];
+}
+.size-hero-base {
+  @apply xl:text-[1.3rem] lg:text-[1.2rem] md:text-[1rem] sm:text-[0.8rem];
+}
+
+.text-width-hero {
+  @apply xl:min-w-[400px] lg:min-w-[350px] md:max-w-[300px] sm:max-w-[200px] lg:my-8 sm:my-6;
+}
+
+
+
+.primary-btn {
+    @apply py-2 px-3 text-black xl:text-[1.4rem] lg:text-[1.3rem] md:text-[1.2rem] sm:text-[1rem]  bg-yellowPrimary rounded-xl;
+    @apply   hover:text-greenPrimary ;
+}
+
+.img-width-hero{
+    @apply lg:w-[300px] lg:h-[400px] md:w-[250px] md:h-[320px] sm:w-[200px] sm:h-[250px]  rounded-md;
+}
+
 /*? phones */
 /*: Cards style  */
 /*? desktop */
