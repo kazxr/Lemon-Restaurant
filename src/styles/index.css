@@ -1,9 +1,6 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 :root {
   --greenPrimary: #495e57;
@@ -19,12 +16,78 @@
   box-sizing: border-box;
 }
 body {
+  height: 300vh;
   scroll-behavior: smooth;
 }
 
 /*: Nav style  */
 /*? desktop */
+
+.flex-desktop {
+  @apply flex justify-between items-center;
+}
+.flex-phone {
+  @apply flex flex-col justify-center items-center;
+}
+.hidden-desktop {
+  @apply xl:hidden lg:hidden md:block sm:block;
+}
+.hidden-phone {
+  @apply xl:block lg:block md:hidden sm:hidden;
+}
+.hidden-phone-special {
+  @apply xl:flex lg:flex md:hidden sm:hidden;
+}
+.nav-size {
+  @apply xl:text-[1.4rem] lg:text-[1.3rem] md:text-[1.4rem] sm:text-[1.3rem];
+}
+.nav-size-btn {
+  @apply xl:text-[1.3rem] lg:text-[1.3rem] md:text-[1.rem] sm:text-[0.8rem];
+}
+.nav-img-size {
+  @apply xl:w-44 lg:w-36 md:w-40 sm:w-36;
+}
+
+.nav-ul li {
+  transition: 0.2s ease-in-out;
+  @apply py-1 px-3 cursor-pointer;
+}
+.nav-ul li:hover {
+  transition: 0.2s ease-in-out;
+  @apply bg-slate-200 rounded-md;
+}
+
+/*? nav scroll logic */
+.scrollHidden {
+  transform: translateY(-100px);
+  transition: 0.3s ease-in-out;
+}
 /*? phones */
+/* @media (max-width:830px) { */
+
+@media (max-width: 830px) {
+  .activeHamMenu-container {
+    @apply  flex flex-col items-center;
+  }
+  .activeHamMenu {
+    @apply w-full  flex flex-col justify-center items-center;
+   
+  }
+
+  .activeHamMenu li {
+    @apply w-full text-center py-2 my-1;
+  }
+  .activeHamMenu li:last-child {
+    @apply font-karla  text-greenPrimary font-bold;
+  }
+}
+
+@keyframes hamMenu {
+    from{ transform: translateX(1000px);}
+    to{transform: translateX(0px);}
+    
+}
+
 /*: Main style  */
 /*? desktop */
 /*? phones */
@@ -35,4 +98,3 @@ body {
 /*? desktop */
 /*? phones */
 /*: Footer style  */
-
