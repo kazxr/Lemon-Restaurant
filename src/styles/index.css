@@ -5,3 +5,34 @@
 @tailwind utilities;
 
 
+:root {
+  --greenPrimary: #495e57;
+  --yellowPrimary: #f4ce14;
+  --orangeSecondary: #ee9972;
+  --lightOrangeSecondary: #fbdabb;
+  --graySecondary: #edefee;
+  --blackSecondary: #333333;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  scroll-behavior: smooth;
+}
+
+/*: Nav style  */
+/*? desktop */
+/*? phones */
+/*: Main style  */
+/*? desktop */
+/*? phones */
+/*: Cards style  */
+/*? desktop */
+/*? phones */
+/*: Reviews style  */
+/*? desktop */
+/*? phones */
+/*: Footer style  */
+

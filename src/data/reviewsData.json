@@ -1,0 +1,26 @@
+[
+  {
+    "rating": "★★★★★",
+    "name": "Alice Johnson",
+    "image": "../src/assets/pic2.jpg",
+    "review": "Exceptional quality and customer support!"
+  },
+  {
+    "rating": "★★★★☆",
+    "name": "Olivia Brown",
+    "image": "../src/assets/pic3.jpg",
+    "review": "Great experience overall. Will come back again."
+  },
+  {
+    "rating": "★★★★☆",
+    "name": "Ava Johnson",
+    "image": "../src/assets/pic4.jpg",
+    "review": "Very good, but there's a little room for improvement."
+  },
+  {
+    "rating": "★★★★★",
+    "name": "John Doe",
+    "image": "../src/assets/pic1.jpg",
+    "review": "Amazing service! Highly recommend to everyone."
+  }
+]
