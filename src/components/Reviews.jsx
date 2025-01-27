@@ -2,7 +2,7 @@
 
 function Reviews() {
   return (
-    <div>Reviews</div>
+    <div className="">Reviews</div>
   )
 }
 

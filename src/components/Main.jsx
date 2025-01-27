@@ -2,7 +2,7 @@ import heroImg from "../assets/heroPicture.jpg";
 function Main() {
   return (
     <section className="pt-[150px] pb-14 w-full bg-greenPrimary">
-      <div className="w-full max-w-[1240px] mx-auto flex-desktop px-5">
+      <div className="w-full max-w-[1240px] mx-auto flex-desktop xl:px-1 px-5">
       <div className="font-karla text-white " >
         <h1 className="size-hero-title font-markazi leading-7 text-yellowPrimary">
           Little Lemon
