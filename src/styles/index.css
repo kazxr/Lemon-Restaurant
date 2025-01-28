@@ -39,7 +39,7 @@ body {
   @apply xl:flex lg:flex md:hidden sm:hidden;
 }
 .nav-size {
-  @apply xl:text-[1.4rem] lg:text-[1.3rem] md:text-[1.4rem] sm:text-[1.3rem];
+  @apply xl:text-[1.3rem] lg:text-[1.2rem] md:text-[1.4rem] sm:text-[1.3rem];
 }
 .nav-size-btn {
   @apply xl:text-[1.3rem] lg:text-[1.3rem] md:text-[1.rem] sm:text-[0.8rem];
@@ -161,11 +161,9 @@ body {
   .card-phone-size p {
     @apply sm:my-3 md:my-7;
   }
-  
 }
 
-
- @keyframes cardMotion {
+@keyframes cardMotion {
   from {
     transform: translateX(0px) rotateZ(0deg);
     opacity: 1;
@@ -187,5 +185,30 @@ body {
 }
 /*: Reviews style  */
 /*? desktop */
+.review-stars {
+  @apply xl:text-[1.6rem] lg:text-[1.4rem] md:text-[1.3rem] sm:text-[1.2rem];
+}
+.review-name {
+  @apply xl:text-[1.3rem] lg:text-[1.1rem] md:text-[1.05rem] sm:text-[1rem];
+}
+.review-text {
+  @apply xl:text-[1.1rem] lg:text-[1rem] md:text-[.9rem] sm:text-[0.8rem] text-greenPrimary;
+}
+.review-card-img {
+  @apply xl:w-28  lg:w-24 md:w-20 sm:w-16  rounded-sm;
+}
+.review-card-width {
+  @apply max-w-none  xl:min-w-[300px] xl:h-[300px] lg:min-w-[270px] lg:h-[250px] md:min-w-[270px] md:h-[300px] sm:min-w-[230px] sm:h-[230px]  rounded-md;
+  @apply lg:mb-6 bg-white ring-slate-300;
+  @apply xl:mx-[35px] lg:mx-[40px] md:mx-[30px] sm:mx-[20px];
+}
+.scrollContainer{
+  scrollbar-width:none;
+}
+.scrollContainer::-webkit-scrollbar{
+   display: none;
+}
+
+
 /*? phones */
 /*: Footer style  */

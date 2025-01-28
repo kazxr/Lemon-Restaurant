@@ -1,6 +1,6 @@
 import motor from "../assets/motor.svg";
 function Card(data) {
-  let style = " card-phone-size card-size pb-4 rounded-md bg-graySecondary ";
+  let style = " card-phone-size card-size pb-4 rounded-md bg-graySecondary cursor-pointer hover:ring-2 hover:ring-orangeSecondary ";
   let x = data.id == 1 ? "z-50" + style + data.id :data.id==2?"z-40" + style + data.id: "z-30" + style + data.id;
   return (
     <>
@@ -13,7 +13,7 @@ function Card(data) {
         <img
           src={data.img}
           alt=""
-          className="w-full card-img-size object-fill"
+          className="w-full card-img-size object-fill "
         />
         <div className="flex justify-between items-end mt-3 px-3  ">
           <h1 className="font-markazi card-title">{data.title}</h1>

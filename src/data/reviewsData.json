@@ -22,5 +22,17 @@
     "name": "John Doe",
     "image": "../src/assets/pic1.jpg",
     "review": "Amazing service! Highly recommend to everyone."
+  },
+  {
+    "rating": "★★★★★",
+    "name": "Sophia Williams",
+    "image": "../src/assets/pic5.jpg",
+    "review": "The service was wonderful! I highly recommend it to everyone."
+  },
+  {
+    "rating": "★★★★★",
+    "name": "Emily Davis",
+    "image": "../src/assets/pic7.jpg",
+    "review": "Fantastic! I’m definitely coming back for more."
   }
 ]

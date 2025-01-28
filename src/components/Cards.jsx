@@ -1,7 +1,7 @@
 import data from "../data/cardsData.json";
 import Card from "./card";
-import right from "../assets/right.png";
-import left from "../assets/left.png";
+import right from "../assets/right1.png";
+import left from "../assets/left1.png";
 import { useEffect } from "react";
 
 function Cards() {

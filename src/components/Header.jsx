@@ -50,7 +50,7 @@ function Header() {
     <>
       <header
         ref={headerElement}
-        className="w-full z-50 font-markazi fixed hover:bg-slate-50 bg-white transition-all duration-300 ease-out"
+        className="w-full z-[100] font-markazi fixed hover:bg-slate-50 bg-white transition-all duration-300 ease-out"
       >
         <nav className="nav-container w-full max-w-[1240px] mx-auto flex-desktop nav-size">
           <div className="div-img py-6 px-3 flex-desktop lg:w-auto sm:w-full ">
