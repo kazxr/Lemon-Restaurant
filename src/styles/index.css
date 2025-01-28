@@ -16,7 +16,6 @@
   box-sizing: border-box;
 }
 body {
-  height: 300vh;
   scroll-behavior: smooth;
 }
 
@@ -257,3 +256,16 @@ body {
 }
 
 /*: Footer style  */
+.footer-text{
+  @apply xl:text-[1rem] lg:text-[0.95rem] md:text-[0.85rem] sm:text-[0.7rem];
+
+}
+.footer-title{
+  @apply text-greenPrimary font-bold;
+  @apply  xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem] ;
+}
+
+.footer-ul li{
+
+@apply py-1 px-3 hover:text-yellow-700 rounded-sm duration-300 ease-in-out;
+}
