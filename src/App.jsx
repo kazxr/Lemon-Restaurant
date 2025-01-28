@@ -3,7 +3,7 @@ import Main from "./components/Main"
 import Cards from "./components/Cards"
 import Reviews from "./components/Reviews"
 import Footer from "./components/Footer"
-
+import About from "./components/About"
 function App() {
   return (
     <>
@@ -11,6 +11,7 @@ function App() {
       <Main />
       <Cards />
       <Reviews />
+      <About/>
       <Footer />
     </>
   );

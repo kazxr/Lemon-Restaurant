@@ -210,5 +210,50 @@ body {
 }
 
 
-/*? phones */
+/*: About style  */
+.section-title{
+  @apply xl:text-[1.7rem] lg:text-[1.7rem] md:text-[1.7rem] sm:text-[1.6rem] font-markazi ;
+}
+
+.pic0{
+  transform: translate(-50px,-50px)  ;
+}
+
+.about-text{
+    @apply xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem] font-bold;
+    @apply xl:w-[400px] lg:w-[400px] md:w-[300px]  sm:w-[300px];
+}
+.about-pic{
+    @apply max-w-none  xl:w-[250px] xl:h-[300px] lg:w-[230px] lg:h-[280px] md:w-[200px] md:h-[250px] sm:w-[150px] sm:h-[200px]  rounded-md;
+}
+.smScreens-about{
+  @apply md:flex-row sm:flex-col;
+}
+.text-about-div{
+  @apply md:mb-[0px] sm:mt-[40px] sm:order-3 md:order-1;
+}
+
+@media (max-width:950px)and (min-width:830px) {
+  #main-div-about{
+    @apply lg:px-16 ;
+  }
+  
+}
+@media (max-width:750px)and (min-width:550px) {
+  #main-div-about{
+    @apply md:px-3 ;
+  }
+  #about-text{
+    @apply md:text-[0.8rem] md:w-[250px];
+  }
+  
+}
+@keyframes imgSwitcher {
+  0%{transform: translate(-50px,-50px);opacity: 1;}
+  50%{transform: translate(0px,0px);opacity: 0.5;}
+    100%{transform: translate(-50px,-50px);opacity: 1;}
+
+  
+}
+
 /*: Footer style  */
