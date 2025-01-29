@@ -3,7 +3,18 @@ import HamMenu from "../assets/hambergerMenu.svg";
 import hamMenuCloser from "../assets/Xicon.svg";
 import { useEffect, useRef } from "react";
 function Header() {
-  // nav scrolling logic
+  // nav scrolling logic, scroll into section;
+  let scrollIntoSection=(id)=>{
+    let elem= document.querySelector("#"+id)
+    elem.scrollIntoView({
+      block: "center",
+      behavior: "smooth"
+    })
+
+  }
+
+
+  // when scroll down will hide nav when up will appear;
   let header = useRef(0);
   let headerElement = useRef(null);
   let ScrollHandler = () => {
@@ -63,11 +74,11 @@ function Header() {
             />
           </div>
           <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6">
-            <li>Home</li>
-            <li>About</li>
-            <li>Menu</li>
-            <li>Reservation</li>
-            <li>Order Online</li>
+            <li onClick={()=>scrollIntoSection("home")}>Home</li>
+            <li onClick={()=>scrollIntoSection("menu")}>Menu</li>
+            <li onClick={()=>scrollIntoSection("about")}>About</li>
+            <li onClick={()=>scrollIntoSection("reviews")}>Reviews</li>
+            <li >Order Online</li>
             <li className="hidden-desktop">Login</li>
           </ul>
           <div className="py-6 hidden-phone lg:block sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">

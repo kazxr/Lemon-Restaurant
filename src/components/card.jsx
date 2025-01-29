@@ -1,7 +1,7 @@
 import motor from "../assets/motor.svg";
 function Card(data) {
-  let style = " card-phone-size card-size pb-4 rounded-md bg-graySecondary cursor-pointer hover:ring-2 hover:ring-orangeSecondary ";
-  let x = data.id == 1 ? "z-50" + style + data.id :data.id==2?"z-40" + style + data.id: "z-30" + style + data.id;
+  let style = "  card-phone-size card-size pb-4 rounded-md bg-graySecondary cursor-pointer hover:ring-2 hover:ring-orangeSecondary bg-graySecondary cursor-pointer ";
+  let x = data.id == 1 ? "block z-50" + style + data.id :data.id==2?"hidden z-40" + style + data.id: "hidden z-30" + style + data.id;
   return (
     <>
       <div

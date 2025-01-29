@@ -22,6 +22,8 @@ body {
 /*: Nav style  */
 /*? desktop */
 
+
+
 .flex-desktop {
   @apply flex justify-between items-center;
 }
@@ -172,6 +174,13 @@ body {
     opacity: 0;
   }
 }
+.active-animation-card{
+  animation: cardMotion 0.6s   ease-in-out ;
+}
+
+.active-animation-card-reverse{
+  animation: cardMotionReverse 0.6s   ease-in-out  ;
+}
 @keyframes cardMotionReverse {
   from {
     transform: translateX(0px) rotateZ(0deg);
@@ -267,5 +276,11 @@ body {
 
 .footer-ul li{
 
-@apply py-1 px-3 hover:text-yellow-700 rounded-sm duration-300 ease-in-out;
+@apply py-1 px-3 cursor-pointer hover:text-yellow-700 rounded-sm duration-300 ease-in-out;
 }
+
+
+
+
+
+

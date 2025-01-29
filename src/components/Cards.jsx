@@ -2,35 +2,48 @@ import data from "../data/cardsData.json";
 import Card from "./card";
 import right from "../assets/right1.png";
 import left from "../assets/left1.png";
-import { useEffect } from "react";
 
 function Cards() {
-  useEffect(() => {}, []);
-
   let handlerRight = (e) => {
     const cards = [
       document.querySelector("#card1"),
       document.querySelector("#card2"),
       document.querySelector("#card3"),
     ];
+    //#when clicking left will make right opacity=1;
     const leftImg = document.querySelector("#left-img");
     leftImg.style.opacity = "1";
 
     for (let i = 0; i < cards.length - 1; i++) {
       let current = cards[i];
       let next = cards[i + 1];
-      if (i + 1 == 2) {
+      let arr = ["z-50", "z-40", "z-30"];
+      //# this will make an effect of cards going form top to buttom;
+      if (i == 1) {
+        for (let j = 0; j <= 2; j++) {
+          setTimeout(() => {
+            cards[j].classList.remove(arr[j]);
+          }, 600);
+        }
+      }
+      //# this will hide right arrow when we reach last card;
+      if (i == 1) {
         e.target.style.opacity = "0.5";
       }
-      if (current.classList.contains("z-50")) {
-        current.style.animation = "none";
-        current.offsetHeight;
-        current.style.animation = "cardMotion 0.4s  ease-in-out";
-        setTimeout(() => {
-          current.classList.remove("z-50");
-          next.classList.add("z-50");
+      //# this toggle animation, and hide cards in the front so the one in the back
+      //# will be visible; when animation accur;
+      if (current.classList.contains("block")) {
+        
+        current.classList.remove("active-animation-card-reverse");
+        current.classList.add("active-animation-card");
 
-        }, 200);
+        next.classList.remove("hidden");
+        next.classList.add("block");
+        setTimeout(() => {
+          current.classList.add("hidden");
+          current.classList.remove("block");
+          current.classList.remove("active-animation-card");
+        }, 500);
         break;
       }
     }
@@ -42,31 +55,53 @@ function Cards() {
       document.querySelector("#card2"),
       document.querySelector("#card3"),
     ];
+
+    //#when clicking right will make left opacity=1;
     const rightImg = document.querySelector("#right-img");
     rightImg.style.opacity = "1";
+
     for (let i = 1; i < cards.length; i++) {
       let current = cards[i];
       let prev = cards[i - 1];
-      if (prev.classList.contains("z-50")) {
+      //# this when first time clicking on left arrow will hide it
+      if (prev.classList.contains("block")) {
         e.target.style.opacity = "0.5";
       }
-      if (current.classList.contains("z-50")) {
+
+      //# this when we reach first card will make arrow invisible;
+      if (current.classList.contains("block")) {
+
+        //# this to make a cool effect of cards going from top to back;
+        let arr = ["z-50", "z-40", "z-30"];
+        if (i == 1) {
+          
+          for (let j = 0; j <= 1; j++) {
+            setTimeout(() => {
+              cards[j].classList.add(arr[j]);
+            }, 1600);
+          }
+        }
+
+        
         if (i - 1 == 0) {
           e.target.style.opacity = "0.5";
         }
-        current.style.animation = "none";
-        current.offsetHeight;
-        current.style.animation = "cardMotionReverse 0.4s 0.15s  ease-in-out";
+        //# this make reverse animation, and toggle visiblity of cards in the back
+        current.classList.remove("active-animation-card");
+        current.classList.add("active-animation-card-reverse");
+        prev.classList.remove("hidden");
+        prev.classList.add("block");
         setTimeout(() => {
-          current.classList.remove("z-50");
-          prev.classList.add("z-50");
-        }, 200);
+          current.classList.add("hidden");
+          current.classList.remove("block");
+          current.classList.remove("active-animation-card-reverse");
+        }, 500);
         break;
       }
     }
   };
   return (
-    <section className="py-10 w-full font-karla ">
+    <section id="menu" className="py-10 w-full font-karla ">
       <div className="mx-auto max-w-[1240px] xl:px-1 px-5">
         <div className="flex justify-between items-center mt-5 mb-16">
           <h1 className="size-hero-title font-markazi">This weeks specials!</h1>
@@ -97,7 +132,7 @@ function Cards() {
             onClick={handlerRight}
             id="right-img"
             alt=""
-            className="hidden active  "
+            className="hidden active "
           />
         </div>
       </div>

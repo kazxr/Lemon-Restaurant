@@ -59,7 +59,7 @@ function Reviews() {
   };
 
   return (
-    <section className="bg-graySecondary w-full md:mt-[80px] sm:mt-[50px]">
+    <section id="reviews" className="bg-graySecondary w-full md:mt-[80px] sm:mt-[50px]">
       <div className="max-w-[1240px]  mx-auto  flex flex-col">
         <div className="section-title self-center mt-[50px] mb-[-20px]"><h1>Reviews</h1></div>
        <div className="flex items-center justify-between">

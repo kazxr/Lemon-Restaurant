@@ -52,7 +52,7 @@ function About() {
   };
 
   return (
-    <section className="w-full my-20 font-karla">
+    <section id="about" className="w-full my-20 font-karla">
       <div
         id="main-div-about"
         className="max-w-[1240px] mx-auto flex flex-col lg:px-28 md:px-16 sm:px-0 "
