@@ -17,7 +17,7 @@ function Cards() {
     for (let i = 0; i < cards.length - 1; i++) {
       let current = cards[i];
       let next = cards[i + 1];
-      let arr = ["z-50", "z-40", "z-30"];
+      let arr = ["sm:z-50", "sm:z-40", "sm:z-30"];
       //# this will make an effect of cards going form top to buttom;
       if (i == 1) {
         for (let j = 0; j <= 2; j++) {
@@ -32,16 +32,16 @@ function Cards() {
       }
       //# this toggle animation, and hide cards in the front so the one in the back
       //# will be visible; when animation accur;
-      if (current.classList.contains("block")) {
+      if (current.classList.contains("sm:block")) {
         
         current.classList.remove("active-animation-card-reverse");
         current.classList.add("active-animation-card");
 
-        next.classList.remove("hidden");
-        next.classList.add("block");
+        next.classList.remove("sm:hidden");
+        next.classList.add("sm:block");
         setTimeout(() => {
-          current.classList.add("hidden");
-          current.classList.remove("block");
+          current.classList.add("sm:hidden");
+          current.classList.remove("sm:block");
           current.classList.remove("active-animation-card");
         }, 500);
         break;
@@ -64,15 +64,15 @@ function Cards() {
       let current = cards[i];
       let prev = cards[i - 1];
       //# this when first time clicking on left arrow will hide it
-      if (prev.classList.contains("block")) {
+      if (prev.classList.contains("sm:block")) {
         e.target.style.opacity = "0.5";
       }
 
       //# this when we reach first card will make arrow invisible;
-      if (current.classList.contains("block")) {
+      if (current.classList.contains("sm:block")) {
 
         //# this to make a cool effect of cards going from top to back;
-        let arr = ["z-50", "z-40", "z-30"];
+        let arr = ["sm:z-50", "sm:z-40", "sm:z-30"];
         if (i == 1) {
           
           for (let j = 0; j <= 1; j++) {
@@ -89,11 +89,11 @@ function Cards() {
         //# this make reverse animation, and toggle visiblity of cards in the back
         current.classList.remove("active-animation-card");
         current.classList.add("active-animation-card-reverse");
-        prev.classList.remove("hidden");
-        prev.classList.add("block");
+        prev.classList.remove("sm:hidden");
+        prev.classList.add("sm:block");
         setTimeout(() => {
-          current.classList.add("hidden");
-          current.classList.remove("block");
+          current.classList.add("sm:hidden");
+          current.classList.remove("sm:block");
           current.classList.remove("active-animation-card-reverse");
         }, 500);
         break;
