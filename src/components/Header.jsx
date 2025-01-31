@@ -2,17 +2,21 @@ import Logo from "../assets/Logo.svg";
 import HamMenu from "../assets/hambergerMenu.svg";
 import hamMenuCloser from "../assets/Xicon.svg";
 import { useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
+
 function Header() {
   // nav scrolling logic, scroll into section;
-  let scrollIntoSection=(id)=>{
-    let elem= document.querySelector("#"+id)
-    elem.scrollIntoView({
-      block: "center",
-      behavior: "smooth"
-    })
-
-  }
-
+  // we added the delay, bc we using routes to navigate to /
+  // then the delay to trigger scroll into view after being in /
+  let scrollIntoSection = (id) => {
+    setTimeout(() => {
+      let elem = document.querySelector("#" + id);
+      elem.scrollIntoView({
+        block: "center",
+        behavior: "smooth",
+      });
+    }, 50);
+  };
 
   // when scroll down will hide nav when up will appear;
   let header = useRef(0);
@@ -40,20 +44,18 @@ function Header() {
     if (!ul.classList.contains("activeHamMenu")) {
       e.target.setAttribute("src", hamMenuCloser);
       ul.classList.add("activeHamMenu");
-      navContainer.classList.add("activeHamMenu-container","bg-slate-50");
+      navContainer.classList.add("activeHamMenu-container", "bg-slate-50");
       //animation
-      ul.style.animation= "hamMenu 0.4s ease-in-out"
-
+      ul.style.animation = "hamMenu 0.4s ease-in-out";
     } else {
-      ul.style.animation="none";
+      ul.style.animation = "none";
       ul.offsetHeight;
-      ul.style.animation= "hamMenu 0.4s ease-in-out reverse"
-      setTimeout(()=>{
+      ul.style.animation = "hamMenu 0.4s ease-in-out reverse";
+      setTimeout(() => {
         ul.classList.remove("activeHamMenu");
-      navContainer.classList.remove("activeHamMenu-container","bg-slate-50");
-      e.target.setAttribute("src", HamMenu);
-      },300)
-    
+        navContainer.classList.remove("activeHamMenu-container", "bg-slate-50");
+        e.target.setAttribute("src", HamMenu);
+      }, 300);
     }
   };
 
@@ -65,7 +67,12 @@ function Header() {
       >
         <nav className="nav-container w-full max-w-[1240px] mx-auto flex-desktop nav-size">
           <div className="div-img py-6 px-3 flex-desktop lg:w-auto sm:w-full ">
-            <img src={Logo} className="nav-img-size cursor-pointer" alt="" />
+            <img
+              src={Logo}
+              className="nav-img-size cursor-pointer"
+              alt=""
+              onClick={() => scrollIntoSection("home")}
+            />
             <img
               src={HamMenu}
               onClick={menuHandler}
@@ -74,12 +81,23 @@ function Header() {
             />
           </div>
           <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6">
-            <li onClick={()=>scrollIntoSection("home")}>Home</li>
-            <li onClick={()=>scrollIntoSection("menu")}>Menu</li>
-            <li onClick={()=>scrollIntoSection("about")}>About</li>
-            <li onClick={()=>scrollIntoSection("reviews")}>Reviews</li>
-            <li >Order Online</li>
-            <li className="hidden-desktop">Login</li>
+            <NavLink to="/">
+              <li onClick={() => scrollIntoSection("home")}>Home</li>
+            </NavLink>
+            <NavLink to="/">
+              <li onClick={() => scrollIntoSection("menu")}>Menu</li>
+            </NavLink>
+            <NavLink to="/">
+              <li onClick={() => scrollIntoSection("reviews")}>Reviews</li>
+            </NavLink>
+            <NavLink to="/">
+              <li onClick={() => scrollIntoSection("about")}>About</li>
+            </NavLink>
+            <NavLink to="/"></NavLink>
+            <li>Order Online</li>
+            <NavLink to="/">
+              <li className="hidden-desktop">Login</li>
+            </NavLink>
           </ul>
           <div className="py-6 hidden-phone lg:block sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
             <button className=" py-1 px-3 hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out ">

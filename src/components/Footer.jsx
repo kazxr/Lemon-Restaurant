@@ -27,8 +27,8 @@ function Footer() {
           <ul className="flex flex-col items-center  footer-ul ">
             <li onClick={()=>scrollIntoSection("home")}>Home</li>
             <li onClick={()=>scrollIntoSection("menu")}>Menu</li>
-            <li onClick={()=>scrollIntoSection("about")}>About</li>
             <li onClick={()=>scrollIntoSection("reviews")}>Reviews</li>
+            <li onClick={()=>scrollIntoSection("about")}>About</li>
             <li >Order Online</li>
           </ul>
         </div>

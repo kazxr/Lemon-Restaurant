@@ -105,7 +105,7 @@ function Cards() {
       <div className="mx-auto max-w-[1240px] xl:px-1 px-5">
         <div className="flex justify-between items-center mt-5 mb-16">
           <h1 className="size-hero-title font-markazi">This weeks specials!</h1>
-          <button className="primary-btn">Online Menu</button>
+          <button className="primary-btn ">Online Menu</button>
         </div>
         <div className="flex justify-between cards-container ">
           <img

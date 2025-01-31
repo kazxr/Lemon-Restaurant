@@ -1,4 +1,6 @@
 import heroImg from "../assets/heroPicture.jpg";
+import {NavLink} from 'react-router-dom'
+
 function Main() {
   return (
     <section id="home" className="pt-[150px] pb-14 w-full bg-greenPrimary">
@@ -6,13 +8,15 @@ function Main() {
       <div className="font-karla text-white " >
         <h1 className="size-hero-title font-markazi leading-7 text-yellowPrimary">
           Little Lemon
-          <p className="size-hero-text  text-white">Chicago</p>
+          <p className="size-hero-text  text-white mt-1">Chicago</p>
         </h1>
         <p className="text-width-hero size-hero-base lg:leading-relaxed">
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
         </p>
+       <NavLink to="/Reserve">
         <button className="primary-btn">Reserve a Table</button>
+       </NavLink>
       </div>
       <div className="">
         <img src={heroImg} alt=""  className="img-width-hero"/>

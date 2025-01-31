@@ -144,6 +144,7 @@ body {
 .cards-container {
   @apply lg:flex-wrap xl:justify-between lg:justify-center;
 }
+
 /*? phones */
 
 @media (max-width: 830px) {
@@ -280,6 +281,11 @@ body {
 }
 
 
+/*!         -------- form style */
+
+.form-style :is(input,select){
+  @apply bg-slate-100 px-1 mb-5 ring-1 ring-greenPrimary;
+}
 
 
 
