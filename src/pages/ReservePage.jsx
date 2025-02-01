@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 
 function AboutPage() {
   return (
-    <main className="w-full pt-[100px]">
-      <section className="max-w-[800px]  flex flex-col justify-center items-center ">
-        <form action="" className="flex flex-col form-style">
+    <main className="w-full h-[100vh] pt-[250px] bg-greenPrimary">
+      <section className="max-w-[500px] mx-auto flex justify-center py-5 rounded-lg ">
+        <div>
+          <a href="" className="rounded-full w-2 bg-white"></a>
+          <a href="" className="rounded-full w-2 bg-black"></a>
+        </div>
+        <form action="" className="flex flex-col form-style p-10 rounded-md bg-graySecondary ">
           <label htmlFor="date">Choose date</label>
-          <input type="date" id="date" />
+          <input type="date" id="date"  />
           <label htmlFor="time">Choose time</label>
           <select name="" id="time">
             <option value="17:00">17:00</option>
@@ -24,7 +28,12 @@ function AboutPage() {
             <option value="Birthday">Birthday</option>
             <option value="Anniversary">Anniversary</option>
           </select>
-          <input type="submit" value="Make your reservation" />
+          <input
+            type="submit"
+            value="Make your reservation"
+            id="submit-btn"
+            className="text-center self-center "
+          />
         </form>
       </section>
     </main>

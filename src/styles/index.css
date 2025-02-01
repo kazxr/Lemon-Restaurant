@@ -284,9 +284,14 @@ body {
 /*!         -------- form style */
 
 .form-style :is(input,select){
-  @apply bg-slate-100 px-1 mb-5 ring-1 ring-greenPrimary;
+  @apply bg-white  mb-5 w-[400px] appearance-none py-2 px-2  rounded-md  ring-greenPrimary;
 }
-
+.form-style input{
+  @apply appearance-none px-3;
+}
+#submit-btn{
+  @apply w-[200px] p-2  mt-5 bg-yellowPrimary text-black;
+}
 
 
 
