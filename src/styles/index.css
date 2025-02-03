@@ -283,8 +283,8 @@ body {
 
 /*!         -------- form style */
 
-.form-style :is(input,select){
-  @apply bg-white  mb-5 w-[400px] appearance-none py-2 px-2  rounded-md  ring-greenPrimary;
+/* .form-style :is(input,select){
+  @apply bg-white  mb-5 w-[400px] py-2 px-2  rounded-md  ring-greenPrimary;
 }
 .form-style input{
   @apply appearance-none px-3;
@@ -292,6 +292,6 @@ body {
 #submit-btn{
   @apply w-[200px] p-2  mt-5 bg-yellowPrimary text-black;
 }
-
+ */
 
 

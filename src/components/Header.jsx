@@ -2,7 +2,7 @@ import Logo from "../assets/Logo.svg";
 import HamMenu from "../assets/hambergerMenu.svg";
 import hamMenuCloser from "../assets/Xicon.svg";
 import { useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Header() {
   // nav scrolling logic, scroll into section;
@@ -81,23 +81,23 @@ function Header() {
             />
           </div>
           <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6">
-            <NavLink to="/">
-              <li onClick={() => scrollIntoSection("home")}>Home</li>
-            </NavLink>
-            <NavLink to="/">
-              <li onClick={() => scrollIntoSection("menu")}>Menu</li>
-            </NavLink>
-            <NavLink to="/">
-              <li onClick={() => scrollIntoSection("reviews")}>Reviews</li>
-            </NavLink>
-            <NavLink to="/">
-              <li onClick={() => scrollIntoSection("about")}>About</li>
-            </NavLink>
-            <NavLink to="/"></NavLink>
+             <li onClick={() => scrollIntoSection("home")}>
+              <Link to="/">Home</Link>
+            </li>
+            <li onClick={() => scrollIntoSection("menu")}>
+              <Link to="/">Menu</Link>
+            </li>
+            <li onClick={() => scrollIntoSection("reviews")}>
+              <Link to="/">Reviews</Link>
+            </li>
+            <li onClick={() => scrollIntoSection("about")}>
+              <Link to="/">About</Link>
+            </li>
+
             <li>Order Online</li>
-            <NavLink to="/">
-              <li className="hidden-desktop">Login</li>
-            </NavLink>
+            <li className="hidden-desktop">
+              <Link to="/">Login</Link>
+            </li>
           </ul>
           <div className="py-6 hidden-phone lg:block sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
             <button className=" py-1 px-3 hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out ">
