@@ -22,8 +22,6 @@ body {
 /*: Nav style  */
 /*? desktop */
 
-
-
 .flex-desktop {
   @apply flex justify-between items-center;
 }
@@ -175,12 +173,12 @@ body {
     opacity: 0;
   }
 }
-.active-animation-card{
-  animation: cardMotion 0.6s   ease-in-out ;
+.active-animation-card {
+  animation: cardMotion 0.6s ease-in-out;
 }
 
-.active-animation-card-reverse{
-  animation: cardMotionReverse 0.6s   ease-in-out  ;
+.active-animation-card-reverse {
+  animation: cardMotionReverse 0.6s ease-in-out;
 }
 @keyframes cardMotionReverse {
   from {
@@ -211,87 +209,94 @@ body {
   @apply lg:mb-6 bg-white ring-slate-300;
   @apply xl:mx-[35px] lg:mx-[40px] md:mx-[30px] sm:mx-[20px];
 }
-.scrollContainer{
-  scrollbar-width:none;
+.scrollContainer {
+  scrollbar-width: none;
 }
-.scrollContainer::-webkit-scrollbar{
-   display: none;
+.scrollContainer::-webkit-scrollbar {
+  display: none;
 }
-
 
 /*: About style  */
-.section-title{
-  @apply xl:text-[1.7rem] lg:text-[1.7rem] md:text-[1.7rem] sm:text-[1.6rem] font-markazi ;
+.section-title {
+  @apply xl:text-[1.7rem] lg:text-[1.7rem] md:text-[1.7rem] sm:text-[1.6rem] font-markazi;
 }
 
-.pic0{
-  transform: translate(-50px,-50px)  ;
+.pic0 {
+  transform: translate(-50px, -50px);
 }
 
-.about-text{
-    @apply xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem] font-bold;
-    @apply xl:w-[400px] lg:w-[400px] md:w-[300px]  sm:w-[300px];
+.about-text {
+  @apply xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem] font-bold;
+  @apply xl:w-[400px] lg:w-[400px] md:w-[300px]  sm:w-[300px];
 }
-.about-pic{
-    @apply max-w-none  xl:w-[250px] xl:h-[300px] lg:w-[230px] lg:h-[280px] md:w-[200px] md:h-[250px] sm:w-[150px] sm:h-[200px]  rounded-md;
+.about-pic {
+  @apply max-w-none  xl:w-[250px] xl:h-[300px] lg:w-[230px] lg:h-[280px] md:w-[200px] md:h-[250px] sm:w-[150px] sm:h-[200px]  rounded-md;
 }
-.smScreens-about{
+.smScreens-about {
   @apply md:flex-row sm:flex-col;
 }
-.text-about-div{
+.text-about-div {
   @apply md:mb-[0px] sm:mt-[40px] sm:order-3 md:order-1;
 }
 
-@media (max-width:950px)and (min-width:830px) {
-  #main-div-about{
-    @apply lg:px-16 ;
+@media (max-width: 950px) and (min-width: 830px) {
+  #main-div-about {
+    @apply lg:px-16;
   }
-  
 }
-@media (max-width:750px)and (min-width:550px) {
-  #main-div-about{
-    @apply md:px-3 ;
+@media (max-width: 750px) and (min-width: 550px) {
+  #main-div-about {
+    @apply md:px-3;
   }
-  #about-text{
+  #about-text {
     @apply md:text-[0.8rem] md:w-[250px];
   }
-  
 }
 @keyframes imgSwitcher {
-  0%{transform: translate(-50px,-50px);opacity: 1;}
-  50%{transform: translate(0px,0px);opacity: 0.5;}
-    100%{transform: translate(-50px,-50px);opacity: 1;}
-
-  
+  0% {
+    transform: translate(-50px, -50px);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(0px, 0px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50px, -50px);
+    opacity: 1;
+  }
 }
 
 /*: Footer style  */
-.footer-text{
+.footer-text {
   @apply xl:text-[1rem] lg:text-[0.95rem] md:text-[0.85rem] sm:text-[0.7rem];
-
 }
-.footer-title{
+.footer-title {
   @apply text-greenPrimary font-bold;
-  @apply  xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem] ;
+  @apply xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem];
 }
 
-.footer-ul li{
-
-@apply py-1 px-3 cursor-pointer hover:text-yellow-700 rounded-sm duration-300 ease-in-out;
+.footer-ul li {
+  @apply py-1 px-3 cursor-pointer hover:text-yellow-700 rounded-sm duration-300 ease-in-out;
 }
-
 
 /*!         -------- form style */
 
-/* .form-style :is(input,select){
-  @apply bg-white  mb-5 w-[400px] py-2 px-2  rounded-md  ring-greenPrimary;
+.form-style :is(input,select){
+  @apply lg:w-[300px]  sm:w-[200px] ;
 }
-.form-style input{
-  @apply appearance-none px-3;
+.form-style label {
+  @apply mb-1 px-1 ;
 }
 #submit-btn{
   @apply w-[200px] p-2  mt-5 bg-yellowPrimary text-black;
 }
- */
 
+/* ------------calendar style */
+.css-10o2lyd-MuiStack-root{
+  @apply !pt-0 hover:!ring-0;
 
+}
+.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+  @apply focus:!ring-0;
+}

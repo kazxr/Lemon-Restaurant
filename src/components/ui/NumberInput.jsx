@@ -1,11 +1,11 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   Unstable_NumberInput as BaseNumberInput,
   numberInputClasses,
-} from '@mui/base/Unstable_NumberInput';
-import { styled } from '@mui/system';
+} from "@mui/base/Unstable_NumberInput";
+import { styled } from "@mui/system";
 
-const CustomNumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
+const NumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
   return (
     <BaseNumberInput
       slots={{
@@ -16,12 +16,12 @@ const CustomNumberInput = React.forwardRef(function CustomNumberInput(props, ref
       }}
       slotProps={{
         incrementButton: {
-          children: '▴',
-          type: 'button',
+          children: "▴",
+          type: "button",
         },
         decrementButton: {
-          children: '▾',
-          type: 'button',
+          children: "▾",
+          type: "button",
         },
       }}
       {...props}
@@ -30,62 +30,68 @@ const CustomNumberInput = React.forwardRef(function CustomNumberInput(props, ref
   );
 });
 
-export default function NumberInputIntroduction({ min, max, step, className, value, onChange}) {
+export default function NumberInputBasic({ value, onchange, min, max, step }) {
   return (
-    <CustomNumberInput aria-label="Demo number input"   placeholder="Type a number…"   // Pass min prop
-      max={max} 
-      min={min} 
-      step={step} 
-      className={className} 
+    <NumberInput
+      aria-label="Demo number input"
+      placeholder="Type a number…"
+      className="h-[50px] "
       value={value}
-      onChange={onChange} 
-      />
+      onChange={onchange}
+      min={min}
+      max={max}
+      step={step}
+    />
   );
 }
-import PropTypes from 'prop-types';
-NumberInputIntroduction.propTypes = {
-  min: PropTypes.number,
-  max: PropTypes.number,
-  step: PropTypes.number,
-  className: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  onChange: PropTypes.func,
- 
+import propType from "prop-types";
+NumberInputBasic.propType = {
+  max: propType.number,
+  min: propType.number,
+  step: propType.number,
+  onchange: propType.func,
+  value: propType.number,
 };
 
 const blue = {
-  100: '#DAECFF',
-  200: '#80BFFF',
-  400: '#3399FF',
-  500: '#007FFF',
-  600: '#0072E5',
-  700: '#0059B2',
+  100: "#DAECFF",
+  200: "#80BFFF",
+  400: "#3399FF",
+  500: "#007FFF",
+  600: "#0072E5",
 };
+
+const mainColors={
+  greenPrimary: "#495e57",
+  yellowPrimary: "#f4ce14",
+  orangeSecondary: "#ee9972",
+  lightOrangeSecondary: "#fbdabb",
+  graySecondary: "#edefee",
+  blackSecondary: "#333333",
+}
 
 const grey = {
-  50: '#F3F6F9',
-  100: '#E5EAF2',
-  200: '#DAE2ED',
-  300: '#C7D0DD',
-  400: '#B0B8C4',
-  500: '#9DA8B7',
-  600: '#6B7A90',
-  700: '#434D5B',
-  800: '#303740',
-  900: '#1C2025',
+  50: "#F3F6F9",
+  100: "#E5EAF2",
+  200: "#DAE2ED",
+  300: "#C7D0DD",
+  400: "#B0B8C4",
+  500: "#9DA8B7",
+  600: "#6B7A90",
+  700: "#434D5B",
+  800: "#303740",
+  900: "#1C2025",
 };
 
-const StyledInputRoot = styled('div')(
+const StyledInputRoot = styled("div")(
   ({ theme }) => `
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
   border-radius: 8px;
-  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-  border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-  box-shadow: 0 2px 4px ${
-    theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'
-  };
+  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+  border: 0px solid ${theme.palette.mode === "dark" ? grey[700] : mainColors["greenPrimary"]};
+  box-shadow: 0 0px 2px ${theme.palette.mode === "dark" ? grey[900] : mainColors["greenPrimary"]};
   display: grid;
   grid-template-columns: 1fr 19px;
   grid-template-rows: 1fr 1fr;
@@ -94,39 +100,47 @@ const StyledInputRoot = styled('div')(
   padding: 4px;
 
   &.${numberInputClasses.focused} {
-    border-color: ${blue[400]};
-    box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[700] : blue[200]};
+    border-color: ${mainColors["greenPrimary"] };
+    box-shadow: 0 0 0 1px ${
+      theme.palette.mode === "dark" ? mainColors["yellowPrimary"] : mainColors["greenPrimary"] 
+      
+    };
+       
+
+   
   }
 
   &:hover {
-    border-color: ${blue[400]};
+   
+
   }
 
   /* firefox */
   &:focus-visible {
     outline: 0;
   }
-`,
+`
 );
 
-const StyledInputElement = styled('input')(
+const StyledInputElement = styled("input")(
   ({ theme }) => `
   font-size: 0.875rem;
+    font-size: 0.9rem;
   font-family: inherit;
   font-weight: 400;
   line-height: 1.5;
   grid-column: 1/2;
   grid-row: 1/3;
-  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
+  color: ${theme.palette.mode === "dark" ? grey[300] : grey[600]};
   background: inherit;
   border: none;
   border-radius: inherit;
   padding: 8px 12px;
   outline: 0;
-`,
+`
 );
 
-const StyledButton = styled('button')(
+const StyledButton = styled("button")(
   ({ theme }) => `
   display: flex;
   flex-flow: row nowrap;
@@ -140,18 +154,17 @@ const StyledButton = styled('button')(
   font-size: 0.875rem;
   line-height: 1;
   box-sizing: border-box;
-  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
+  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
   border: 0;
-  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
+  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 120ms;
 
   &:hover {
+    background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
+    border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
     cursor: pointer;
-    color: #FFF;
-    background: ${theme.palette.mode === 'dark' ? blue[600] : blue[500]};
-    border-color: ${theme.palette.mode === 'dark' ? blue[400] : blue[600]};
   }
 
   &.${numberInputClasses.incrementButton} {
@@ -161,16 +174,16 @@ const StyledButton = styled('button')(
     border-top-right-radius: 4px;
     border: 1px solid;
     border-bottom: 0;
-    border-color: ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    background: ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
-    color: ${theme.palette.mode === 'dark' ? grey[200] : grey[900]};
 
     &:hover {
       cursor: pointer;
-      color: #FFF;
-      background: ${theme.palette.mode === 'dark' ? blue[600] : blue[500]};
-      border-color: ${theme.palette.mode === 'dark' ? blue[400] : blue[600]};
+      background: ${mainColors["yellowPrimary"]};
+      color: ${mainColors["greenPrimary"]};
     }
+
+  border-color: ${theme.palette.mode === "dark" ? grey[800] : grey[200]};
+  background: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
+  color: ${theme.palette.mode === "dark" ? grey[200] : grey[900]};
   }
 
   &.${numberInputClasses.decrementButton} {
@@ -179,13 +192,20 @@ const StyledButton = styled('button')(
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     border: 1px solid;
-    border-color: ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    background: ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
-    color: ${theme.palette.mode === 'dark' ? grey[200] : grey[900]};
+
+    &:hover {
+      cursor: pointer;
+      background: ${mainColors["yellowPrimary"]};
+      color: ${mainColors["greenPrimary"]};
+    }
+
+  border-color: ${theme.palette.mode === "dark" ? grey[800] : grey[200]};
+  background: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
+  color: ${theme.palette.mode === "dark" ? grey[200] : grey[900]};
   }
 
   & .arrow {
     transform: translateY(-1px);
   }
-`,
+`
 );
