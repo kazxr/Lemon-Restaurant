@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import NumberInput from "../components/ui/NumberInput";
 import DatePicker from "../components/ui/DatePicker";
+import ProgressBar from "../components/ui/progress"
 
 import {
   FormControl,
-  FormLabel,
   FormHelperText,
   Select,
   MenuItem,
@@ -13,20 +13,24 @@ import { useState } from "react";
 
 function AboutPage() {
   const [value, setValue] = useState();
+    const [error, errorValue] = useState(true);
+
+  
 
   return (
-    <main className="w-full h-[100vh] pt-[250px] bg-greenPrimary">
-      <section className="max-w-[500px] mx-auto flex justify-center py-5 rounded-lg ">
-        <div>
-          <a href="" className="rounded-full w-2 bg-white"></a>
-          <a href="" className="rounded-full w-2 bg-black"></a>
-        </div>
+    <main className="w-full h-[100vh] pt-[170px] bg-greenPrimary">
+      <section className="max-w-[500px] mx-auto flex  justify-center py-5 rounded-lg ">
+        
         <form
           action=""
-          className="flex flex-col form-style p-10 rounded-md bg-graySecondary "
+          className="flex flex-col form-style  p-10 pb-8 rounded-md bg-graySecondary "
         >
-          <FormControl required>
-            <label htmlFor="Number">Number of guests :</label>
+           
+                      <ProgressBar stepper={1}  />
+          
+
+          <FormControl invalid error={true} variant="outlined" required>
+            <label htmlFor="Number" className="mt-8">Number of guests :</label>
             <NumberInput
               id="number"
               min={1}
@@ -37,7 +41,7 @@ function AboutPage() {
             />
           </FormControl>
 
-          <FormControl required>
+          <FormControl  required>
             <label htmlFor="select" className="mt-5">
               Ocassion :
             </label>
@@ -46,24 +50,33 @@ function AboutPage() {
               placeholder="None"
               defaultValue={"None"}
               sx={{
+                "& .MuiInputBase-root": {
+                  color: "gray",
+                  fontSize: "0.9rem",
+                  borderRadius: "8px",
+                  paddingLeft: "17px",
+                  backgroundColor: "blue",
+                },
                 "& .MuiSelect-select": {
                   color: "gray",
                   fontSize: "0.9rem",
+                  borderRadius: "10px",
                   paddingLeft: "17px",
+                  backgroundColor:"transparent"
                 },
                 "& .MuiOutlinedInput-notchedOutline": {
                   border: "0px", // Customize border color
-                  boxShadow: "0 0 2px #495e57",
+                  boxShadow: "0 0 3px #495e57",
                 },
                 "&:hover .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#cbd5e0", // Customize hover border color
                 },
                 "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                   borderColor: "495e57",
-                  border: "1px solid", // Customize focus border color
+                  border: "1px solid", 
                 },
               }}
-              className="bg-slate-50 h-[50px] !ring-slate-50 !shadow-slate-50 !rounded-[8px]"
+              className="bg-slate-50 h-[50px]  !shadow-slate-50 !rounded-[8px]"
             >
               <MenuItem value={"None"}>None</MenuItem>
               <MenuItem value={"Birthday"}>Birthday</MenuItem>
@@ -71,7 +84,7 @@ function AboutPage() {
             </Select>
           </FormControl>
 
-          <FormControl required>
+          <FormControl  required>
             <label htmlFor="time" className="mt-5">
               Choose time :
             </label>
@@ -80,14 +93,23 @@ function AboutPage() {
               placeholder="time..."
               defaultValue={"17:00"}
               sx={{
+                "& .MuiInputBase-root": {
+                  color: "gray",
+                  fontSize: "0.9rem",
+                  borderRadius: "8px",
+                  paddingLeft: "17px",
+                  backgroundColor: "blue",
+                },
                 "& .MuiSelect-select": {
                   color: "gray",
                   fontSize: "0.9rem",
+                  borderRadius: "10px",
                   paddingLeft: "17px",
+                  backgroundColor:"transparent"
                 },
                 "& .MuiOutlinedInput-notchedOutline": {
                   border: "0px", // Customize border color
-                  boxShadow: "0 0 2px #495e57",
+                  boxShadow: "0 0 3px #495e57",
                 },
                 "&:hover .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#cbd5e0", // Customize hover border color
@@ -108,16 +130,19 @@ function AboutPage() {
             </Select>
           </FormControl>
 
-          <FormControl className="">
-            <label htmlFor="date" className="mt-5 ">Choose date :</label>
-            <DatePicker id="date"/>
+          <FormControl  className="">
+            <label htmlFor="date" className="mt-5 ">
+              Choose date :
+            </label>
+            <DatePicker id="date" 
+            
+            />
           </FormControl>
-          
           <input
             type="submit"
             value="Make your reservation"
             id="submit-btn"
-            className="text-center self-center "
+            className="text-center self-center rounded-md cursor-pointer "
           />
         </form>
       </section>

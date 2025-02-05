@@ -32,7 +32,7 @@ const NumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
 
 export default function NumberInputBasic({ value, onchange, min, max, step }) {
   return (
-    <NumberInput
+    <NumberInput  
       aria-label="Demo number input"
       placeholder="Type a number…"
       className="h-[50px] "
@@ -89,9 +89,9 @@ const StyledInputRoot = styled("div")(
   font-weight: 400;
   border-radius: 8px;
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+  background: ${theme.palette.mode === "dark" ? "white" : "white"};
   border: 0px solid ${theme.palette.mode === "dark" ? grey[700] : mainColors["greenPrimary"]};
-  box-shadow: 0 0px 2px ${theme.palette.mode === "dark" ? grey[900] : mainColors["greenPrimary"]};
+  box-shadow: 0 0px 3px ${theme.palette.mode === "dark" ? grey[900] : mainColors["greenPrimary"]};
   display: grid;
   grid-template-columns: 1fr 19px;
   grid-template-rows: 1fr 1fr;

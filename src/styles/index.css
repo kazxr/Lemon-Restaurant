@@ -289,14 +289,59 @@ body {
   @apply mb-1 px-1 ;
 }
 #submit-btn{
-  @apply w-[200px] p-2  mt-5 bg-yellowPrimary text-black;
+  @apply w-[200px] p-2  mt-8 bg-yellowPrimary text-black hover:text-greenPrimary;
 }
 
 /* ------------calendar style */
 .css-10o2lyd-MuiStack-root{
-  @apply !pt-0 hover:!ring-0;
+  @apply !pt-0 hover:!ring-4;
 
 }
-.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
-  @apply focus:!ring-0;
+.css-15mt5d2-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+  @apply bg-white;
 }
+.css-1e1e83h-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+    @apply bg-white;
+
+}
+
+
+.MuiPickersDay-root, .MuiPickersDay-dayWithMargin {
+  @apply hover:!bg-greenPrimary/40;
+
+}
+.Mui-selected {
+  @apply !bg-greenPrimary/30;
+}
+.Mui-selected.MuiPickersDay-root {
+  @apply !bg-greenPrimary/100;
+}
+ 
+.MuiPickersDay-today{
+    @apply !bg-transparent !border-none;
+}
+
+/* .MuiOutlinedInput-root:hover{
+  @apply !border-red-900 !ring-4 !ring-blue-950;
+} */
+
+
+
+/* .css-w4cd9x:hover{
+    @apply !border-none !ring-0 !shadow-none;
+
+  } */
+/* class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-jupps9-MuiInputBase-root-MuiOutlinedInput-root" */
+/* .Mui-focused{
+      @apply !border-none !ring-0 !shadow-none;
+}
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.Mui-focused.MuiInputBase-formControl.MuiInputBase-adornedEnd.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root{
+       @apply !border-none !ring-0 !shadow-none;
+}
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.Mui-focused.MuiInputBase-formControl.MuiInputBase-adornedEnd.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: 0px !important;
+} */
+/* ---------------------------------------------------------- */
