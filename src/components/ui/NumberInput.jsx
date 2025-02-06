@@ -30,17 +30,17 @@ const NumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
   );
 });
 
-export default function NumberInputBasic({ value, onchange, min, max, step }) {
+export default function NumberInputBasic({ value, onchange, min, max,step,boolean }) {
   return (
-    <NumberInput  
+    <NumberInput
       aria-label="Demo number input"
       placeholder="Type a number…"
       className="h-[50px] "
-      value={value}
-      onChange={onchange}
       min={min}
       max={max}
       step={step}
+      error={boolean}
+      // sx={boolean ? { border: "solid 1px red" } :{border:"none"}}
     />
   );
 }
@@ -61,14 +61,14 @@ const blue = {
   600: "#0072E5",
 };
 
-const mainColors={
+const mainColors = {
   greenPrimary: "#495e57",
   yellowPrimary: "#f4ce14",
   orangeSecondary: "#ee9972",
   lightOrangeSecondary: "#fbdabb",
   graySecondary: "#edefee",
   blackSecondary: "#333333",
-}
+};
 
 const grey = {
   50: "#F3F6F9",
@@ -90,8 +90,12 @@ const StyledInputRoot = styled("div")(
   border-radius: 8px;
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
   background: ${theme.palette.mode === "dark" ? "white" : "white"};
-  border: 0px solid ${theme.palette.mode === "dark" ? grey[700] : mainColors["greenPrimary"]};
-  box-shadow: 0 0px 3px ${theme.palette.mode === "dark" ? grey[900] : mainColors["greenPrimary"]};
+  border: 0px solid ${
+    theme.palette.mode === "dark" ? grey[700] : mainColors["greenPrimary"]
+  };
+  box-shadow: 0 0px 3px ${
+    theme.palette.mode === "dark" ? grey[900] : mainColors["greenPrimary"]
+  };
   display: grid;
   grid-template-columns: 1fr 19px;
   grid-template-rows: 1fr 1fr;
@@ -100,10 +104,11 @@ const StyledInputRoot = styled("div")(
   padding: 4px;
 
   &.${numberInputClasses.focused} {
-    border-color: ${mainColors["greenPrimary"] };
+    border-color: ${mainColors["greenPrimary"]};
     box-shadow: 0 0 0 1px ${
-      theme.palette.mode === "dark" ? mainColors["yellowPrimary"] : mainColors["greenPrimary"] 
-      
+      theme.palette.mode === "dark"
+        ? mainColors["yellowPrimary"]
+        : mainColors["greenPrimary"]
     };
        
 
@@ -125,18 +130,23 @@ const StyledInputRoot = styled("div")(
 const StyledInputElement = styled("input")(
   ({ theme }) => `
   font-size: 0.875rem;
-    font-size: 0.9rem;
+  font-size: 0.9rem;
   font-family: inherit;
   font-weight: 400;
   line-height: 1.5;
   grid-column: 1/2;
   grid-row: 1/3;
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[600]};
+  color: ${theme.palette.mode === "dark" ? grey[300] : "gray"};
   background: inherit;
   border: none;
   border-radius: inherit;
   padding: 8px 12px;
   outline: 0;
+
+  &::placeholder {
+    color: ${theme.palette.mode === "dark" ? grey[500] : "gray"}; 
+    font-size:0.9rem;
+  }
 `
 );
 
