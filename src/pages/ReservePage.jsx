@@ -2,35 +2,39 @@ import { Link } from "react-router-dom";
 import x from "../assets/greenX.png";
 import xx from "../assets/Xicon.svg";
 import NumberInput from "../components/ui/NumberInput";
-import DatePicker from "../components/ui/DatePicker";
 import ProgressBar from "../components/ui/progress";
 import { FormControl, FormHelperText, Select, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 
-
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 function AboutPage() {
-  const [valuex, setValuex] = useState(dayjs(""));
-  
+  let [error,setError] = useState(false)
+
   const validationSchema = yup.object({
     number: yup
       .number()
-      .max(10, "Number should not excced 10")
-      .min(1, "Number should not be less than 1")
       .required("Please type guests number"),
     selectOccasion: yup.string().required("Please select an ocassion"),
     selectTime: yup.string().required("Please select a time"),
-    date: yup.string().required("Please select a Date"),
+    date: yup.mixed()
+    .test(
+      "is-dayjs",
+      "Please select a valid date.",
+      (value) => dayjs.isDayjs(value) && value.isValid()
+    ).required("Please select a Date"),
   });
 
   const formik = useFormik({
     initialValues: {
+      date:dayjs(""),
       number: "",
       selectOccasion: "",
       selectTime: "",
-      date: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -48,11 +52,13 @@ function AboutPage() {
           className="flex flex-col relative form-style  p-10 pb-8 rounded-md bg-graySecondary "
         >
           {" "}
-          <Link to="/"><img
-            src={x}
-            alt=""
-            className="lg:w-10  sm:w-8 absolute top-0 left-0 hover:bg-gray-200  bg-gray-100 rounded-sm p-2"
-          /></Link>
+          <Link to="/">
+            <img
+              src={xx}
+              alt=""
+              className="lg:w-10  sm:w-8 absolute top-0 left-0 hover:bg-gray-200  rounded-lg p-2"
+            />
+          </Link>
           <ProgressBar stepper={0} />
           <FormControl variant="outlined" required>
             <label htmlFor="number" className="mt-8">
@@ -65,7 +71,7 @@ function AboutPage() {
               max={10}
               step={1}
               value={formik.values.number}
-              onChange={(event, value) => formik.setFieldValue("number", value)}
+              onChange={(event, value) =>formik.setFieldValue("number", value)}
             />
             {formik.touched.number && !!formik.errors.number ? (
               <FormHelperText sx={{ color: "red" }}>
@@ -214,16 +220,78 @@ function AboutPage() {
               ""
             )}
           </FormControl>
+
           <FormControl className="">
             <label htmlFor="date" className="mt-5 ">
               Choose date :
             </label>
-            <DatePicker
-              id="date"
-              error={formik.touched.selectTime && !!formik.errors.selectTime}
-              value={valuex}
-              onChange={(newValue) =>{console.log(valuex); setValuex(newValue)}}
-            />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                id="date"
+                className="!border-none  hover:!ring-0 "
+                format="DD/MM/YYYY"
+                disablePast
+                {...formik.getFieldProps("date")}
+                value={formik.values.date}
+                onChange={(value) =>{console.log(typeof(value),value); formik.setFieldValue("date", value)}}
+                // Error={formik.touched.date && !!formik.errors.date}
+                sx={{
+                  // Input Field Styling
+                  "& .MuiInputBase-root": {
+                    backgroundColor: "white",
+                    fontSize: "0.9rem",
+                    color: "gray",
+                    opacity: "1",
+                    paddingLeft: "3px",
+                    borderRadius: "8px",
+                    border: error ? "1px solid #EF4444" : "none",
+                    boxShadow: error
+                      ? "0 0  1px #EF4444;"
+                      : "0px 0px 2px #495e57",
+                    height: error ? "51px" : "50px",
+                  },
+                  "& .MuiInputBase-root:hover": {
+                    border: error ? "1px solid #DC2626" : "0px red solid",
+                    boxShadow: error
+                      ? "0 0  1px #EF4444;"
+                      : "0px 0px 2px #495e57",
+                    height: error ? "51px" : "50px",
+                  },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    border: "0px red solid",
+                    boxShadow: "0px 0px 2px #495e57",
+                    height: "55px",
+                  },
+                  "& .css-jupps9-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                    {
+                      border: "0.5px black solid",
+                      boxShadow: "0px 0px 1.5px #495e57",
+                      height: "55px",
+                    },
+                }}
+                // this for the calendar;
+                slotProps={{
+                  popper: {
+                    sx: {
+                      color: "#1565c0",
+                      borderRadius: "5px",
+                      borderWidth: "1px",
+                      borderColor: "#2196f3",
+                      border: "1.5px solid #495e57",
+                    },
+                  },
+                  layout: {
+                    sx: {
+                      borderRadius: "20px",
+                      borderWidth: "0px",
+                      borderColor: "#2196f3",
+                      border: "0px solid red",
+                      color: "#495e57",
+                    },
+                  },
+                }}
+              />
+            </LocalizationProvider>
             {formik.touched.date && !!formik.errors.date ? (
               <FormHelperText sx={{ color: "red" }}>
                 {formik.errors.date}
@@ -231,6 +299,7 @@ function AboutPage() {
             ) : (
               ""
             )}
+            
           </FormControl>
           <button
             id="submit-btn"

@@ -325,6 +325,6 @@ body {
 .base--error{
   @apply !ring-1 !ring-red-500
 }
-.Mui-error{
+.css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-error{
     @apply  !ring-1 !ring-red-500 !shadow-none p-[-2px] !z-50;
 }

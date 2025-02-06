@@ -30,27 +30,29 @@ const NumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
   );
 });
 
-export default function NumberInputBasic({ value, onchange, min, max,step,boolean }) {
+export default function NumberInputBasic({ value, onChange, min, max,step,boolean }) {
   return (
     <NumberInput
-      aria-label="Demo number input"
       placeholder="Type a number…"
       className="h-[50px] "
       min={min}
       max={max}
       step={step}
+      value={value}
+      onChange={onChange}
       error={boolean}
-      // sx={boolean ? { border: "solid 1px red" } :{border:"none"}}
     />
   );
 }
-import propType from "prop-types";
-NumberInputBasic.propType = {
-  max: propType.number,
-  min: propType.number,
-  step: propType.number,
-  onchange: propType.func,
-  value: propType.number,
+import PropTypes from "prop-types"; 
+
+NumberInputBasic.propTypes = {
+  max: PropTypes.number,
+  min: PropTypes.number,
+  step: PropTypes.number,
+  onChange: PropTypes.func,
+  value: PropTypes.number,
+  boolean: PropTypes.bool,
 };
 
 const blue = {

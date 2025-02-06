@@ -67,12 +67,14 @@ function Header() {
       >
         <nav className="nav-container w-full max-w-[1240px] mx-auto flex-desktop nav-size">
           <div className="div-img py-6 px-3 flex-desktop lg:w-auto sm:w-full ">
-            <img
-              src={Logo}
-              className="nav-img-size cursor-pointer"
-              alt=""
-              onClick={() => scrollIntoSection("home")}
-            />
+            <Link to="/">
+              <img
+                src={Logo}
+                className="nav-img-size cursor-pointer"
+                alt=""
+                onClick={() => scrollIntoSection("home")}
+              />
+            </Link>
             <img
               src={HamMenu}
               onClick={menuHandler}
@@ -81,7 +83,7 @@ function Header() {
             />
           </div>
           <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6">
-             <li onClick={() => scrollIntoSection("home")}>
+            <li onClick={() => scrollIntoSection("home")}>
               <Link to="/">Home</Link>
             </li>
             <li onClick={() => scrollIntoSection("menu")}>
@@ -99,8 +101,8 @@ function Header() {
               <Link to="/">Login</Link>
             </li>
           </ul>
-          <div className="py-6 hidden-phone lg:block sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
-            <button className=" py-1 px-3 hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out ">
+          <div className="py-6 hidden-phone   lg:block sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
+            <button className="  py-1 px-3 hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out ">
               Login
             </button>
           </div>
