@@ -3,12 +3,23 @@ import HamMenu from "../assets/hambergerMenu.svg";
 import hamMenuCloser from "../assets/Xicon.svg";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-
 function Header() {
+  let closer = useRef(false);
+  let active = useRef(null);
+
   // nav scrolling logic, scroll into section;
   // we added the delay, bc we using routes to navigate to /
   // then the delay to trigger scroll into view after being in /
-  let scrollIntoSection = (id) => {
+  let scrollIntoSection = async (id) => {
+    closer.current = true;
+    if (closer) {
+      // let ul = document.querySelector(".nav-ul");
+      // ul.classList.remove("activeHamMenu");
+      // active.current.setAttribute("src", HamMenu);
+      menuHandler();
+      active.current.setAttribute("src", HamMenu);
+      closer.current = false;
+    }
     setTimeout(() => {
       let elem = document.querySelector("#" + id);
       elem.scrollIntoView({
@@ -54,7 +65,7 @@ function Header() {
       setTimeout(() => {
         ul.classList.remove("activeHamMenu");
         navContainer.classList.remove("activeHamMenu-container", "bg-slate-50");
-        e.target.setAttribute("src", HamMenu);
+        active.current.setAttribute("src", HamMenu);
       }, 300);
     }
   };
@@ -76,10 +87,11 @@ function Header() {
               />
             </Link>
             <img
+              ref={active}
               src={HamMenu}
               onClick={menuHandler}
               alt=""
-              className="hidden-desktop w-16 h-12 py-1 px-3 rounded-sm hover:bg-slate-100 duration-150 ease-in-out "
+              className="hidden-desktop w-14 h-12 py-1 px-3 rounded-sm hover:bg-slate-100 duration-150 ease-in-out "
             />
           </div>
           <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6">

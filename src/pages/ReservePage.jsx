@@ -43,7 +43,7 @@ function AboutPage() {
   });
 
   return (
-    <main className="w-full lg:min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
+    <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
       <section className="max-w-[500px] mx-auto flex  justify-center py-5 rounded-lg ">
         <form
           noValidate
@@ -56,7 +56,7 @@ function AboutPage() {
             <img
               src={xx}
               alt=""
-              className="lg:w-10  sm:w-8 absolute top-0 left-0 hover:bg-gray-200  rounded-lg p-2"
+              className="lg:w-10  sm:w-10 absolute top-0 left-0 hover:bg-gray-200  rounded-lg p-2"
             />
           </Link>
           <ProgressBar stepper={0} />
