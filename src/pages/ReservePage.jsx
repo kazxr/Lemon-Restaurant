@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import dayjs from "dayjs";
+import {useRef} from "react"
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -31,16 +32,20 @@ function AboutPage() {
 
   const formik = useFormik({
     initialValues: {
-      date:dayjs(""),
       number: "",
       selectOccasion: "",
       selectTime: "",
+      date:dayjs(""),
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+  // this to make calendar outline red;
+  let calendarError = useRef(false)
+  calendarError.current= Boolean(formik.touched.date && !!formik.errors.date );
+  
 
   return (
     <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
@@ -70,7 +75,7 @@ function AboutPage() {
               min={1}
               max={10}
               step={1}
-              value={formik.values.number}
+              value={Number(formik.values.number)}
               onChange={(event, value) =>formik.setFieldValue("number", value)}
             />
             {formik.touched.number && !!formik.errors.number ? (
@@ -234,7 +239,6 @@ function AboutPage() {
                 {...formik.getFieldProps("date")}
                 value={formik.values.date}
                 onChange={(value) =>{console.log(typeof(value),value); formik.setFieldValue("date", value)}}
-                // Error={formik.touched.date && !!formik.errors.date}
                 sx={{
                   // Input Field Styling
                   "& .MuiInputBase-root": {
@@ -244,29 +248,32 @@ function AboutPage() {
                     opacity: "1",
                     paddingLeft: "3px",
                     borderRadius: "8px",
-                    border: error ? "1px solid #EF4444" : "none",
-                    boxShadow: error
-                      ? "0 0  1px #EF4444;"
-                      : "0px 0px 2px #495e57",
-                    height: error ? "51px" : "50px",
+                    border: "none",
+                    boxShadow: calendarError.current
+                      ? "none"
+                      : "0px 0px 2.5px #495e57",
+                    height: calendarError.current ? "51px" : "50px",
                   },
                   "& .MuiInputBase-root:hover": {
-                    border: error ? "1px solid #DC2626" : "0px red solid",
-                    boxShadow: error
-                      ? "0 0  1px #EF4444;"
-                      : "0px 0px 2px #495e57",
-                    height: error ? "51px" : "50px",
+                    border: "none" ,
+                    boxShadow:calendarError.current
+                      ? "none"
+                      : "0px 0px 2.5px #495e57",
+                    height: calendarError.current ? "51px" : "50px",
                   },
                   "& .MuiOutlinedInput-notchedOutline": {
-                    border: "0px red solid",
-                    boxShadow: "0px 0px 2px #495e57",
-                    height: "55px",
+                    border:calendarError.current? "1px #EF4444 solid": "none",
+                    boxShadow:calendarError.current
+                      ? "0 0  1px #EF4444;"
+                      : "none",
+                    height:calendarError.current?"56px" :"55px",
                   },
-                  "& .css-jupps9-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                    {
-                      border: "0.5px black solid",
-                      boxShadow: "0px 0px 1.5px #495e57",
-                      height: "55px",
+                  "& .css-jupps9-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline ":
+                    { 
+                      
+                      border: "1px black solid ",
+                      boxShadow: "0px 0px 2px #495e57",
+                      height: "56px",
                     },
                 }}
                 // this for the calendar;
@@ -293,7 +300,7 @@ function AboutPage() {
               />
             </LocalizationProvider>
             {formik.touched.date && !!formik.errors.date ? (
-              <FormHelperText sx={{ color: "red" }}>
+              <FormHelperText id="calendar-error" sx={{ color: "red" }}>
                 {formik.errors.date}
               </FormHelperText>
             ) : (

@@ -4,29 +4,22 @@ import hamMenuCloser from "../assets/Xicon.svg";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 function Header() {
-  let closer = useRef(false);
   let active = useRef(null);
 
   // nav scrolling logic, scroll into section;
   // we added the delay, bc we using routes to navigate to /
   // then the delay to trigger scroll into view after being in /
-  let scrollIntoSection = async (id) => {
-    closer.current = true;
-    if (closer) {
-      // let ul = document.querySelector(".nav-ul");
-      // ul.classList.remove("activeHamMenu");
-      // active.current.setAttribute("src", HamMenu);
+  let scrollIntoSection =  (id) => {
+   
+    setTimeout(() => {
       menuHandler();
       active.current.setAttribute("src", HamMenu);
-      closer.current = false;
-    }
-    setTimeout(() => {
       let elem = document.querySelector("#" + id);
       elem.scrollIntoView({
         block: "center",
         behavior: "smooth",
       });
-    }, 50);
+    }, 100);
   };
 
   // when scroll down will hide nav when up will appear;
