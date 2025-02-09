@@ -282,37 +282,21 @@ body {
 
 /*!         -------- form style */
 
-.form-style :is(input,select){
-  @apply lg:w-[300px]  sm:w-[200px] ;
-}
-.form-style label {
-  @apply mb-1 px-1 ;
-}
 #submit-btn{
   @apply w-[200px] p-2  mt-8 bg-yellowPrimary text-black hover:text-greenPrimary;
 }
 
+
 /* ------------calendar style */
-.css-10o2lyd-MuiStack-root{
-  @apply !pt-0 hover:!ring-4;
-
-}
-.css-15mt5d2-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
-  @apply bg-white;
-}
-.css-1e1e83h-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
-    @apply bg-white;
-
-}
-
 
 .MuiPickersDay-root, .MuiPickersDay-dayWithMargin {
   @apply hover:!bg-greenPrimary/40;
 
 }
 .Mui-selected {
-  @apply !bg-greenPrimary/30;
+  @apply !bg-greenPrimary/40;
 }
+
 .Mui-selected.MuiPickersDay-root {
   @apply !bg-greenPrimary/100;
 }
@@ -322,9 +306,15 @@ body {
 }
 
 /* ---------------------------------------------------------- */
-.base--error{
-  @apply !ring-1 !ring-red-500
+
+
+#submit-page p{
+  @apply  mr-3 text-greenPrimary font-bold;
 }
-.css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.Mui-error{
-    @apply  !ring-1 !ring-red-500 !shadow-none p-[-2px] !z-50;
+#submit-page div{
+  @apply  ml-5 justify-start w-full;
 }
+
+/* #submit-page {
+  @apply font-karla lg:text-[1.2rem] sm:text-[1rem] text-greenPrimary ;
+} */

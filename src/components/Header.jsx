@@ -9,11 +9,12 @@ function Header() {
   // nav scrolling logic, scroll into section;
   // we added the delay, bc we using routes to navigate to /
   // then the delay to trigger scroll into view after being in /
-  let scrollIntoSection =  (id) => {
-   
+  let scrollIntoSection = (id) => {
     setTimeout(() => {
-      menuHandler();
-      active.current.setAttribute("src", HamMenu);
+      if (window.innerWidth == 829) {
+        menuHandler();
+        active.current.setAttribute("src", HamMenu);
+      }
       let elem = document.querySelector("#" + id);
       elem.scrollIntoView({
         block: "center",

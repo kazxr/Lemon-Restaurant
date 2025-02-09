@@ -6,15 +6,17 @@ import Footer from "./components/Footer";
 import About from "./components/About"; // Assuming this is the correct one
 import ReservePage from "./pages/ReservePage"; // If you still need this, adjust accordingly
 import RootPage from "./pages/RootPage";
-import ReserveUserDetails from "./components/ReserveUserDetails";
-import Submit from "./components/ReserveSubmit"
+import UserDetailsForm from "./components/ReservationForm/UserDetailsForm";
+import SubmitForm from "./components/ReservationForm/Submit"
+import CongratForm from "./components/ReservationForm/CongratForm"
+import ReservationForm from "./components/ReservationForm/ReservationForm";
+
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Form1 from "./components/ReservationDetails";
 function App() {
   const reserveTableRoute = createBrowserRouter(
     createRoutesFromElements(
@@ -32,9 +34,11 @@ function App() {
           }
         />
         <Route path="Reserve" element={<ReservePage />}>
-          <Route index element={<Form1 />} />
-          <Route path="userDetails" element={<ReserveUserDetails />} />
-          <Route path="submit" element={<Submit />} />
+          <Route index element={<ReservationForm  />} />
+          <Route path="userDetails" element={<UserDetailsForm />} />
+          <Route path="submit" element={<SubmitForm />} />
+          <Route path="congrat" element={<CongratForm />} />
+
         </Route>
       </Route>
     )

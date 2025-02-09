@@ -1,18 +1,37 @@
 import { useNavigate } from "react-router-dom";
-import ProgressBar from "./ui/progress";
+import ProgressBar from "../ui/progress";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
-import xx from "../assets/left1.png";
+import xx from "../../assets/left1.png";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useEffect } from "react";
 function ReserveUserDetails() {
+  // this code to block access to this form if the prevForm empty;
+  let arr = ["number", "date", "time", "occasion"];
+  useEffect(() => {
+    let checker = false
+    for (let key of arr) {
+      if (!sessionStorage.getItem(key)) {
+        checker =true;
+        break;
+      }
+    }
+    if (checker){
+      navigate("../Reserve");
+    }
+  }, []);
+
   const validationSchema = yup.object({
     firstName: yup.string().required("Please type your First name"),
     lastName: yup.string().required("Please type your Lirst name"),
     phone: yup
       .string()
-      .matches( /(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)/, "Phone number must be exactly 10 digits")
+      .matches(
+        /(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)/,
+        "Phone number must be exactly 10 digits"
+      )
       .required("Please Provide your Phone number"),
     email: yup
       .string()
@@ -24,16 +43,19 @@ function ReserveUserDetails() {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      specialRequest: "",
+      firstName:sessionStorage.getItem("firstName") ?? "",
+      lastName: sessionStorage.getItem("lastName") ?? "",
+      phone: sessionStorage.getItem("phone") ?? "",
+      email: sessionStorage.getItem("email") ?? "",
+      specialRequest: sessionStorage.getItem("specialRequest") ?? "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      // navigate("userDetails");
+      let obj = values;
+      for (let key in obj) {
+        sessionStorage.setItem(key, obj[key]);
+      }
+      navigate("../submit/");
     },
   });
 
@@ -121,7 +143,7 @@ function ReserveUserDetails() {
               error={Boolean(formik.touched.phone && formik.errors.phone)}
               helperText={
                 <>
-                  123-456-7890 <br />  {formik.errors.phone} 
+                  123-456-7890 <br /> {formik.errors.phone}
                 </>
               }
             />
