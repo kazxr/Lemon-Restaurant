@@ -23,13 +23,14 @@ function ReserveUserDetails() {
     }
   }, []);
 
+  
   const validationSchema = yup.object({
     firstName: yup.string().required("Please type your First name"),
     lastName: yup.string().required("Please type your Lirst name"),
     phone: yup
       .string()
       .matches(
-        /(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)/,
+        /(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)|(^\([0-9]{3}\)-[0-9]{3}-[0-9]{4}$)/,
         "Phone number must be exactly 10 digits"
       )
       .required("Please Provide your Phone number"),
@@ -80,6 +81,16 @@ function ReserveUserDetails() {
       },
     },
   });
+
+/// this to reforme phone input
+   useEffect(() => {
+    if (formik.values.phone.length >= 10) {
+      let x = formik.values.phone.replace(/[-|(|)]/ig, ''); // Remove unwanted characters
+      let y = x.replace(/(\d{3})(\d{3})(\d{4})/, '($1)-$2-$3'); // Format the phone number
+      formik.setFieldValue('phone', y); // Update the phone field with the formatted value
+    }
+  }, [formik.values.phone]);
+  
 
   return (
     <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
@@ -143,7 +154,7 @@ function ReserveUserDetails() {
               error={Boolean(formik.touched.phone && formik.errors.phone)}
               helperText={
                 <>
-                  123-456-7890 <br /> {formik.errors.phone}
+                   {formik.errors.phone}
                 </>
               }
             />
