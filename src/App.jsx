@@ -10,6 +10,10 @@ import UserDetailsForm from "./components/ReservationForm/UserDetailsForm";
 import SubmitForm from "./components/ReservationForm/Submit"
 import CongratForm from "./components/ReservationForm/CongratForm"
 import ReservationForm from "./components/ReservationForm/ReservationForm";
+import OnlineMenuRoot  from "./pages/OnlineMenu"
+import Lunch from './components/OnlineMenu/Lunch'
+import Dinner from './components/OnlineMenu/Dinner'
+import BreakFast from './components/OnlineMenu/BreakFast'
 
 import {
   Route,
@@ -38,6 +42,12 @@ function App() {
           <Route path="userDetails" element={<UserDetailsForm />} />
           <Route path="submit" element={<SubmitForm />} />
           <Route path="congrat" element={<CongratForm />} />
+
+        </Route>
+        <Route path="OnlineMenu" element={<OnlineMenuRoot />}>
+          <Route index  element={<Lunch />} />
+          <Route path="BreakFast" element={<BreakFast />} />
+          <Route path="Dinner" element={<Dinner />} />
 
         </Route>
       </Route>

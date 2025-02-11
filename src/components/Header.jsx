@@ -6,15 +6,20 @@ import { Link } from "react-router-dom";
 function Header() {
   let active = useRef(null);
 
-  // nav scrolling logic, scroll into section;
-  // we added the delay, bc we using routes to navigate to /
-  // then the delay to trigger scroll into view after being in /
+  //# nav scrolling logic, scroll into section;
+  //# also this to close hambergerMenu after clicking ;
+  // we added the delay, bc we using routes to navigate to ="/"
+  // then the delay to trigger scroll into view after being in / section
+  let closer = useRef(window.innerWidth) ;
+let resize = ()=>{
+closer.current= window.innerWidth
+}
   let scrollIntoSection = (id) => {
     setTimeout(() => {
-      if (window.innerWidth == 829) {
+      if (closer.current <= 829) {
         menuHandler();
-        active.current.setAttribute("src", HamMenu);
       }
+      console.log(closer);
       let elem = document.querySelector("#" + id);
       elem.scrollIntoView({
         block: "center",
@@ -37,6 +42,7 @@ function Header() {
   };
   useEffect(() => {
     window.addEventListener("scroll", ScrollHandler);
+        window.addEventListener("resize", resize);
     return () => {
       removeEventListener("scroll", ScrollHandler);
     };
@@ -90,19 +96,46 @@ function Header() {
           </div>
           <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6">
             <li onClick={() => scrollIntoSection("home")}>
-              <Link to="/">Home</Link>
+              <Link
+                className=" lg:px-[2px] lg:py-[5px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
+                to="/"
+              >
+                Home
+              </Link>
             </li>
             <li onClick={() => scrollIntoSection("menu")}>
-              <Link to="/">Menu</Link>
+              <Link
+                className=" lg:px-[2px] lg:py-[5px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
+                to="/"
+              >
+                Menu
+              </Link>
             </li>
             <li onClick={() => scrollIntoSection("reviews")}>
-              <Link to="/">Reviews</Link>
+              <Link
+                className=" lg:px-[2px] lg:py-[5px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
+                to="/"
+              >
+                Reviews
+              </Link>
             </li>
             <li onClick={() => scrollIntoSection("about")}>
-              <Link to="/">About</Link>
+              <Link
+                className=" lg:px-[2px] lg:py-[5px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
+                to="/"
+              >
+                About
+              </Link>
             </li>
 
-            <li>Order Online</li>
+            <li>
+              <Link
+                className=" lg:px-[2px] lg:py-[5px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
+                to="OnlineMenu"
+              >
+                Order Online
+              </Link>
+            </li>
             <li className="hidden-desktop">
               <Link to="/">Login</Link>
             </li>

@@ -2,7 +2,7 @@ import data from "../data/cardsData.json";
 import Card from "./card";
 import right from "../assets/right1.png";
 import left from "../assets/left1.png";
-
+import { Link } from "react-router-dom";
 function Cards() {
   let handlerRight = (e) => {
     const cards = [
@@ -33,7 +33,6 @@ function Cards() {
       //# this toggle animation, and hide cards in the front so the one in the back
       //# will be visible; when animation accur;
       if (current.classList.contains("sm:block")) {
-        
         current.classList.remove("active-animation-card-reverse");
         current.classList.add("active-animation-card");
 
@@ -70,11 +69,9 @@ function Cards() {
 
       //# this when we reach first card will make arrow invisible;
       if (current.classList.contains("sm:block")) {
-
         //# this to make a cool effect of cards going from top to back;
         let arr = ["sm:z-50", "sm:z-40", "sm:z-30"];
         if (i == 1) {
-          
           for (let j = 0; j <= 1; j++) {
             setTimeout(() => {
               cards[j].classList.add(arr[j]);
@@ -82,7 +79,6 @@ function Cards() {
           }
         }
 
-        
         if (i - 1 == 0) {
           e.target.style.opacity = "0.5";
         }
@@ -105,7 +101,9 @@ function Cards() {
       <div className="mx-auto max-w-[1240px] xl:px-1 px-5">
         <div className="flex justify-between items-center mt-5 mb-16">
           <h1 className="size-hero-title font-markazi">This weeks specials!</h1>
-          <button className="primary-btn ">Online Menu</button>
+          <Link className="primary-btn " to="OnlineMenu">
+            <button>Online Menu</button>
+          </Link>
         </div>
         <div className="flex justify-between cards-container ">
           <img
