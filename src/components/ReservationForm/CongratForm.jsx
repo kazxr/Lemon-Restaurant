@@ -20,7 +20,7 @@ function ReservationCongrat() {
     return () => clearInterval(handler);
   }, [navigate]);
   return (
-    <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
+    <main className="w-full min-h-[100vh] lg:pt-[190px] sm:pt-[140px] bg-greenPrimary">
       <section className="max-w-[400px] mx-auto flex  justify-center py-5 rounded-lg ">
         <div className="flex flex-col w-full relative form-style items-center  p-10 pb-8 rounded-md bg-graySecondary ">
           <img src={img}  className="w-[200px]" alt="" />

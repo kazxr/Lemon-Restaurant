@@ -30,7 +30,7 @@ function ReserveUserDetails() {
     phone: yup
       .string()
       .matches(
-        /(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)|(^\([0-9]{3}\)-[0-9]{3}-[0-9]{4}$)/,
+        /(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)|(^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$)/,
         "Phone number must be exactly 10 digits"
       )
       .required("Please Provide your Phone number"),
@@ -82,12 +82,12 @@ function ReserveUserDetails() {
     },
   });
 
-/// this to reforme phone input
+/// this to reforme phone input to (123)-123-1234
    useEffect(() => {
-    if (formik.values.phone.length >= 10) {
-      let x = formik.values.phone.replace(/[-|(|)]/ig, ''); // Remove unwanted characters
-      let y = x.replace(/(\d{3})(\d{3})(\d{4})/, '($1)-$2-$3'); // Format the phone number
-      formik.setFieldValue('phone', y); // Update the phone field with the formatted value
+    if (/(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)/.test(formik.values.phone)) {
+      let x = formik.values.phone.replace(/[-|(|)]/ig, ''); 
+      let y = x.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3'); 
+      formik.setFieldValue('phone', y); 
     }
   }, [formik.values.phone]);
   
