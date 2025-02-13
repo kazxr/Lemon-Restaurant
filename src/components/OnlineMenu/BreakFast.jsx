@@ -1,7 +1,9 @@
+import Main from "./MainFunction"
 
 function BreakFast() {
   return (
-    <div>BreakFast</div>
+        <Main Type="breakfast"/>
+
   )
 }
 

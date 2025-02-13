@@ -1,11 +1,9 @@
 
-import { Link } from "react-router-dom";
+import Main from "./MainFunction"
 function Lunch() {
- return(
-  <div>
-    hello
-  </div>
- )
+  return (
+    <Main Type="lunch"/>
+  )
 }
 
-export default Lunch;
+export default Lunch
