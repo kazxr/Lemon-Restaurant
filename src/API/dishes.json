@@ -1,0 +1,357 @@
+{
+  "breakfast": [
+    {
+      "title": "Avocado Toast",
+      "description": "Creamy avocado on crispy artisan bread.",
+      "price": 9.99,
+      "image": "./DishesImgs/Avocado-Toast.webp"
+    },
+    {
+      "title": "Acai Bowl",
+      "description": "Blended acai topped with granola and fruit.",
+      "price": 8.50,
+      "image": "./DishesImgs/Acai-Bowl.webp"
+    },
+    {
+      "title": "Egg Benedict",
+      "description": "Poached eggs with creamy hollandaise sauce.",
+      "price": 12.99,
+      "image": "./DishesImgs/Egg-Benedict.webp"
+    },
+    {
+      "title": "Matcha Latte",
+      "description": "Frothy matcha with steamed almond milk.",
+      "price": 7.00,
+      "image": "./DishesImgs/Matcha-Latte.webp"
+    },
+    {
+      "title": "Chia Pudding",
+      "description": "Chia seeds soaked in coconut almond milk.",
+      "price": 6.50,
+      "image": "./DishesImgs/Chia-Pudding.webp"
+    },
+    {
+      "title": "Banana Pancakes",
+      "description": "Fluffy pancakes served with fresh bananas.",
+      "price": 8.75,
+      "image": "./DishesImgs/Banana-Pancakes.webp"
+    },
+    {
+      "title": "Smoothie Bowl",
+      "description": "Thick smoothie base with toppings galore.",
+      "price": 9.50,
+      "image": "./DishesImgs/Smoothie-Bowl.webp"
+    },
+    {
+      "title": "Oatmeal Bowl",
+      "description": "Warm oatmeal topped with nuts and berries.",
+      "price": 7.25,
+      "image": "./DishesImgs/Oatmeal-Bowl.webp"
+    },
+    {
+      "title": "Bagel Sandwich",
+      "description": "Toasted bagel with cream cheese and smoked salmon.",
+      "price": 10.99,
+      "image": "./DishesImgs/Bagel-Sandwich.webp"
+    },
+    {
+      "title": "Greek Yogurt",
+      "description": "Thick yogurt with honey drizzle and nuts.",
+      "price": 6.75,
+      "image": "./DishesImgs/Greek-Yogurt.webp"
+    },
+    {
+      "title": "Breakfast Burrito",
+      "description": "Scrambled eggs wrapped in warm tortilla.",
+      "price": 11.50,
+      "image": "./DishesImgs/Breakfast-Burrito.webp"
+    },
+    {
+      "title": "Waffles",
+      "description": "Crispy waffles with maple syrup and butter.",
+      "price": 8.99,
+      "image": "./DishesImgs/Waffles.webp"
+    },
+    {
+      "title": "French Toast",
+      "description": "Golden toast served with powdered sugar.",
+      "price": 9.25,
+      "image": "./DishesImgs/French-Toast.webp"
+    },
+    {
+      "title": "Quinoa Bowl",
+      "description": "Quinoa mixed with veggies and tahini sauce.",
+      "price": 10.00,
+      "image": "./DishesImgs/Quinoa-Bowl.webp"
+    },
+    {
+      "title": "Peanut Butter",
+      "description": "Peanut butter spread on whole grain toast.",
+      "price": 6.50,
+      "image": "./DishesImgs/Peanut-Butter.webp"
+    },
+    {
+      "title": "Granola Parfait",
+      "description": "Yogurt layered with granola and fresh berries.",
+      "price": 7.75,
+      "image": "./DishesImgs/Granola-Parfait.webp"
+    },
+    {
+      "title": "Protein Shake",
+      "description": "Shake made with protein powder and almond milk.",
+      "price": 8.00,
+      "image": "./DishesImgs/Protein-Shake.webp"
+    },
+    {
+      "title": "Vegan Pancakes",
+      "description": "Fluffy pancakes made without any animal products.",
+      "price": 9.00,
+      "image": "./DishesImgs/Vegan-Pancakes.webp"
+    },
+    {
+      "title": "Tofu Scramble",
+      "description": "Scrambled tofu with spices and fresh veggies.",
+      "price": 10.50,
+      "image": "./DishesImgs/Tofu-Scramble.webp"
+    },
+    {
+      "title": "Berry Smoothie",
+      "description": "Blended berries with banana and almond milk.",
+      "price": 7.50,
+      "image": "./DishesImgs/Berry-Smoothie.webp"
+    }
+  ],
+  "lunch": [
+    {
+      "title": "Grilled Chicken",
+      "description": "Juicy chicken breast served with greens.",
+      "price": 14.99,
+      "image": "./DishesImgs/Grilled-Chicken.webp"
+    },
+    {
+      "title": "Veggie Wrap",
+      "description": "Fresh veggies wrapped in a soft tortilla.",
+      "price": 11.50,
+      "image": "./DishesImgs/Veggie-Wrap.webp"
+    },
+    {
+      "title": "Beef Tacos",
+      "description": "Spiced beef tacos with guacamole and cheese.",
+      "price": 13.99,
+      "image": "./DishesImgs/Beef-Tacos.webp"
+    },
+    {
+      "title": "Caesar Salad",
+      "description": "Romaine lettuce with parmesan and croutons.",
+      "price": 12.50,
+      "image": "./DishesImgs/Caesar-Salad.webp"
+    },
+    {
+      "title": "Sushi Roll",
+      "description": "Fresh fish rolled in rice and seaweed.",
+      "price": 15.99,
+      "image": "./DishesImgs/Sushi-Roll.webp"
+    },
+    {
+      "title": "Banh Mi",
+      "description": "Vietnamese sandwich with pork and pickled veggies.",
+      "price": 10.99,
+      "image": "./DishesImgs/Banh-Mi.webp"
+    },
+    {
+      "title": "Quinoa Salad",
+      "description": "Quinoa tossed with veggies and lemon dressing.",
+      "price": 11.75,
+      "image": "./DishesImgs/Quinoa-Salad.webp"
+    },
+    {
+      "title": "Turkey Burger",
+      "description": "Juicy turkey patty served with lettuce and tomato.",
+      "price": 13.50,
+      "image": "./DishesImgs/Turkey-Burger.webp"
+    },
+    {
+      "title": "Pasta Primavera",
+      "description": "Pasta tossed with fresh seasonal vegetables.",
+      "price": 14.00,
+      "image": "./DishesImgs/Pasta-Primavera.webp"
+    },
+    {
+      "title": "Chicken Wrap",
+      "description": "Grilled chicken wrapped in a soft tortilla.",
+      "price": 12.99,
+      "image": "./DishesImgs/ChickenWrap.webp"
+    },
+    {
+      "title": "Miso Soup",
+      "description": "Soybean paste soup with tofu and seaweed.",
+      "price": 9.50,
+      "image": "./DishesImgs/Miso-Soup.webp"
+    },
+    {
+      "title": "Falafel Wrap",
+      "description": "Crispy falafel wrapped in a soft pita bread.",
+      "price": 11.25,
+      "image": "./DishesImgs/Falafel-Wrap.webp"
+    },
+    {
+      "title": "Ramen Bowl",
+      "description": "Noodles in savory broth with soft-boiled egg.",
+      "price": 14.99,
+      "image": "./DishesImgs/Ramen-Bowl.webp"
+    },
+    {
+      "title": "Caprese Salad",
+      "description": "Tomato and mozzarella with balsamic glaze.",
+      "price": 10.75,
+      "image": "./DishesImgs/Caprese-Salad.webp"
+    },
+    {
+      "title": "Grilled Salmon",
+      "description": "Salmon fillet grilled with herbs and spices.",
+      "price": 16.50,
+      "image": "./DishesImgs/Grilled-Salmon.webp"
+    },
+    {
+      "title": "Shrimp Tacos",
+      "description": "Spicy shrimp tacos with lime crema sauce.",
+      "price": 15.00,
+      "image": "./DishesImgs/Shrimp-Tacos.webp"
+    },
+    {
+      "title": "Vegan Bowl",
+      "description": "Mixed grains with roasted veggies and tahini.",
+      "price": 13.25,
+      "image": "./DishesImgs/Vegan-Bowl.webp"
+    },
+    {
+      "title": "Steak Sandwich",
+      "description": "Thinly sliced steak on a toasted baguette.",
+      "price": 14.75,
+      "image": "./DishesImgs/Steak-Sandwich.webp"
+    },
+    {
+      "title": "Pad Thai",
+      "description": "Stir-fried noodles with peanuts and lime.",
+      "price": 15.50,
+      "image": "./DishesImgs/Pad-Thai.webp"
+    }
+  ],
+  "dinner": [
+    {
+      "title": "Grilled Steak",
+      "description": "Juicy steak grilled to perfection with sides.",
+      "price": 24.99,
+      "image": "./DishesImgs/Grilled-Steak.webp"
+    },
+    {
+      "title": "Lobster Pasta",
+      "description": "Lobster tossed in creamy garlic pasta.",
+      "price": 29.99,
+      "image": "./DishesImgs/Lobster-Pasta.webp"
+    },
+    {
+      "title": "Sushi Platter",
+      "description": "Assorted sushi rolls with soy sauce.",
+      "price": 32.50,
+      "image": "./DishesImgs/Sushi-Platter.webp"
+    },
+    {
+      "title": "Lamb Chops",
+      "description": "Grilled lamb chops with mint chimichurri.",
+      "price": 27.99,
+      "image": "./DishesImgs/Lamb-Chops.webp"
+    },
+    {
+      "title": "Truffle Risotto",
+      "description": "Creamy risotto infused with black truffle oil.",
+      "price": 26.50,
+      "image": "./DishesImgs/Truffle-Risotto.webp"
+    },
+    {
+      "title": "Seafood Paella",
+      "description": "Paella loaded with shrimp, clams, and mussels.",
+      "price": 28.99,
+      "image": "./DishesImgs/Seafood-Paella.webp"
+    },
+    {
+      "title": "Filet Mignon",
+      "description": "Tender filet mignon with garlic butter.",
+      "price": 34.99,
+      "image": "./DishesImgs/Filet-Mignon.webp"
+    },
+    {
+      "title": "Duck Confit",
+      "description": "Slow-cooked duck leg with orange glaze.",
+      "price": 31.50,
+      "image": "./DishesImgs/Duck-Confit.webp"
+    },
+    {
+      "title": "Beef Wellington",
+      "description": "Beef wrapped in puff pastry with mushrooms.",
+      "price": 36.99,
+      "image": "./DishesImgs/Beef-Wellington.webp"
+    },
+    {
+      "title": "Shrimp Scampi",
+      "description": "Shrimp sautéed in garlic butter with linguine.",
+      "price": 25.99,
+      "image": "./DishesImgs/Shrimp-Scampi.webp"
+    },
+    {
+      "title": "Vegetable Curry",
+      "description": "Coconut curry with mixed seasonal vegetables.",
+      "price": 22.50,
+      "image": "./DishesImgs/Vegetable-Curry.webp"
+    },
+    
+    {
+      "title": "Osso Buco",
+      "description": "Braised veal shanks with gremolata sauce.",
+      "price": 33.50,
+      "image": "./DishesImgs/Osso-Buco.webp"
+    },
+    {
+      "title": "Salmon Teriyaki",
+      "description": "Grilled salmon glazed with teriyaki sauce.",
+      "price": 24.99,
+      "image": "./DishesImgs/Salmon-Teriyaki.webp"
+    },
+    {
+      "title": "Chicken Parmesan",
+      "description": "Breaded chicken with marinara and mozzarella.",
+      "price": 23.99,
+      "image": "./DishesImgs/Chicken-Parmesan.webp"
+    },
+    {
+      "title": "Mushroom Risotto",
+      "description": "Creamy risotto with wild mushrooms and thyme.",
+      "price": 25.50,
+      "image": "./DishesImgs/Mushroom-Risotto.webp"
+    },
+    {
+      "title": "Steak Frites",
+      "description": "Grilled steak served with crispy fries.",
+      "price": 30.99,
+      "image": "./DishesImgs/Steak-Frites.webp"
+    },
+    {
+      "title": "Thai Curry",
+      "description": "Spicy curry with coconut milk and veggies.",
+      "price": 24.50,
+      "image": "./DishesImgs/Thai-Curry.webp"
+    },
+    {
+      "title": "Ratatouille",
+      "description": "Roasted veggies in a rich tomato sauce.",
+      "price": 21.99,
+      "image": "./DishesImgs/Ratatouille.webp"
+    },
+    {
+      "title": "Lemon Herb Chicken",
+      "description": "Chicken marinated with lemon and fresh herbs.",
+      "price": 22.99,
+      "image": "./DishesImgs/Lemon-Herb-Chicken.webp"
+    }
+  ]
+}

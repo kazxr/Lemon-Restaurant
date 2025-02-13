@@ -1,0 +1,1 @@
+#this file intended to be an api that runs locally or in vercel or simalar platform, but i'm gonna use it as simple json file and import it, so people that wanna see my prj don't have to run locall server to make it work;
