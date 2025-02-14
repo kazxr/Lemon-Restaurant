@@ -7,14 +7,14 @@ import About from "./components/About"; // Assuming this is the correct one
 import ReservePage from "./pages/ReservePage"; // If you still need this, adjust accordingly
 import RootPage from "./pages/RootPage";
 import UserDetailsForm from "./components/ReservationForm/UserDetailsForm";
-import SubmitForm from "./components/ReservationForm/Submit"
-import CongratForm from "./components/ReservationForm/CongratForm"
+import SubmitForm from "./components/ReservationForm/Submit";
+import CongratForm from "./components/ReservationForm/CongratForm";
 import ReservationForm from "./components/ReservationForm/ReservationForm";
-import OnlineMenuRoot  from "./pages/OnlineMenu"
-import Lunch from './components/OnlineMenu/Lunch'
-import Dinner from './components/OnlineMenu/Dinner'
-import BreakFast from './components/OnlineMenu/BreakFast'
-
+import OnlineMenuRoot from "./pages/OnlineMenu";
+import Lunch from "./components/OnlineMenu/Lunch";
+import Dinner from "./components/OnlineMenu/Dinner";
+import BreakFast from "./components/OnlineMenu/BreakFast";
+import Specials from "./components/OnlineMenu/Specials";
 import {
   Route,
   createBrowserRouter,
@@ -38,17 +38,16 @@ function App() {
           }
         />
         <Route path="Reserve" element={<ReservePage />}>
-          <Route index element={<ReservationForm  />} />
+          <Route index element={<ReservationForm />} />
           <Route path="userDetails" element={<UserDetailsForm />} />
           <Route path="submit" element={<SubmitForm />} />
           <Route path="congrat" element={<CongratForm />} />
-
         </Route>
         <Route path="OnlineMenu" element={<OnlineMenuRoot />}>
-          <Route index  element={<Lunch />} />
+          <Route index element={<Lunch />} />
           <Route path="BreakFast" element={<BreakFast />} />
           <Route path="Dinner" element={<Dinner />} />
-
+          <Route path="Specials" element={<Specials />} />
         </Route>
       </Route>
     )

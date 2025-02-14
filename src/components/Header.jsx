@@ -1,25 +1,70 @@
 import Logo from "../assets/Logo.svg";
 import HamMenu from "../assets/hambergerMenu.svg";
 import hamMenuCloser from "../assets/Xicon.svg";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+//dialog imports:
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Button from "@mui/material/Button";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import * as yup from "yup";
+import { useFormik } from "formik";
 function Header() {
-  let active = useRef(null);
+  let [login, setLogin] = useState(true);
+  let loginFunhandler = () => {
+    setLogin((x) => !x);
+  };
+  // dialog handler :
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+    setLogin(true);
+  };
+
+  const handleClickClose = () => {
+    setOpen(false);
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handleMouseUpPassword = (event) => {
+    event.preventDefault();
+  };
 
   //# nav scrolling logic, scroll into section;
+  let active = useRef(null);
   //# also this to close hambergerMenu after clicking ;
   // we added the delay, bc we using routes to navigate to ="/"
   // then the delay to trigger scroll into view after being in / section
-  let closer = useRef(window.innerWidth) ;
-let resize = ()=>{
-closer.current= window.innerWidth
-}
+  let closer = useRef(window.innerWidth);
+  let resize = () => {
+    closer.current = window.innerWidth;
+  };
   let scrollIntoSection = (id) => {
     setTimeout(() => {
       if (closer.current <= 829) {
         menuHandler();
       }
-      console.log(closer);
       let elem = document.querySelector("#" + id);
       elem.scrollIntoView({
         block: "center",
@@ -42,7 +87,7 @@ closer.current= window.innerWidth
   };
   useEffect(() => {
     window.addEventListener("scroll", ScrollHandler);
-        window.addEventListener("resize", resize);
+    window.addEventListener("resize", resize);
     return () => {
       removeEventListener("scroll", ScrollHandler);
     };
@@ -70,10 +115,91 @@ closer.current= window.innerWidth
     }
   };
 
+  // login input validation
+  const validationSchema = yup.object({
+    email: yup
+      .string("Enter your email")
+      .email("Enter a valid email")
+      .required("Email is required"),
+    password: yup
+      .string("Enter your password")
+      .min(10, "Password should be of minimum 8 characters length")
+      .required("Password is required"),
+    ...(login === false && {
+      firstName: yup.string().required("First name is required"),
+      lastName: yup.string().required("Last name is required"),
+    }),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      ...(!login ? { lastName: "", firstName: "" } : {}),
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      handleClickClose();
+    },
+  });
+
+  const theme = createTheme({
+    components: {
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            "& .MuiInputLabel-root": { color: "gray !important" },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#495e57",
+            },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "gray",
+              },
+              "&:hover fieldset": { borderColor: "black" },
+              "&.Mui-focused fieldset": { borderColor: "#495e57" },
+            },
+          },
+        },
+      },
+    },
+  });
+  const themeText = createTheme({
+    components: {
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "gray",
+            },
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+              borderColor: "black",
+            },
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#495e57",
+            },
+          },
+        },
+      },
+      MuiInputLabel: {
+        styleOverrides: {
+          root: {
+            color: "gray",
+            "&.Mui-focused": {
+              color: "#495e57",
+            },
+          },
+        },
+      },
+    },
+  });
+
   return (
     <>
       <header
         ref={headerElement}
+        id="header"
         className="w-full z-[100] font-markazi fixed hover:bg-slate-50 bg-white transition-all duration-300 ease-out"
       >
         <nav className="nav-container w-full max-w-[1240px] mx-auto flex-desktop nav-size">
@@ -128,22 +254,208 @@ closer.current= window.innerWidth
               </Link>
             </li>
 
-            <li>
+            <li onClick={() => scrollIntoSection("header")}>
               <Link
                 className=" lg:px-[2px] lg:py-[5px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
-                to="OnlineMenu"
+                to="../OnlineMenu"
               >
                 Order Online
               </Link>
             </li>
-            <li className="hidden-desktop">
+            <li className="hidden-desktop" onClick={handleClickOpen}>
               <Link to="/">Login</Link>
             </li>
           </ul>
           <div className="py-6 hidden-phone   lg:block sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
-            <button className="  py-1 px-3 hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out ">
+            <button
+              className="  py-1 px-3 hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out "
+              onClick={handleClickOpen}
+            >
               Login
             </button>
+            <Dialog
+              className="!bg-black/30"
+              open={open}
+              onClose={handleClickClose}
+              slotProps={{
+                paper: {
+                  onSubmit: () => {
+                    formik.handleSubmit;
+                    handleClickClose();
+                  },
+                  sx: {
+                    backgroundColor: "edefee",
+                    maxWidth: "400px",
+                  },
+                },
+              }}
+            >
+              <DialogTitle className="text-black !text-2xl !font-bold  !font-karla">
+                {login ? "Login" : "Sign Up"}
+              </DialogTitle>
+              <DialogContent>
+                <form
+                  noValidate
+                  autoComplete="off"
+                  onSubmit={formik.handleSubmit}
+                >
+                  <DialogContentText className="!mb-5 !text-black ">
+                    <p className="text-greenPrimary ml-[3px] mb-5 ">
+                      {login
+                        ? "To add items to Basket you need to Login"
+                        : "To add items to Basket you need to Sign Up:"}
+                    </p>
+                  </DialogContentText>
+
+                  <ThemeProvider theme={theme}>
+                    {!login ? (
+                      <div className="flex space-x-5 mb-2">
+                        <TextField
+                          margin="dense"
+                          id="firstName"
+                          name="firstName"
+                          label="First Name"
+                          type="string"
+                          variant="outlined"
+                          onChange={formik.handleChange}
+                          value={formik.values.firstName}
+                          error={!!formik.errors.firstName}
+                          helperText={formik.errors.firstName}
+                        />
+                        <TextField
+                          margin="dense"
+                          id="lastName"
+                          name="lastName"
+                          label="Last Name"
+                          type="string"
+                          variant="outlined"
+                          onChange={formik.handleChange}
+                          value={formik.values.lastName}
+                          error={  !!formik.errors.lastName}
+                          helperText={formik.errors.lastName}
+                        />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    <TextField
+                      
+                      margin="dense"
+                      id="name"
+                      name="email"
+                      label="Email Address"
+                      type="email"
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                      error={formik.touched.email && !!formik.errors.email}
+                      helperText={formik.touched.email && formik.errors.email}
+                      fullWidth
+                      variant="outlined"
+                    />
+                  </ThemeProvider>
+                  <ThemeProvider theme={themeText}>
+                    <FormControl
+                      sx={{ mt: 2, width: "100%" }}
+                      variant="outlined"
+                    >
+                      <InputLabel htmlFor="outlined-adornment-password">
+                        Password
+                      </InputLabel>
+                      <OutlinedInput
+                        id="outlined-adornment-password"
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        onChange={formik.handleChange}
+                        value={formik.values.password}
+                        error={
+                          formik.touched.password && !!formik.errors.password
+                        }
+                        endAdornment={
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label={
+                                showPassword
+                                  ? "hide the password"
+                                  : "display the password"
+                              }
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              onMouseUp={handleMouseUpPassword}
+                              edge="end"
+                            >
+                              {showPassword ? (
+                                <VisibilityOff />
+                              ) : (
+                                <Visibility />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        }
+                        label="Password"
+                      />
+                      {formik.touched.password && !!formik.errors.password ? (
+                        <FormHelperText sx={{ color: "#d32f2f" }}>
+                          {formik.errors.password}
+                        </FormHelperText>
+                      ) : (
+                        ""
+                      )}
+                      <u
+                        onClick={loginFunhandler}
+                        className="!mx-auto !my-8 text-greenPrimary cursor-pointer"
+                      >
+                        {login
+                          ? "you dont have an account?"
+                          : "you already have an account?"}
+                      </u>
+                    </FormControl>
+                  </ThemeProvider>
+                  <DialogActions>
+                    <Button
+                      onClick={handleClickClose}
+                      sx={{
+                        borderColor: "gray",
+                        color: "black",
+                        "&:hover": {
+                          borderColor: "black",
+                          backgroundColor: "lightgray",
+                          color: "black",
+                        },
+                        "&.Mui-focused": {
+                          borderColor: "#495e57",
+                          backgroundColor: "lightgreen",
+                        },
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      type="submit"
+                      sx={{
+                        borderColor: "gray",
+                        borderRadius: "8px",
+                        color: "black",
+                        fontWeight: "550",
+                        padding: "5px 10px",
+
+                        backgroundColor: "#f4ce14",
+                        "&:hover": {
+                          borderColor: "black",
+                          backgroundColor: "#f4ce14",
+                          color: "#495e57",
+                        },
+                        "&.Mui-focused": {
+                          borderColor: "#495e57",
+                          backgroundColor: "lightgreen",
+                        },
+                      }}
+                    >
+                      {login ? " Login" : "Sign UP"}
+                    </Button>
+                  </DialogActions>
+                </form>
+              </DialogContent>
+            </Dialog>
           </div>
         </nav>
       </header>

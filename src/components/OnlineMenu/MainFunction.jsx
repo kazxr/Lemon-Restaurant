@@ -13,6 +13,12 @@ function MainOnlineMenuFunc({Type}) {
   let [val, setVal] = useState(1);
   let handler = (e) => {
     setVal(Number(e.target.innerText));
+    window.scrollTo({
+      behavior: "smooth",
+      left: 0,
+      top:0,
+
+    })
   };
 
   useEffect(() => {
@@ -31,8 +37,8 @@ function MainOnlineMenuFunc({Type}) {
   let lunchData = data[Type];
   let count = Math.ceil(lunchData.length / 6);
   return (
-    <main className=" bg-gray-50 py-3">
-      <section className="max-w-[1300px] bg-gray-50 mx-auto">
+    <main className="  py-3">
+      <section className="max-w-[1300px]  mx-auto">
         <div className="flex flex-wrap mx-5 justify-evenly items-center">
           {lunchData.slice(x, y).map((values) => {
             return <Card key={values.id} data={values} />;
