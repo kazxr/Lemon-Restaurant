@@ -100,7 +100,7 @@ function ReserveUserDetails() {
           autoComplete="off"
           onSubmit={formik.handleSubmit}
           action=""
-          className="flex flex-col w-full relative form-style  p-10 pb-8 rounded-md bg-graySecondary "
+          className="flex flex-col w-full sm:mx-5 relative form-style  p-10 pb-8 rounded-md bg-graySecondary "
         >
           {" "}
           <Link to="/Reserve/">

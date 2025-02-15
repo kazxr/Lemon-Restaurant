@@ -109,8 +109,8 @@ body {
 }
 
 .primary-btn {
-  @apply py-2 px-3 text-black xl:text-[1.4rem] lg:text-[1.3rem] md:text-[1.2rem] sm:text-[1rem]  bg-yellowPrimary rounded-xl;
-  @apply hover:text-greenPrimary text-nowrap;
+  @apply !py-2 !px-3 !font-karla !text-black xl:!text-[1.2rem] lg:!text-[1.15rem] md:!text-[1.1rem] sm:!text-[0.75rem]  !bg-yellowPrimary !rounded-xl;
+  @apply  hover:!shadow-[0px_0px_3px_0px] hover:!shadow-yellowPrimary !text-nowrap;
 }
 
 .img-width-hero {

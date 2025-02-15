@@ -26,7 +26,7 @@ let handleSubmit =()=>{
   return (
     <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
       <section className="max-w-[400px] mx-auto flex  justify-center py-5 rounded-lg ">
-        <div className="flex flex-col w-full relative form-style  p-10 pb-8 rounded-md bg-graySecondary ">
+        <div className="flex flex-col w-full sm:mx-5 relative form-style  p-10 pb-8 rounded-md bg-graySecondary ">
           <Link to="/Reserve/userDetails">
             <img
               src={xx}

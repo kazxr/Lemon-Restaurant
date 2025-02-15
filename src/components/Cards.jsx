@@ -3,6 +3,8 @@ import Card from "./card";
 import right from "../assets/right1.png";
 import left from "../assets/left1.png";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+
 function Cards() {
   let handlerRight = (e) => {
     const cards = [
@@ -101,8 +103,8 @@ function Cards() {
       <div className="mx-auto max-w-[1240px] xl:px-1 px-5">
         <div className="flex justify-between items-center mt-5 mb-16">
           <h1 className="size-hero-title font-markazi">This weeks specials!</h1>
-          <Link className="primary-btn " to="OnlineMenu">
-            <button>Online Menu</button>
+          <Link  to="OnlineMenu">
+            <Button className="primary-btn ">Online Menu</Button>
           </Link>
         </div>
         <div className="flex justify-between cards-container ">
@@ -111,7 +113,7 @@ function Cards() {
             onClick={handlerLeft}
             id="left-img"
             alt=""
-            className="  hidden active"
+            className="  hidden active sm:ml-[-15px] md:ml-[0px] "
           />
           {data.map((data) => {
             return (
@@ -130,7 +132,7 @@ function Cards() {
             onClick={handlerRight}
             id="right-img"
             alt=""
-            className="hidden active "
+            className="hidden active sm:mr-[-15px] md:mr-[0px]  "
           />
         </div>
       </div>

@@ -164,7 +164,7 @@ function Header() {
         setAlertError(true);
         setTimeout(() => {
           setAlertError(false);
-        }, 2000);
+        }, 1500);
       }
     },
   });
@@ -317,10 +317,10 @@ function Header() {
             >
               {alertError ? (
                 <Alert
-                  className="absolute z-50  w-[300px]  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+                  className="absolute z-50  w-[300px]  top-[0%] left-[50%] translate-x-[-50%] "
                   severity="error"
                 >
-                  This email or password is not valid. you need to create a new account.
+                   Email or Password is not valid. you need to create a new account.
                 </Alert>
               ) : null}
 
@@ -493,11 +493,11 @@ function Header() {
         </nav>
         {showAlert ? (
           <Alert
-            className="absolute w-[400px] text-2xl !z-[999]  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  "
+            className="absolute w-[400px] text-2xl !z-[999]  top-[0%] left-[50%] translate-x-[-50%]  "
             icon={<CheckIcon fontSize="inherit" />}
             severity="success"
           >
-            the loggin was successful.
+             Login was successful.
           </Alert>
         ) : null}
       </header>

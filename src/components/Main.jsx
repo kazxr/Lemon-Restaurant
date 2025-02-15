@@ -1,6 +1,6 @@
 import heroImg0 from "../assets/heroPictureLite.webp";
 import { NavLink } from "react-router-dom";
-
+import Button from '@mui/material/Button';
 function Main() {
   return (
     <section id="home" className="pt-[150px] pb-14 w-full bg-greenPrimary">
@@ -15,7 +15,7 @@ function Main() {
             traditional recipes served with a modern twist.
           </p>
           <NavLink to="/Reserve">
-            <button className="primary-btn">Reserve a Table</button>
+            <Button className="primary-btn">Reserve a Table</Button>
           </NavLink>
         </div>
         <div className="">
