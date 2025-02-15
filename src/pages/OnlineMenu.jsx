@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
-import DishType from "../components/ui/DishesTypeOnlineMenu";
+import DishType from "../components/OnlineMenu/DishesTypeOnlineMenu";
 import { useEffect } from "react";
 function OnlineMenu() {
   useEffect(() => {
@@ -9,7 +9,6 @@ function OnlineMenu() {
   return (
     <>
       <Header />
-      
       <DishType />
       <Outlet />
     </>

@@ -16,7 +16,7 @@ function DishesTypeOnlineMenu() {
         <p className="text-center font-markazi lg:text-4xl md:text-3xl sm:text-2xl mb-10 text-white">Restaurant Menu </p>
         <div
           id="parentLink-dishes"
-          className="max-w-[1200px] px-[10px] mx-auto flex justify-center space-x-20 items-center "
+          className="max-w-[1200px] px-[10px] mx-auto flex justify-center lg:space-x-20 sm:space-x-10 items-center "
         >
           <Link onClick={handler} to="../OnlineMenu/BreakFast" className="p-1">
             BreakFast
