@@ -84,11 +84,13 @@ function About() {
           >
             <img
               src={pic1}
+              loading="lazy"
               alt=""
               className=" shadow-lg rounded-md absolute pic0 about-pic "
             />
             <img
               src={pic2}
+              loading="lazy"
               alt=""
               className=" shadow-lg rounded-md about-pic"
             />

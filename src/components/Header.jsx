@@ -3,6 +3,8 @@ import HamMenu from "../assets/hambergerMenu.svg";
 import hamMenuCloser from "../assets/Xicon.svg";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import Alert from "@mui/material/Alert";
+import CheckIcon from "@mui/icons-material/Check";
 //dialog imports:
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -23,6 +25,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import * as yup from "yup";
 import { useFormik } from "formik";
 function Header() {
+  // this to trigger Login or sign Up from;
   let [login, setLogin] = useState(true);
   let loginFunhandler = () => {
     setLogin((x) => !x);
@@ -130,7 +133,8 @@ function Header() {
       lastName: yup.string().required("Last name is required"),
     }),
   });
-
+  let [showAlert, setAlert] = useState(false);
+  let [alertError, setAlertError] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -139,8 +143,29 @@ function Header() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      handleClickClose();
+      if (
+        formik.values.firstName &&
+        formik.values.lastName
+      ) {
+        console.log(values, typeof values);
+        for (let val in values) {
+          localStorage.setItem(val, values[val]);
+        }
+
+        setTimeout(()=>{
+                  setAlert(true);
+
+        },500)
+        setTimeout(() => {
+          setAlert(false);
+        }, 1500);
+        handleClickClose();
+      } else {
+        setAlertError(true);
+        setTimeout(() => {
+          setAlertError(false);
+        }, 2000);
+      }
     },
   });
 
@@ -202,7 +227,7 @@ function Header() {
         id="header"
         className="w-full z-[100] font-markazi fixed hover:bg-slate-50 bg-white transition-all duration-300 ease-out"
       >
-        <nav className="nav-container w-full max-w-[1240px] mx-auto flex-desktop nav-size">
+        <nav className="nav-container w-full max-w-[1260px] mx-auto flex-desktop nav-size">
           <div className="div-img py-6 px-3 flex-desktop lg:w-auto sm:w-full ">
             <Link to="/">
               <img
@@ -266,9 +291,9 @@ function Header() {
               <Link to="/">Login</Link>
             </li>
           </ul>
-          <div className="py-6 hidden-phone   lg:block sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
+          <div className="py-6  lg:block  sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
             <button
-              className="  py-1 px-3 hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out "
+              className="  py-1 px-3   hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out "
               onClick={handleClickOpen}
             >
               Login
@@ -290,6 +315,15 @@ function Header() {
                 },
               }}
             >
+              {alertError ? (
+                <Alert
+                  className="absolute z-50  w-[300px]  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+                  severity="error"
+                >
+                  This email or password is not valid. you need to create a new account.
+                </Alert>
+              ) : null}
+
               <DialogTitle className="text-black !text-2xl !font-bold  !font-karla">
                 {login ? "Login" : "Sign Up"}
               </DialogTitle>
@@ -331,7 +365,7 @@ function Header() {
                           variant="outlined"
                           onChange={formik.handleChange}
                           value={formik.values.lastName}
-                          error={  !!formik.errors.lastName}
+                          error={!!formik.errors.lastName}
                           helperText={formik.errors.lastName}
                         />
                       </div>
@@ -339,7 +373,6 @@ function Header() {
                       ""
                     )}
                     <TextField
-                      
                       margin="dense"
                       id="name"
                       name="email"
@@ -402,7 +435,7 @@ function Header() {
                       )}
                       <u
                         onClick={loginFunhandler}
-                        className="!mx-auto !my-8 text-greenPrimary cursor-pointer"
+                        className={`!mx-auto !my-8 ${alertError ? "text-red-400":"text-black"}  cursor-pointer`}
                       >
                         {login
                           ? "you dont have an account?"
@@ -458,6 +491,15 @@ function Header() {
             </Dialog>
           </div>
         </nav>
+        {showAlert ? (
+          <Alert
+            className="absolute w-[400px] text-2xl !z-[999]  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  "
+            icon={<CheckIcon fontSize="inherit" />}
+            severity="success"
+          >
+            the loggin was successful.
+          </Alert>
+        ) : null}
       </header>
     </>
   );

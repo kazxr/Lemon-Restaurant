@@ -17,6 +17,7 @@ function Card(data) {
     <>
       <div onClick={handler} id={"card" + data.id} className={x}>
         <img
+        loading="lazy"
           src={data.img}
           alt=""
           className="w-full card-img-size object-fill "

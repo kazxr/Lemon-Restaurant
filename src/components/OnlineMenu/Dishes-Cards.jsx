@@ -11,6 +11,7 @@ function Card({ data }) {
       >
         <img
           src={data.image}
+          loading="lazy"
           alt=""
           className="w-full rounded-t-md xl:h-[220px] lg:h-[200px] md:h-[180px] sm:h-[150px] object-fill  "
         />

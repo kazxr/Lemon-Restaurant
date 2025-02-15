@@ -81,7 +81,7 @@ function Reviews() {
                   {d.rating}
                 </h1>
                 <div className="flex justify-center items-center my-10">
-                  <img src={d.image} className="mr-4 review-card-img" alt="" />
+                  <img src={d.image} loading="lazy" className="mr-4 review-card-img" alt="" />
                   <h1 className="review-name font-markazi">{d.name}</h1>
                 </div>
                 <p className="text-center review-text"> {d.review}</p>
