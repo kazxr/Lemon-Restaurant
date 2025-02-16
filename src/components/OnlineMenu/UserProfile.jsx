@@ -114,6 +114,7 @@ let handleLogout =()=>{
         id="account-menu"
         open={open}
         onClose={handleClose}
+        disableScrollLock
         slotProps={{
           paper: {
             elevation: 0,
@@ -151,12 +152,12 @@ let handleLogout =()=>{
               onMouseEnter={uploadHandler}
               onMouseLeave={ReverseUploadHandler}
               onClick={onclickHandleUpload}
-              className="hover:!bg-white !w-full !p-5 !mt-[-8px] !rounded-t-md "
+              className="hover:!bg-white !w-full !p-5 !mt-[-8px] !rounded-t-md"
             >
               <div className="mx-auto">
                 <p
                   id="bg-upload"
-                  className="hidden z-40 absolute opacity-60  bg-black  !w-[281px] !h-full top-[50%] left-[50%] translate-x-[-50%]  translate-y-[-50%]"
+                  className="hidden z-40 absolute opacity-60  bg-black  !w-[250px] !h-full top-[50%] left-[50%] translate-x-[-50%]  translate-y-[-50%]"
                 ></p>
 
                 <div

@@ -220,11 +220,6 @@ function Header() {
     },
   });
   //: globalState management;
-
-  // const { loginChecker, setLoginChecker } = useAddToBasket((state) => ({
-  //   loginChecker: state.loginChecker,
-  //   setLoginChecker: state.setLoginChecker,
-  // }));
   const loginChecker = useAddToBasket((state) => state.loginChecker);
   const setLoginChecker = useAddToBasket((state) => state.setLoginChecker);
 
@@ -246,7 +241,7 @@ function Header() {
               />
             </Link>
             {loginChecker ? (
-              <div className="flex ml-auto mr-3 items-center space-x-2 hidden-desktop">
+              <div className=" lg:hidden sm:flex  ml-auto mr-3 items-center space-x-2 ">
                 <Basket />
                 <UserProfile />
               </div>
@@ -330,6 +325,7 @@ function Header() {
               className="!bg-black/30"
               open={open}
               onClose={handleClickClose}
+              disableScrollLock
               slotProps={{
                 paper: {
                   onSubmit: () => {
