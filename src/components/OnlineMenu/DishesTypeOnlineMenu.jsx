@@ -10,6 +10,7 @@ function DishesTypeOnlineMenu() {
         : (ele.style.color = "#f4ce14");
     });
   };
+  
   return (
     <section className="pt-[100px] mb-10 ">
       <div className=" bg-greenPrimary text-yellowPrimary lg:text-xl md:text-lg sm:text-sm px-10 py-10">

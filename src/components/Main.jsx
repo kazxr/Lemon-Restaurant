@@ -15,7 +15,7 @@ function Main() {
             traditional recipes served with a modern twist.
           </p>
           <NavLink to="/Reserve">
-            <Button className="primary-btn">Reserve a Table</Button>
+            <Button className="primary-btn ">Reserve a Table</Button>
           </NavLink>
         </div>
         <div className="">
