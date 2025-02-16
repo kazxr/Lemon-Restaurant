@@ -24,6 +24,9 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import { useAddToBasket } from "../store/GlobalStates";
+import UserProfile from "./OnlineMenu/UserProfile";
+import Basket from "./CheckOut/Basket";
 function Header() {
   // this to trigger Login or sign Up from;
   let [login, setLogin] = useState(true);
@@ -143,19 +146,16 @@ function Header() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      if (
-        formik.values.firstName &&
-        formik.values.lastName
-      ) {
-        console.log(values, typeof values);
+      if (formik.values.firstName && formik.values.lastName) {
         for (let val in values) {
           localStorage.setItem(val, values[val]);
         }
-
-        setTimeout(()=>{
-                  setAlert(true);
-
-        },500)
+        setLoginChecker(true);
+        localStorage.setItem("UserProfile", true);
+        menuHandler();
+        setTimeout(() => {
+          setAlert(true);
+        }, 800);
         setTimeout(() => {
           setAlert(false);
         }, 1500);
@@ -219,6 +219,14 @@ function Header() {
       },
     },
   });
+  //: globalState management;
+
+  // const { loginChecker, setLoginChecker } = useAddToBasket((state) => ({
+  //   loginChecker: state.loginChecker,
+  //   setLoginChecker: state.setLoginChecker,
+  // }));
+  const loginChecker = useAddToBasket((state) => state.loginChecker);
+  const setLoginChecker = useAddToBasket((state) => state.setLoginChecker);
 
   return (
     <>
@@ -237,6 +245,12 @@ function Header() {
                 onClick={() => scrollIntoSection("home")}
               />
             </Link>
+            {loginChecker ? (
+              <div className="flex ml-auto mr-3 items-center space-x-2 hidden-desktop">
+                <Basket />
+                <UserProfile />
+              </div>
+            ) : null}
             <img
               ref={active}
               src={HamMenu}
@@ -287,17 +301,31 @@ function Header() {
                 Order Online
               </Link>
             </li>
-            <li className="hidden-desktop" onClick={handleClickOpen}>
-              <Link to="/">Login</Link>
-            </li>
+            {loginChecker ? null : (
+              <li
+                className="hidden-desktop loginCheckerDisable"
+                onClick={handleClickOpen}
+              >
+                <Link to="/">Login</Link>
+              </li>
+            )}
           </ul>
           <div className="py-6  lg:block  sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
-            <button
-              className="  py-1 px-3   hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out "
-              onClick={handleClickOpen}
-            >
-              Login
-            </button>
+            {loginChecker ? (
+              <div className="flex justify-center items-center space-x-2">
+                <Basket />
+                <UserProfile />
+              </div>
+            ) : (
+              <div className="py-6  lg:block  sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
+                <button
+                  className=" loginCheckerDisable py-1 px-3   hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out "
+                  onClick={handleClickOpen}
+                >
+                  Login
+                </button>
+              </div>
+            )}
             <Dialog
               className="!bg-black/30"
               open={open}
@@ -317,14 +345,15 @@ function Header() {
             >
               {alertError ? (
                 <Alert
-                  className="absolute z-50  w-[300px]  top-[0%] left-[50%] translate-x-[-50%] "
+                  className="absolute z-50  w-[310px] top-[11%] left-[50%] translate-x-[-50%] "
                   severity="error"
                 >
-                   Email or Password is not valid. you need to create a new account.
+                  Email or Password is not valid. you need to create a new
+                  account.
                 </Alert>
               ) : null}
 
-              <DialogTitle className="text-black !text-2xl !font-bold  !font-karla">
+              <DialogTitle className="text-black !text-2xl !mb-3 !mx-auto !font-bold  !font-karla">
                 {login ? "Login" : "Sign Up"}
               </DialogTitle>
               <DialogContent>
@@ -333,7 +362,7 @@ function Header() {
                   autoComplete="off"
                   onSubmit={formik.handleSubmit}
                 >
-                  <DialogContentText className="!mb-5 !text-black ">
+                  <DialogContentText className="!mb-5 text-center !text-black ">
                     <p className="text-greenPrimary ml-[3px] mb-5 ">
                       {login
                         ? "To add items to Basket you need to Login"
@@ -435,7 +464,9 @@ function Header() {
                       )}
                       <u
                         onClick={loginFunhandler}
-                        className={`!mx-auto !my-8 ${alertError ? "text-red-400":"text-black"}  cursor-pointer`}
+                        className={`!mx-auto !my-8 ${
+                          alertError ? "text-red-400" : "text-black"
+                        }  cursor-pointer`}
                       >
                         {login
                           ? "you dont have an account?"
@@ -497,7 +528,7 @@ function Header() {
             icon={<CheckIcon fontSize="inherit" />}
             severity="success"
           >
-             Login was successful.
+            Login was successful.
           </Alert>
         ) : null}
       </header>

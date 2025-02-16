@@ -1,6 +1,6 @@
 import heroImg0 from "../assets/heroPictureLite.webp";
 import { NavLink } from "react-router-dom";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 function Main() {
   return (
     <section id="home" className="pt-[150px] pb-14 w-full bg-greenPrimary">
@@ -15,15 +15,18 @@ function Main() {
             traditional recipes served with a modern twist.
           </p>
           <NavLink to="/Reserve">
-            <Button className="primary-btn ">Reserve a Table</Button>
+            <Button className="primary-btn xl:!text-[1.15rem] ">Reserve a Table</Button>
           </NavLink>
         </div>
         <div className="">
           <img src={heroImg0} alt="" className="img-width-hero" />
         </div>
       </div>
+      <div className="text-center  ">
+      </div>
     </section>
   );
 }
 
 export default Main;
+
