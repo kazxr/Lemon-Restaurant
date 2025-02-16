@@ -140,25 +140,39 @@ function Header() {
   let [alertError, setAlertError] = useState(false);
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: localStorage.getItem("email") || "",
+      password: localStorage.getItem("password") || "",
       ...(!login ? { lastName: "", firstName: "" } : {}),
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      if (formik.values.firstName && formik.values.lastName) {
+      console.log(
+        Boolean(
+          localStorage.getItem("firstName") && localStorage.getItem("lastName")
+        )
+      );
+      if (
+        localStorage.getItem("firstName") &&
+        localStorage.getItem("lastName")
+      ) {
         for (let val in values) {
           localStorage.setItem(val, values[val]);
         }
         setLoginChecker(true);
         localStorage.setItem("UserProfile", true);
-        menuHandler();
+
         setTimeout(() => {
           setAlert(true);
-        }, 800);
+        }, 500);
         setTimeout(() => {
           setAlert(false);
-        }, 1500);
+        }, 2000);
+        try {
+          menuHandler();
+        } catch (error) {
+          console.log("dont worry about this error", error);
+        }
+
         handleClickClose();
       } else {
         setAlertError(true);
@@ -222,7 +236,11 @@ function Header() {
   //: globalState management;
   const loginChecker = useAddToBasket((state) => state.loginChecker);
   const setLoginChecker = useAddToBasket((state) => state.setLoginChecker);
+  console.log(loginChecker);
+  setTimeout(() => {
+      console.log(loginChecker);
 
+  }, 1000);
   return (
     <>
       <header
@@ -297,10 +315,7 @@ function Header() {
               </Link>
             </li>
             {loginChecker ? null : (
-              <li
-                className="hidden-desktop loginCheckerDisable"
-                onClick={handleClickOpen}
-              >
+              <li className="hidden-desktop " onClick={handleClickOpen}>
                 <Link to="/">Login</Link>
               </li>
             )}
@@ -312,14 +327,12 @@ function Header() {
                 <UserProfile />
               </div>
             ) : (
-              <div className="py-6  lg:block  sm:hidden nav-size-btn font-karla font-bold text-greenPrimary ">
-                <button
-                  className=" loginCheckerDisable py-1 px-3   hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out "
-                  onClick={handleClickOpen}
-                >
-                  Login
-                </button>
-              </div>
+              <button
+                className="  py-1 px-3   hover:bg-slate-100 rounded-md transition-all duration-200 ease-in-out "
+                onClick={handleClickOpen}
+              >
+                Login
+              </button>
             )}
             <Dialog
               className="!bg-black/30"
@@ -520,7 +533,7 @@ function Header() {
         </nav>
         {showAlert ? (
           <Alert
-            className="absolute w-[400px] text-2xl !z-[999]  top-[0%] left-[50%] translate-x-[-50%]  "
+            className="absolute w-[400px] text-2xl !z-[999]  top-[10%] left-[50%] translate-x-[-50%]  "
             icon={<CheckIcon fontSize="inherit" />}
             severity="success"
           >

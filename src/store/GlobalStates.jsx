@@ -1,6 +1,6 @@
 import { create } from "zustand";
 export const useAddToBasket = create((set) => ({
-  loginChecker: Boolean(localStorage.getItem("UserProfile")),
+  loginChecker: JSON.parse(localStorage.getItem("UserProfile")) || false,
   setLoginChecker: (bool) => set(() => ({ loginChecker: bool })),
   toggleDrawerBool: false,
   setToggleDrawer: (bool) => set(() => ({ toggleDrawerBool: bool })),

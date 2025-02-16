@@ -45,9 +45,7 @@ function UserProfile() {
         setTimeout(() => {
           setAlertError(false);
         }, 2500);
-        console.warn(
-          "File picker API is not supported in this browser."
-        );
+        console.warn("File picker API is not supported in this browser.");
       }
     } catch (error) {
       console.error("File selection canceled or error occurred:", error);
@@ -75,12 +73,13 @@ function UserProfile() {
   }, [imgSrc]);
 
   //: global state management;
-const setLoginChecker = useAddToBasket((state) => state.setLoginChecker);
+  const setLoginChecker = useAddToBasket((state) => state.setLoginChecker);
 
-let handleLogout =()=>{
-    setLoginChecker(false)
-     handleClose()
-}
+  let handleLogout = () => {
+    localStorage.setItem("UserProfile", false);
+    setLoginChecker(false);
+    handleClose();
+  };
   return (
     <section>
       {AlertError && (
@@ -196,8 +195,7 @@ let handleLogout =()=>{
             </div>
             <Divider />
             <MenuItem
-             
-               onClick={handleLogout}
+              onClick={handleLogout}
               className=" !w-[300px] !py-4  !mb-[-8px]  "
             >
               <div className="mx-auto flex  items-center">
