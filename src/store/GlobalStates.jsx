@@ -4,4 +4,12 @@ export const useAddToBasket = create((set) => ({
   setLoginChecker: (bool) => set(() => ({ loginChecker: bool })),
   toggleDrawerBool: false,
   setToggleDrawer: (bool) => set(() => ({ toggleDrawerBool: bool })),
+  addToBasket: [],
+  setAddToBasket: (data) =>
+    set((state) => ({
+      addToBasket: [...state.addToBasket, data],
+    })),
+    makeNavGoDown: false,
+        setMakeNavGoDown: (bool) => set(() => ({makeNavGoDown: bool })),
+
 }));

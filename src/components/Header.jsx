@@ -1,4 +1,6 @@
 import Logo from "../assets/Logo.svg";
+import minilogo from "../assets/mini-logo.png";
+
 import HamMenu from "../assets/hambergerMenu.svg";
 import hamMenuCloser from "../assets/Xicon.svg";
 import { useEffect, useRef, useState } from "react";
@@ -236,11 +238,37 @@ function Header() {
   //: globalState management;
   const loginChecker = useAddToBasket((state) => state.loginChecker);
   const setLoginChecker = useAddToBasket((state) => state.setLoginChecker);
-  console.log(loginChecker);
-  setTimeout(() => {
-      console.log(loginChecker);
 
-  }, 1000);
+  // this function will make the nave go down when adding to Basket
+  const makeNavGoDown = useAddToBasket((state) => state.makeNavGoDown);
+  const setMakeNavGoDown = useAddToBasket((state) => state.setMakeNavGoDown);
+
+  useEffect(() => {
+    let NavDown = () => {
+      if (makeNavGoDown) {
+        headerElement.current.classList.remove("scrollHidden");
+        setMakeNavGoDown(false);
+      }
+    };
+    NavDown();
+  }, [makeNavGoDown]);
+
+  // this to change logo in sm screens;
+  const [imageSrc, setImageSrc] = useState(Logo);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 560) {
+        setImageSrc(minilogo);
+      } else {
+        setImageSrc(Logo);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize); // Cleanup
+  }, []);
   return (
     <>
       <header
@@ -252,14 +280,14 @@ function Header() {
           <div className="div-img py-6 px-3 flex-desktop lg:w-auto sm:w-full ">
             <Link to="/">
               <img
-                src={Logo}
-                className="nav-img-size cursor-pointer"
+                src={imageSrc}
+                className="nav-img-size cursor-pointer "
                 alt=""
                 onClick={() => scrollIntoSection("home")}
               />
             </Link>
             {loginChecker ? (
-              <div className=" lg:hidden sm:flex  ml-auto mr-3 items-center space-x-2 ">
+              <div className=" lg:hidden sm:flex  ml-auto mr-3 items-center lg:space-x-2 md:space-x-2  sm:space-x-1 ">
                 <Basket />
                 <UserProfile />
               </div>
@@ -308,7 +336,7 @@ function Header() {
 
             <li onClick={() => scrollIntoSection("header")}>
               <Link
-                className=" lg:px-[2px] lg:py-[5px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
+                className=" lg:px-[2px]  lg:py-[7px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
                 to="../OnlineMenu"
               >
                 Order Online

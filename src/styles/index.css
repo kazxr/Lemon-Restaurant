@@ -44,7 +44,7 @@ body {
   @apply xl:text-[1.3rem] lg:text-[1.3rem] md:text-[1.rem] sm:text-[0.8rem];
 }
 .nav-img-size {
-  @apply xl:w-44 lg:w-36 md:w-40 sm:w-36;
+  @apply xl:w-44 lg:w-36 md:w-40 sm:w-[30px] sm:h-auto;
 }
 
 .nav-ul li {
