@@ -5,21 +5,27 @@ function Card({ data }) {
   const addToBasket = useAddToBasket((state) => state.addToBasket);
   const setToggleDrawer = useAddToBasket((state) => state.setToggleDrawer);
   const setMakeNavGoDown = useAddToBasket((state) => state.setMakeNavGoDown);
+  const loginChecker = useAddToBasket((state) => state.loginChecker);
+  const toggleLoginMenu = useAddToBasket((state) => state.toggleLoginMenu);
+  const setToggleLoginMenu = useAddToBasket(
+    (state) => state.setToggleLoginMenu
+  );
 
   const AddToBasketHandler = () => {
-    // let id = e.target.closest(".Card").id
-    //  console.log(data);
     setMakeNavGoDown(true);
-    console.log(data.title);
-    let x = false;
-    addToBasket.forEach((val) => {
-      if (val.title === data.title) {
-        x = true;
-        setToggleDrawer(true);
+    if (loginChecker) {
+      let x = false;
+      addToBasket.forEach((val) => {
+        if (val.title === data.title) {
+          x = true;
+          setToggleDrawer(true);
+        }
+      });
+      if (!x) {
+        setAddToBasket(data);
       }
-    });
-    if (!x) {
-      setAddToBasket(data);
+    } else if (!toggleLoginMenu ) {
+      setToggleLoginMenu(true);
     }
   };
   return (

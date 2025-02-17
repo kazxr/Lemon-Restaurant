@@ -1,7 +1,15 @@
 import heroImg0 from "../assets/heroPictureLite.webp";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import Button from "@mui/material/Button";
+import { useAddToBasket } from "../store/GlobalStates";
 function Main() {
+  const setToggleLoginMenu = useAddToBasket(
+    (state) => state.setToggleLoginMenu
+  );
+  let handler = ()=>{
+    setToggleLoginMenu(true)
+  }
+
   return (
     <section id="home" className="pt-[150px] pb-14 w-full bg-greenPrimary">
       <div className="w-full max-w-[1240px] mx-auto flex-desktop xl:px-1 px-5">
@@ -14,11 +22,11 @@ function Main() {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
-          <NavLink to="/Reserve">
+          <NavLink to="/Reserve" >
             <Button className="primary-btn xl:!text-[1.15rem] ">Reserve a Table</Button>
           </NavLink>
         </div>
-        <div className="">
+        <div className="" onClick={handler}>
           <img src={heroImg0} alt="" className="img-width-hero" />
         </div>
       </div>

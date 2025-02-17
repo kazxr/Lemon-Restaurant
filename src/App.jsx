@@ -1,11 +1,10 @@
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Main from "./components/Main";
 import Cards from "./components/Cards";
 import Reviews from "./components/Reviews";
 import Footer from "./components/Footer";
 import About from "./components/About"; // Assuming this is the correct one
 import ReservePage from "./pages/ReservePage"; // If you still need this, adjust accordingly
-import RootPage from "./pages/RootPage";
 import UserDetailsForm from "./components/ReservationForm/UserDetailsForm";
 import SubmitForm from "./components/ReservationForm/Submit";
 import CongratForm from "./components/ReservationForm/CongratForm";
@@ -15,6 +14,7 @@ import Lunch from "./components/OnlineMenu/Lunch";
 import Dinner from "./components/OnlineMenu/Dinner";
 import BreakFast from "./components/OnlineMenu/BreakFast";
 import Specials from "./components/OnlineMenu/Specials";
+import MainLayout from "./pages/RootLayoutPage";
 import {
   Route,
   createBrowserRouter,
@@ -24,7 +24,7 @@ import {
 function App() {
   const reserveTableRoute = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootPage />}>
+      <Route path="/" element={<MainLayout />}>
         <Route
           index
           element={
@@ -50,6 +50,9 @@ function App() {
           <Route path="Specials" element={<Specials />} />
         </Route>
       </Route>
+      
+      
+      
     )
   );
 

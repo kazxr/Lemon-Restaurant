@@ -113,7 +113,7 @@ function Cards() {
             onClick={handlerLeft}
             id="left-img"
             alt=""
-            className="  hidden active z-[999] sm:ml-[-15px] md:ml-[0px] "
+            className=" cursor-pointer hidden active z-[999] sm:ml-[-15px] md:ml-[0px] "
           />
           {data.map((data) => {
             return (
@@ -132,7 +132,7 @@ function Cards() {
             onClick={handlerRight}
             id="right-img"
             alt=""
-            className="hidden active z-[999] sm:mr-[-15px] md:mr-[0px]  "
+            className="cursor-pointer hidden active z-[999] sm:mr-[-15px] md:mr-[0px]  "
           />
         </div>
       </div>

@@ -41,10 +41,12 @@ function Header() {
   const handleClickOpen = () => {
     setOpen(true);
     setLogin(true);
+    setToggleLoginMenu(false);
   };
 
   const handleClickClose = () => {
     setOpen(false);
+    setToggleLoginMenu(false);
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -148,11 +150,7 @@ function Header() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(
-        Boolean(
-          localStorage.getItem("firstName") && localStorage.getItem("lastName")
-        )
-      );
+      
       if (
         localStorage.getItem("firstName") &&
         localStorage.getItem("lastName")
@@ -242,6 +240,10 @@ function Header() {
   // this function will make the nave go down when adding to Basket
   const makeNavGoDown = useAddToBasket((state) => state.makeNavGoDown);
   const setMakeNavGoDown = useAddToBasket((state) => state.setMakeNavGoDown);
+  const toggleLoginMenu = useAddToBasket((state) => state.toggleLoginMenu);
+  const setToggleLoginMenu = useAddToBasket(
+    (state) => state.setToggleLoginMenu
+  );
 
   useEffect(() => {
     let NavDown = () => {
@@ -252,6 +254,17 @@ function Header() {
     };
     NavDown();
   }, [makeNavGoDown]);
+
+  // this will toggle login if false when click on basket
+
+  useEffect(() => {
+    let loginPopUp = () => {
+      if (toggleLoginMenu) {
+        handleClickOpen();
+      }
+    };
+    loginPopUp();
+  }, [toggleLoginMenu]);
 
   // this to change logo in sm screens;
   const [imageSrc, setImageSrc] = useState(Logo);
@@ -297,7 +310,7 @@ function Header() {
               src={HamMenu}
               onClick={menuHandler}
               alt=""
-              className="hidden-desktop w-14 h-12 py-1 px-3 rounded-sm hover:bg-slate-100 duration-150 ease-in-out "
+              className="hidden-desktop cursor-pointer w-14 h-12 py-1 px-3 rounded-sm hover:bg-slate-100 duration-150 ease-in-out "
             />
           </div>
           <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6">
@@ -362,201 +375,6 @@ function Header() {
                 Login
               </button>
             )}
-            <Dialog
-              className="!bg-black/30"
-              open={open}
-              onClose={handleClickClose}
-              disableScrollLock
-              slotProps={{
-                paper: {
-                  onSubmit: () => {
-                    formik.handleSubmit;
-                    handleClickClose();
-                  },
-                  sx: {
-                    backgroundColor: "edefee",
-                    maxWidth: "400px",
-                  },
-                },
-              }}
-            >
-              {alertError ? (
-                <Alert
-                  className="absolute z-50  w-[310px] top-[11%] left-[50%] translate-x-[-50%] "
-                  severity="error"
-                >
-                  Email or Password is not valid. you need to create a new
-                  account.
-                </Alert>
-              ) : null}
-
-              <DialogTitle className="text-black !text-2xl !mb-3 !mx-auto !font-bold  !font-karla">
-                {login ? "Login" : "Sign Up"}
-              </DialogTitle>
-              <DialogContent>
-                <form
-                  noValidate
-                  autoComplete="off"
-                  onSubmit={formik.handleSubmit}
-                >
-                  <DialogContentText className="!mb-5 text-center !text-black ">
-                    <p className="text-greenPrimary ml-[3px] mb-5 ">
-                      {login
-                        ? "To add items to Basket you need to Login"
-                        : "To add items to Basket you need to Sign Up:"}
-                    </p>
-                  </DialogContentText>
-
-                  <ThemeProvider theme={theme}>
-                    {!login ? (
-                      <div className="flex space-x-5 mb-2">
-                        <TextField
-                          margin="dense"
-                          id="firstName"
-                          name="firstName"
-                          label="First Name"
-                          type="string"
-                          variant="outlined"
-                          onChange={formik.handleChange}
-                          value={formik.values.firstName}
-                          error={!!formik.errors.firstName}
-                          helperText={formik.errors.firstName}
-                        />
-                        <TextField
-                          margin="dense"
-                          id="lastName"
-                          name="lastName"
-                          label="Last Name"
-                          type="string"
-                          variant="outlined"
-                          onChange={formik.handleChange}
-                          value={formik.values.lastName}
-                          error={!!formik.errors.lastName}
-                          helperText={formik.errors.lastName}
-                        />
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                    <TextField
-                      margin="dense"
-                      id="name"
-                      name="email"
-                      label="Email Address"
-                      type="email"
-                      onChange={formik.handleChange}
-                      value={formik.values.email}
-                      error={formik.touched.email && !!formik.errors.email}
-                      helperText={formik.touched.email && formik.errors.email}
-                      fullWidth
-                      variant="outlined"
-                    />
-                  </ThemeProvider>
-                  <ThemeProvider theme={themeText}>
-                    <FormControl
-                      sx={{ mt: 2, width: "100%" }}
-                      variant="outlined"
-                    >
-                      <InputLabel htmlFor="outlined-adornment-password">
-                        Password
-                      </InputLabel>
-                      <OutlinedInput
-                        id="outlined-adornment-password"
-                        type={showPassword ? "text" : "password"}
-                        name="password"
-                        onChange={formik.handleChange}
-                        value={formik.values.password}
-                        error={
-                          formik.touched.password && !!formik.errors.password
-                        }
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label={
-                                showPassword
-                                  ? "hide the password"
-                                  : "display the password"
-                              }
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              onMouseUp={handleMouseUpPassword}
-                              edge="end"
-                            >
-                              {showPassword ? (
-                                <VisibilityOff />
-                              ) : (
-                                <Visibility />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                        label="Password"
-                      />
-                      {formik.touched.password && !!formik.errors.password ? (
-                        <FormHelperText sx={{ color: "#d32f2f" }}>
-                          {formik.errors.password}
-                        </FormHelperText>
-                      ) : (
-                        ""
-                      )}
-                      <u
-                        onClick={loginFunhandler}
-                        className={`!mx-auto !my-8 ${
-                          alertError ? "text-red-400" : "text-black"
-                        }  cursor-pointer`}
-                      >
-                        {login
-                          ? "you dont have an account?"
-                          : "you already have an account?"}
-                      </u>
-                    </FormControl>
-                  </ThemeProvider>
-                  <DialogActions>
-                    <Button
-                      onClick={handleClickClose}
-                      sx={{
-                        borderColor: "gray",
-                        color: "black",
-                        "&:hover": {
-                          borderColor: "black",
-                          backgroundColor: "lightgray",
-                          color: "black",
-                        },
-                        "&.Mui-focused": {
-                          borderColor: "#495e57",
-                          backgroundColor: "lightgreen",
-                        },
-                      }}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      type="submit"
-                      sx={{
-                        borderColor: "gray",
-                        borderRadius: "8px",
-                        color: "black",
-                        fontWeight: "550",
-                        padding: "5px 10px",
-
-                        backgroundColor: "#f4ce14",
-                        "&:hover": {
-                          borderColor: "black",
-                          backgroundColor: "#f4ce14",
-                          color: "#495e57",
-                        },
-                        "&.Mui-focused": {
-                          borderColor: "#495e57",
-                          backgroundColor: "lightgreen",
-                        },
-                      }}
-                    >
-                      {login ? " Login" : "Sign UP"}
-                    </Button>
-                  </DialogActions>
-                </form>
-              </DialogContent>
-            </Dialog>
           </div>
         </nav>
         {showAlert ? (
@@ -569,6 +387,187 @@ function Header() {
           </Alert>
         ) : null}
       </header>
+      <Dialog
+        className="!bg-black/30"
+        open={open}
+        onClose={handleClickClose}
+        disableScrollLock
+        slotProps={{
+          paper: {
+            onSubmit: () => {
+              formik.handleSubmit;
+              handleClickClose();
+            },
+            sx: {
+              backgroundColor: "edefee",
+              maxWidth: "400px",
+            },
+          },
+        }}
+      >
+        {alertError ? (
+          <Alert
+            className="absolute z-50  w-[310px] top-[11%] left-[50%] translate-x-[-50%] "
+            severity="error"
+          >
+            Email or Password is not valid. you need to create a new account.
+          </Alert>
+        ) : null}
+
+        <DialogTitle className="text-black !text-2xl !mb-3 !mx-auto !font-bold  !font-karla">
+          {login ? "Login" : "Sign Up"}
+        </DialogTitle>
+        <DialogContent>
+          <form noValidate autoComplete="off" onSubmit={formik.handleSubmit}>
+            <DialogContentText className="!mb-5 text-center !text-black ">
+              <div className="text-greenPrimary ml-[3px] mb-5 ">
+                {login
+                  ? "To add items to Basket you need to Login"
+                  : "To add items to Basket you need to Sign Up:"}
+              </div>
+            </DialogContentText>
+
+            <ThemeProvider theme={theme}>
+              {!login ? (
+                <div className="flex space-x-5 mb-2">
+                  <TextField
+                    margin="dense"
+                    id="firstName"
+                    name="firstName"
+                    label="First Name"
+                    type="string"
+                    variant="outlined"
+                    onChange={formik.handleChange}
+                    value={formik.values.firstName}
+                    error={!!formik.errors.firstName}
+                    helperText={formik.errors.firstName}
+                  />
+                  <TextField
+                    margin="dense"
+                    id="lastName"
+                    name="lastName"
+                    label="Last Name"
+                    type="string"
+                    variant="outlined"
+                    onChange={formik.handleChange}
+                    value={formik.values.lastName}
+                    error={!!formik.errors.lastName}
+                    helperText={formik.errors.lastName}
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+              <TextField
+                margin="dense"
+                id="name"
+                name="email"
+                label="Email Address"
+                type="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                error={formik.touched.email && !!formik.errors.email}
+                helperText={formik.touched.email && formik.errors.email}
+                fullWidth
+                variant="outlined"
+              />
+            </ThemeProvider>
+            <ThemeProvider theme={themeText}>
+              <FormControl sx={{ mt: 2, width: "100%" }} variant="outlined">
+                <InputLabel htmlFor="outlined-adornment-password">
+                  Password
+                </InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-password"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  onChange={formik.handleChange}
+                  value={formik.values.password}
+                  error={formik.touched.password && !!formik.errors.password}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label={
+                          showPassword
+                            ? "hide the password"
+                            : "display the password"
+                        }
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        onMouseUp={handleMouseUpPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+                {formik.touched.password && !!formik.errors.password ? (
+                  <FormHelperText sx={{ color: "#d32f2f" }}>
+                    {formik.errors.password}
+                  </FormHelperText>
+                ) : (
+                  ""
+                )}
+                <u
+                  onClick={loginFunhandler}
+                  className={`!mx-auto !my-8 ${
+                    alertError ? "text-red-400" : "text-black"
+                  }  cursor-pointer`}
+                >
+                  {login
+                    ? "you dont have an account?"
+                    : "you already have an account?"}
+                </u>
+              </FormControl>
+            </ThemeProvider>
+            <DialogActions>
+              <Button
+                onClick={handleClickClose}
+                sx={{
+                  borderColor: "gray",
+                  color: "black",
+                  "&:hover": {
+                    borderColor: "black",
+                    backgroundColor: "lightgray",
+                    color: "black",
+                  },
+                  "&.Mui-focused": {
+                    borderColor: "#495e57",
+                    backgroundColor: "lightgreen",
+                  },
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                type="submit"
+                sx={{
+                  borderColor: "gray",
+                  borderRadius: "8px",
+                  color: "black",
+                  fontWeight: "550",
+                  padding: "5px 10px",
+
+                  backgroundColor: "#f4ce14",
+                  "&:hover": {
+                    borderColor: "black",
+                    backgroundColor: "#f4ce14",
+                    color: "#495e57",
+                  },
+                  "&.Mui-focused": {
+                    borderColor: "#495e57",
+                    backgroundColor: "lightgreen",
+                  },
+                }}
+              >
+                {login ? " Login" : "Sign UP"}
+              </Button>
+            </DialogActions>
+          </form>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
