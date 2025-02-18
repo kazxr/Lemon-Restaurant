@@ -9,10 +9,16 @@ export const useAddToBasket = create((set) => ({
     set((state) => ({
       addToBasket: [...state.addToBasket, data],
     })),
+  // idOFproduct: 1,
+  // setAddToBasketNumber: (data) =>
+  //   set((state) => ({
+    
+  //   })),
   makeNavGoDown: false,
   setMakeNavGoDown: (bool) => set(() => ({ makeNavGoDown: bool })),
   toggleLoginMenu: false,
   setToggleLoginMenu: (bool) => set(() => ({ toggleLoginMenu: bool })),
+
   // drawerIsClosed: false,
   // drawerIsOpen: false,
   // setDrawerIsOpen: (bool) => set(() => ({ drawerIsOpen: bool })),
