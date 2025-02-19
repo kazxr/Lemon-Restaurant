@@ -6,7 +6,8 @@ import { useEffect } from "react";
 
 function ReserveSubmit() {
   const navigate = useNavigate();
-
+ //! this function runs on mout it checkes if user edit url to skip giving its data
+ //! it will rederect him to the prev page
   let arr = ["firstName", "lastName", "phone", "email"];
   useEffect(() => {
     let checker = false;
@@ -17,12 +18,32 @@ function ReserveSubmit() {
       }
     }
     if (checker) {
-      navigate("../userDetails");
+        navigate("../userDetails");
     }
   }, []);
-let handleSubmit =()=>{
-  sessionStorage.clear()
-}
+
+  // this will take values and pass them to formspree
+  const values = {};
+  let handleSubmit = async () => {
+    Object.keys(sessionStorage).forEach((key) => {
+      values[key] = sessionStorage.getItem(key);
+    });
+   try{
+
+     const respons=await fetch("https://formspree.io/f/xanqalnz", {
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify(values),
+     });
+     if(!respons.ok){
+      throw new Error("failed to send the data to your Email")
+     }
+   }catch(error){
+    console.log(error);
+   }
+    sessionStorage.clear();
+  };
+
   return (
     <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
       <section className="max-w-[400px] mx-auto flex  justify-center py-5 rounded-lg ">
@@ -105,6 +126,7 @@ let handleSubmit =()=>{
           </Link>
         </div>
       </section>
+      
     </main>
   );
 }

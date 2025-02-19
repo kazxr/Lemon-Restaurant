@@ -79,7 +79,7 @@ export default function TemporaryDrawer() {
           className="lg:w-[550px] md:w-[350px] sm:w-[250px] overflow-y-scroll overflow-x-hidden flex-grow  flex items-center flex-col"
         >
           {addToBasket.length == 0 ? (
-            <h1 className=" !w-[500px]  xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl text-gray-400 mt-[35vh] text-center items-center ">
+            <h1 className=" !w-[500px]  xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl text-gray-400 mt-[45vh] text-center items-center ">
               The basket is empty
             </h1>
           ) : (
@@ -96,8 +96,8 @@ export default function TemporaryDrawer() {
                   <Xicon
                     onClick={() => handleDelete(i)}
                     alt=""
-                    className=" absolute !text-[2rem] lg:text-greenPrimary/80  lg:bg-graySecondary/70 cursor-pointer sm:text-greenPrimary/100 sm:bg-white sm:rounded-full
-                  rounded-tr-md lg:left-[95.5%] md:left-[90.5%] sm:left-[87.5%] lg: lg:translate-y-[-8px] sm:translate-y-[-5px] top-0 hover:bg-slate-200/20 hover:text-greenPrimary p-1 "
+                    className=" absolute !text-[2rem] lg:text-greenPrimary/80  lg:bg-graySecondary/80 cursor-pointer sm:text-greenPrimary/100 sm:bg-white sm:rounded-full
+                  rounded-tr-md lg:left-[95%] md:left-[90.5%] sm:left-[87.5%] lg: lg:translate-y-[-8px] sm:translate-y-[-5px] top-0 hover:bg-slate-200/20 hover:text-greenPrimary p-1 "
                   />
 
                   <img

@@ -7,23 +7,23 @@ import xx from "../../assets/left1.png";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect } from "react";
+
 function ReserveUserDetails() {
   // this code to block access to this form if the prevForm empty;
   let arr = ["number", "date", "time", "occasion"];
   useEffect(() => {
-    let checker = false
+    let checker = false;
     for (let key of arr) {
       if (!sessionStorage.getItem(key)) {
-        checker =true;
+        checker = true;
         break;
       }
     }
-    if (checker){
+    if (checker) {
       navigate("../Reserve");
     }
   }, []);
 
-  
   const validationSchema = yup.object({
     firstName: yup.string().required("Please type your First name"),
     lastName: yup.string().required("Please type your Lirst name"),
@@ -44,15 +44,17 @@ function ReserveUserDetails() {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      firstName:sessionStorage.getItem("firstName") ?? "",
+      firstName: sessionStorage.getItem("firstName") ?? "",
       lastName: sessionStorage.getItem("lastName") ?? "",
       phone: sessionStorage.getItem("phone") ?? "",
       email: sessionStorage.getItem("email") ?? "",
       specialRequest: sessionStorage.getItem("specialRequest") ?? "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+     
       let obj = values;
+
       for (let key in obj) {
         sessionStorage.setItem(key, obj[key]);
       }
@@ -82,16 +84,19 @@ function ReserveUserDetails() {
     },
   });
 
-/// this to reforme phone input to (123)-123-1234
-   useEffect(() => {
-    if (/(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)/.test(formik.values.phone)) {
-      let x = formik.values.phone.replace(/[-|(|)]/ig, ''); 
-      let y = x.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3'); 
-      formik.setFieldValue('phone', y); 
+  /// this to reforme phone input to (123)-123-1234
+  useEffect(() => {
+    if (
+      /(^[0-9]{3}-[0-9]{3}-[0-9]{4}$)|(^[0-9]{10}$)/.test(formik.values.phone)
+    ) {
+      let x = formik.values.phone.replace(/[-|(|)]/gi, "");
+      let y = x.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+      formik.setFieldValue("phone", y);
     }
   }, [formik.values.phone]);
-  
 
+
+  
   return (
     <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
       <section className="max-w-[400px] mx-auto flex  justify-center py-5 rounded-lg ">
@@ -152,11 +157,7 @@ function ReserveUserDetails() {
               variant="outlined"
               {...formik.getFieldProps("phone")}
               error={Boolean(formik.touched.phone && formik.errors.phone)}
-              helperText={
-                <>
-                   {formik.errors.phone}
-                </>
-              }
+              helperText={<>{formik.errors.phone}</>}
             />
             <TextField
               className="!mt-5"
@@ -181,6 +182,7 @@ function ReserveUserDetails() {
           </button>
         </form>
       </section>
+      
     </main>
   );
 }
