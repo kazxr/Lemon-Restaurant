@@ -177,7 +177,7 @@ function UserProfile() {
                   <img
                     id="imgLocalStorage"
                     src={imgSrc}
-                    className=" w-20 h-20 rounded-full "
+                    className=" w-20 h-20 rounded-full !object-cover "
                   ></img>
                 )}
               </div>

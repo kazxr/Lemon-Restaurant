@@ -28,7 +28,7 @@ function Card({ data }) {
         setAddToBasket(data);
         setTimeout(() => {
           handleClick();
-        }, 300);
+        }, 250);
       }
     } else if (!toggleLoginMenu) {
       setToggleLoginMenu(true);

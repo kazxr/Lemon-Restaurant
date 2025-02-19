@@ -321,7 +321,47 @@ body {
   @apply font-karla lg:text-[1.2rem] sm:text-[1rem] text-greenPrimary ;
 } */
 
-#drawerCards{
-  background-color:#edefee3b;
+
+
+
+#drawerCardsParent::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+#drawerCardsParent::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px; 
+}
+
+
+#drawerCardsParent::-webkit-scrollbar-thumb {
+  background: #8888888b; 
+  border-radius: 10px; 
+}
+
+#drawerCardsParent::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+
+
+
+ /* drawer style  */
+
+ .text-drawerHeader{
+  @apply xl:text-[1.3rem] lg:text-[1.2rem] md:text-[1.15rem] sm:text-[1.05rem]
+ }
+
+ .text-drawerP{
+  @apply xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem]
+ }
+ .text-drawerX{
+  @apply xl:text-[1.2rem] lg:text-[1.1rem] md:text-[1.05rem] sm:text-[.96rem]
+ }
+
+
+ /* // drawer Cards  */
+ #drawerCards{
+  background-color:white;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
