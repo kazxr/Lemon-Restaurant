@@ -38,6 +38,17 @@ export const useAddToBasket = create((set) => ({
       })
     ),
 
+  FinalPrice: 0,
+  setFinalPrice: () =>
+    set(
+      produce((state) => {
+        const Result = state.addToBasket.reduce((prev, current) => {
+          return prev + current.price * current.NumberOfOrders;
+        },0);
+        state.FinalPrice = Result.toFixed(2);
+      })
+    ),
+
   makeNavGoDown: false,
   setMakeNavGoDown: (bool) => set(() => ({ makeNavGoDown: bool })),
   toggleLoginMenu: false,
