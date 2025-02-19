@@ -152,8 +152,8 @@ function Header() {
     onSubmit: (values) => {
       
       if (
-        localStorage.getItem("firstName") &&
-        localStorage.getItem("lastName")
+        formik.values.firstName &&
+        formik.values.lastName
       ) {
         for (let val in values) {
           localStorage.setItem(val, values[val]);
@@ -379,7 +379,7 @@ function Header() {
         </nav>
         {showAlert ? (
           <Alert
-            className="absolute w-[400px] text-2xl !z-[999]  top-[10%] left-[50%] translate-x-[-50%]  "
+            className="absolute max-w-fit text-2xl !z-[999]  top-[10%] left-[50%] translate-x-[-50%]  "
             icon={<CheckIcon fontSize="inherit" />}
             severity="success"
           >

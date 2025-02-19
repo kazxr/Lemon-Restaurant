@@ -1,30 +1,6 @@
 {
   "breakfast": [
     {
-      "id": 0,
-      "title": "Avocado Toast",
-      "description": "Creamy avocado on crispy artisan bread. A delicious and satisfying choice for your meal.",
-      "price": 9.99,
-      "image": "../src/API/DishesImgs/Avocado-Toast.webp",
-      "rating": "★★★★★"
-    },
-    {
-      "id": 1,
-      "title": "Acai Bowl",
-      "description": "Blended acai topped with granola and fruit. A delicious and satisfying choice for your meal.",
-      "price": 8.5,
-      "image": "../src/API/DishesImgs/Acai-Bowl.webp",
-      "rating": "★★★★☆"
-    },
-    {
-      "id": 2,
-      "title": "Egg Benedict",
-      "description": "Poached eggs with creamy hollandaise sauce. A delicious and satisfying choice for your meal.",
-      "price": 12.99,
-      "image": "../src/API/DishesImgs/Egg-Benedict.webp",
-      "rating": "★★★★★"
-    },
-    {
       "id": 3,
       "title": "Matcha Latte",
       "description": "Frothy matcha with steamed almond milk. A delicious and satisfying choice for your meal.",
@@ -48,6 +24,31 @@
       "image": "../src/API/DishesImgs/Banana-Pancakes.webp",
       "rating": "★★★★★"
     },
+    {
+      "id": 0,
+      "title": "Avocado Toast",
+      "description": "Creamy avocado on crispy artisan bread. A delicious and satisfying choice for your meal.",
+      "price": 9.99,
+      "image": "../src/API/DishesImgs/Avocado-Toast.webp",
+      "rating": "★★★★★"
+    },
+    {
+      "id": 1,
+      "title": "Acai Bowl",
+      "description": "Blended acai topped with granola and fruit. A delicious and satisfying choice for your meal.",
+      "price": 8.5,
+      "image": "../src/API/DishesImgs/Acai-Bowl.webp",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 2,
+      "title": "Egg Benedict",
+      "description": "Poached eggs with creamy hollandaise sauce. A delicious and satisfying choice for your meal.",
+      "price": 12.99,
+      "image": "../src/API/DishesImgs/Egg-Benedict.webp",
+      "rating": "★★★★★"
+    },
+
     {
       "id": 6,
       "title": "Smoothie Bowl",
@@ -170,7 +171,7 @@
       "image": "../src/API/DishesImgs/Grilled-Chicken.webp",
       "rating": "★★★★★"
     },
-    
+
     {
       "id": 2,
       "title": "Beef Tacos",
@@ -203,14 +204,7 @@
       "image": "../src/API/DishesImgs/Steak-Sandwich.webp",
       "rating": "★★★★☆"
     },
-    {
-      "id": 1,
-      "title": "Veggie Wrap",
-      "description": "Fresh veggies wrapped in a soft tortilla. A delicious and satisfying choice for your meal.",
-      "price": 11.5,
-      "image": "../src/API/DishesImgs/Veggie-Wrap.webp",
-      "rating": "★★★★☆"
-    },
+
     {
       "id": 6,
       "title": "Quinoa Salad",
@@ -227,6 +221,7 @@
       "image": "../src/API/DishesImgs/Turkey-Burger.webp",
       "rating": "★★★☆☆"
     },
+
     {
       "id": 8,
       "title": "Pasta Primavera",
@@ -265,6 +260,14 @@
       "description": "Noodles in savory broth with soft-boiled egg. A delicious and satisfying choice for your meal.",
       "price": 14.99,
       "image": "../src/API/DishesImgs/Ramen-Bowl.webp",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 1,
+      "title": "Veggie Wrap",
+      "description": "Fresh veggies wrapped in a soft tortilla. A delicious and satisfying choice for your meal.",
+      "price": 11.5,
+      "image": "../src/API/DishesImgs/Veggie-Wrap.webp",
       "rating": "★★★★☆"
     },
     {
@@ -317,7 +320,7 @@
     }
   ],
   "dinner": [
-     {
+    {
       "id": 5,
       "title": "Seafood Paella",
       "description": "Paella loaded with shrimp, clams, and mussels. A delicious and satisfying choice for your meal.",
@@ -325,9 +328,7 @@
       "image": "../src/API/DishesImgs/Seafood-Paella.webp",
       "rating": "★★★★☆"
     },
-    
-    
-    
+
     {
       "id": 3,
       "title": "Lamb Chops",
@@ -344,7 +345,7 @@
       "image": "../src/API/DishesImgs/Truffle-Risotto.webp",
       "rating": "★★★★★"
     },
-   
+
     {
       "id": 1,
       "title": "Lobster Pasta",
@@ -353,7 +354,7 @@
       "image": "../src/API/DishesImgs/Lobster-Pasta.webp",
       "rating": "★★★★☆"
     },
-    
+
     {
       "id": 6,
       "title": "Filet Mignon",
@@ -477,30 +478,28 @@
   ],
   "special": [
     {
-      "id": "1",
+      "id": 0,
+      "description": " Crisp lettuce, peppers, olives, feta, garlic, and croutons. A fresh, flavorful classic ",
       "image": "../src/assets/salad0.png",
       "title": "Greek Salad",
-      "price": "12.99$",
-      "rating": "★★★★★",
-
-      "description": " Crisp lettuce, peppers, olives, feta, garlic, and croutons. A fresh, flavorful classic "
+      "price": 12.99,
+      "rating": "★★★★★"
     },
     {
-      "id": "2",
+      "id": 1,
+      "description": "Grilled bread with garlic, salt, and olive oil. Simple yet delicious.",
       "image": "../src/assets/bruchetta.png",
       "title": "Bruchetta",
       "rating": "★★★★★",
-
-      "price": "8.99$",
-      "description": "Grilled bread with garlic, salt, and olive oil. Simple yet delicious."
+      "price": 8.99
     },
     {
-      "id": "3",
+      "id": 2,
+      "description": " Grandma’s authentic recipe, made with the finest ingredients.",
       "image": "../src/assets/lemondessert.jpg",
       "title": "Lemon Dessert",
-      "price": "3.99$",
-      "rating": "★★★★★",
-      "description": " Grandma’s authentic recipe, made with the finest ingredients."
+      "price": 3.99,
+      "rating": "★★★★★"
     }
   ]
 }

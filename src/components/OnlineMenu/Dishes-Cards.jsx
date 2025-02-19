@@ -1,5 +1,7 @@
 import basket from "../../assets/Basket.svg";
 import { useAddToBasket } from "../../store/GlobalStates";
+import { Snackbar, Alert } from "@mui/material";
+import { useState } from "react";
 function Card({ data }) {
   const setAddToBasket = useAddToBasket((state) => state.setAddToBasket);
   const addToBasket = useAddToBasket((state) => state.addToBasket);
@@ -12,6 +14,7 @@ function Card({ data }) {
   );
 
   const AddToBasketHandler = () => {
+    console.log(data);
     setMakeNavGoDown(true);
     if (loginChecker) {
       let x = false;
@@ -23,11 +26,29 @@ function Card({ data }) {
       });
       if (!x) {
         setAddToBasket(data);
+        setTimeout(() => {
+          handleClick();
+        }, 300);
       }
-    } else if (!toggleLoginMenu ) {
+    } else if (!toggleLoginMenu) {
       setToggleLoginMenu(true);
     }
   };
+
+  //! this for snack bar;
+  let [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <>
       <div
@@ -65,6 +86,23 @@ function Card({ data }) {
           </div>
         </div>
       </div>
+      <Snackbar
+        open={open}
+        autoHideDuration={1000}
+        onClose={handleClose}
+        sx={{
+          "& .MuiSnackbarContent-root": {
+            backgroundColor: "success",
+            color: "white",
+          },
+        }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        message="Added to basket"
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Added to Basket
+        </Alert>
+      </Snackbar>
     </>
   );
 }

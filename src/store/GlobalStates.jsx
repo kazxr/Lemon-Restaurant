@@ -1,26 +1,45 @@
 import { create } from "zustand";
+import { produce } from "immer";
+
 export const useAddToBasket = create((set) => ({
   loginChecker: JSON.parse(localStorage.getItem("UserProfile")) || false,
   setLoginChecker: (bool) => set(() => ({ loginChecker: bool })),
   toggleDrawerBool: false,
   setToggleDrawer: (bool) => set(() => ({ toggleDrawerBool: bool })),
+
   addToBasket: [],
   setAddToBasket: (data) =>
-    set((state) => ({
-      addToBasket: [...state.addToBasket, data],
-    })),
-  // idOFproduct: 1,
-  // setAddToBasketNumber: (data) =>
-  //   set((state) => ({
-    
-  //   })),
+    set(
+      produce((state) => {
+        const newData = { ...data, NumberOfOrders: 1 };
+        state.addToBasket = [...state.addToBasket, newData];
+      })
+    ),
+
+  ProductNumberIncrease: (id) =>
+    set(
+      produce((state) => {
+        state.addToBasket[id].NumberOfOrders += 1;
+      })
+    ),
+
+  ProductNumberDecrease: (id) =>
+    set(
+      produce((state) => {
+        if (state.addToBasket[id].NumberOfOrders > 1) {
+          state.addToBasket[id].NumberOfOrders -= 1;
+        }
+      })
+    ),
+  ProductRemove: (id) =>
+    set(
+      produce((state) => {
+        state.addToBasket.splice(id, 1);
+      })
+    ),
+
   makeNavGoDown: false,
   setMakeNavGoDown: (bool) => set(() => ({ makeNavGoDown: bool })),
   toggleLoginMenu: false,
   setToggleLoginMenu: (bool) => set(() => ({ toggleLoginMenu: bool })),
-
-  // drawerIsClosed: false,
-  // drawerIsOpen: false,
-  // setDrawerIsOpen: (bool) => set(() => ({ drawerIsOpen: bool })),
-  // setDrawerIsClose: (bool) => set(() => ({ drawerIsClose: bool })),
 }));

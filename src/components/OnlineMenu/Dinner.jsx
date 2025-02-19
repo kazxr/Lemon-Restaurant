@@ -2,7 +2,7 @@ import Main from "./MainFunction"
 
 function Dinner() {
   return (
-    <Main Type="dinner"/>
+    <Main Type="dinner" x0={0} y0={6}/>
   )
 }
 

@@ -3,12 +3,10 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import { useAddToBasket } from "../../store/GlobalStates";
 import Drawer from "./Drawer";
 function Basket() {
-  const toggleDrawerBool = useAddToBasket((state) => state.toggleDrawerBool);
   const SetToggleDrawer = useAddToBasket((state) => state.setToggleDrawer);
 
   let BasketClick = () => {
     SetToggleDrawer(true);
-    console.log(toggleDrawerBool);
   };
   const addToBasket = useAddToBasket((state) => state.addToBasket);
   return (
@@ -20,7 +18,7 @@ function Basket() {
         <Badge badgeContent={addToBasket.length} max={99} color="success">
           <ShoppingBasketOutlinedIcon
             fontSize="large"
-            className=" text-greenPrimary  "
+            className=" text-greenPrimary"
           />
         </Badge>
       </div>

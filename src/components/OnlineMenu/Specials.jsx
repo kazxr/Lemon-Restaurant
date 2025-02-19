@@ -3,7 +3,7 @@ import Main from "./MainFunction"
 
 function Specials() {
   return (
-        <Main Type="special"/>
+        <Main Type="special" x0={0} y0={3}/>
 
   )
 }
