@@ -150,10 +150,9 @@ function Header() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      
       if (
-        formik.values.firstName &&
-        formik.values.lastName
+        (formik.values.firstName && formik.values.lastName) ||
+        (localStorage.getItem("firstName") && localStorage.getItem("lastName"))
       ) {
         for (let val in values) {
           localStorage.setItem(val, values[val]);

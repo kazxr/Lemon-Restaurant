@@ -14,18 +14,25 @@ function Card({ data }) {
   );
 
   const AddToBasketHandler = () => {
-    console.log(data);
     setMakeNavGoDown(true);
+    let newData = data;
     if (loginChecker) {
       let x = false;
       addToBasket.forEach((val) => {
         if (val.title === data.title) {
           x = true;
           setToggleDrawer(true);
+          // this to make last card glow after drawer is open
+          newData.active = true;
+          
+          setAddToBasket(newData);
+          setTimeout(() => {
+            setAddToBasket(newData,"delete");
+          }, 1500);
         }
       });
       if (!x) {
-        setAddToBasket(data);
+        setAddToBasket(newData);
         setTimeout(() => {
           handleClick();
         }, 250);
@@ -61,7 +68,7 @@ function Card({ data }) {
           src={data.image}
           loading="lazy"
           alt=""
-          className="w-full rounded-t-md xl:h-[220px] lg:h-[200px] md:h-[180px] sm:h-[150px] object-fill  "
+          className="w-full rounded-t-md xl:h-[220px] lg:h-[200px] md:h-[180px] sm:h-[150px] object-cover  "
         />
         <div className="flex justify-between items-end mt-3 px-3  ">
           <h1 className="font-markazi card-title">{data.title}</h1>

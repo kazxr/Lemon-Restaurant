@@ -3,7 +3,7 @@ import motor from "../assets/motor.svg";
 function Card(data) {
   const navigate = useNavigate();
   let handler = () => {
-    navigate("/OnlineMenu");
+    navigate("/OnlineMenu/Specials");
   };
   let style =
     "  card-phone-size card-size pb-4 rounded-md bg-graySecondary cursor-pointer hover:ring-2 hover:ring-orangeSecondary bg-graySecondary cursor-pointer ";
@@ -20,7 +20,7 @@ function Card(data) {
         loading="lazy"
           src={data.img}
           alt=""
-          className="w-full card-img-size object-fill "
+          className="w-full card-img-size object-cover "
         />
         <div className="flex justify-between items-end mt-3 px-3  ">
           <h1 className="font-markazi card-title">{data.title}</h1>

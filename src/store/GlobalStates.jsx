@@ -8,13 +8,27 @@ export const useAddToBasket = create((set) => ({
   setToggleDrawer: (bool) => set(() => ({ toggleDrawerBool: bool })),
 
   addToBasket: [],
-  setAddToBasket: (data) =>
-    set(
-      produce((state) => {
+  setAddToBasket: (data, str) =>
+  set(
+    produce((state) => {
+      let x = false;
+          state.addToBasket = state.addToBasket.map((val) => {
+
+        if (val.title === data.title) {
+          x = true;
+          return str
+            ? { ...val, active: false }
+            : { ...val, active: true };
+        }
+        return val; 
+      });
+
+      if (!x) {
         const newData = { ...data, NumberOfOrders: 1 };
-        state.addToBasket = [...state.addToBasket, newData];
-      })
-    ),
+        state.addToBasket.push(newData);
+      }
+    })
+  ),
 
   ProductNumberIncrease: (id) =>
     set(
@@ -44,7 +58,7 @@ export const useAddToBasket = create((set) => ({
       produce((state) => {
         const Result = state.addToBasket.reduce((prev, current) => {
           return prev + current.price * current.NumberOfOrders;
-        },0);
+        }, 0);
         state.FinalPrice = Result.toFixed(2);
       })
     ),

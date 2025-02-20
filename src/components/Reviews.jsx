@@ -68,7 +68,7 @@ function Reviews() {
           onClick={handlerLeft}
           className=" flex items-center w-[150px] h-[300px] cursor-pointer  hover:bg-gray-200/30 rounded-sm  img-R-L-hover"
         >
-          <img src={left} alt="" className="w-32 sm:min-w-12 " />
+          <img src={left} alt="" className="w-32 sm:min-w-12 object-cover" />
         </div>
         <div className=" py-20 px-4   flex  overflow-x-scroll scrollContainer ">
           {data.map((d, i) => {

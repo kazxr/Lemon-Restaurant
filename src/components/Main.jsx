@@ -23,7 +23,7 @@ function Main() {
             traditional recipes served with a modern twist.
           </p>
           <NavLink to="/Reserve" >
-            <Button className="primary-btn xl:!text-[1.15rem] ">Reserve a Table</Button>
+            <Button className="primary-btn xl:!text-[1.15rem] ">Reserve Now</Button>
           </NavLink>
         </div>
         <div className="" onClick={handler}>

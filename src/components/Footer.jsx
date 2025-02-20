@@ -79,14 +79,14 @@ function Footer() {
               <img
                 src={linkdin}
                 alt=""
-                className="xl:w-9 lg:w-9 md:w-8 sm:w-7 xl:h-9 lg:h-9 md:h-8 sm:h-7"
+                className="xl:w-9 lg:w-9 md:w-8 sm:w-7 xl:h-9 lg:h-9 md:h-8 sm:h-7 object-cover"
               />
             </a>
             <a href="#footer">
               <img
                 src={x}
                 alt=""
-                className="xl:w-9 lg:w-9 md:w-8 sm:w-7 xl:h-9 lg:h-9 md:h-8 sm:h-7"
+                className="xl:w-9 lg:w-9 md:w-8 sm:w-7 xl:h-9 lg:h-9 md:h-8 sm:h-7 object-cover"
               />
             </a>
           </div>

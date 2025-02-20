@@ -1,5 +1,5 @@
 import Drawer from "@mui/material/Drawer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAddToBasket } from "../../store/GlobalStates";
 import Xicon from "@mui/icons-material/Close";
 import MinusIcon from "@mui/icons-material/Remove";
@@ -34,6 +34,19 @@ export default function TemporaryDrawer() {
   useEffect(() => {
     setOpen(toggleDrawerBool);
 
+    // this will allow cards drawer container scroll
+    // to the card that added twice to drawer;
+    if (toggleDrawerBool) {
+      setTimeout(() => {
+        
+        if(drawerRef){
+          drawerRef.current.scrollIntoView({ block: "center" });
+        }
+      }, 50);
+    }
+
+    // this one to make drawer has no scroll,
+    // and only the card conatiner will have it;
     if (toggleDrawerBool) {
       const style = document.createElement("style");
       style.innerHTML = `
@@ -62,8 +75,10 @@ export default function TemporaryDrawer() {
     ProductRemove(id);
   };
 
+  const drawerRef = useRef(null);
+
   return (
-    <div className="m-0 p-0 block">
+    <div className="m-0 p-0 block ">
       <Drawer
         open={open}
         anchor="right"
@@ -76,7 +91,7 @@ export default function TemporaryDrawer() {
 
         <div
           id="drawerCardsParent"
-          className="lg:w-[550px] md:w-[350px] sm:w-[250px] overflow-y-scroll overflow-x-hidden flex-grow  flex items-center flex-col"
+          className=" lg:w-[550px] md:w-[350px] sm:w-[250px] overflow-y-scroll overflow-x-hidden flex-grow  flex items-center flex-col"
         >
           {addToBasket.length == 0 ? (
             <h1 className=" !w-[500px]  xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl text-gray-400 mt-[45vh] text-center items-center ">
@@ -86,12 +101,18 @@ export default function TemporaryDrawer() {
             addToBasket.map((data, i) => {
               return (
                 <div
-                  key={data.id}
+                  key={i}
+                  ref={data.active ? drawerRef : null}
                   id="drawerCards"
-                  className=" border-greenPrimary mx-2 my-5  rounded-md   lg:w-[500px] md:w-[300px] sm:w-[200px]  w-full  relative
-                     grid lg:grid-rows-[45px_45px_45px] lg:grid-cols-[1.5fr_1fr_1fr_1fr] 
-                     md:grid-rows-[240px_1fr_50px_1fr] md:grid-cols-[1fr_1fr]  sm:grid-rows-[150px_1fr_50px_1fr] sm:grid-cols-[1fr_1fr] 
-                     "
+                  className={
+                    "border-greenPrimary mx-2 my-5  rounded-md   lg:w-[500px] md:w-[300px] sm:w-[200px]  w-full  relative" +
+                    " grid lg:grid-rows-[45px_45px_45px] lg:grid-cols-[1.5fr_1fr_1fr_1fr] " +
+                    " md:grid-rows-[240px_1fr_50px_1fr] md:grid-cols-[1fr_1fr]  sm:grid-rows-[150px_1fr_50px_1fr] sm:grid-cols-[1fr_1fr] " +
+                    (data.active
+                      ? " !ring-2 !ring-orangeSecondary"
+                      : "")
+                  }
+
                 >
                   <Xicon
                     onClick={() => handleDelete(i)}
@@ -114,27 +135,28 @@ export default function TemporaryDrawer() {
 
                   <div
                     className="lg:row-[2/3] lg:col-[2/5] w-full lg:-mt-3 
-                      sm:row-[3/4] sm:col-[1/3] lg:m-0 lg:!ml-3  sm:mb-3"
+                      sm:row-[3/4] sm:col-[1/3] lg:m-0  sm:mb-3"
                   >
-                    <p className="text-drawerP text-greenPrimary sm:mx-3 lg:mx-0 ; ">
-                      {data.description.slice(0, 40) + "..."}
+                    <p className="text-drawerP text-greenPrimary sm:mx-3 lg:mr-3; ">
+                      {data.description.slice(0, 33) + "..."}
                     </p>
                   </div>
 
                   <div
                     className=" text-drawerX flex   lg:row-[3/4] lg:col-[2/3]    
                       sm:row-[4/5] sm:col-[1/3]  lg:m-0 sm:mx-3 sm:mb-3  sm:self-center
-                       font-karla text-orangeSecondary lg:!ml-3"
+                       font-karla text-orangeSecondary lg:!ml-3 lg:mb-3"
                   >
                     <p>${(data.price * data.NumberOfOrders).toFixed(2)}</p>
                   </div>
 
-                  <div className="flex items-center text-center lg:row-[3/4] lg:col-[3/5] sm:row-[4/5] sm:col-[2/3] space-x-1 text-greenPrimary sm:justify-self-end sm:mr-2 sm:mb-3 ">
+                  <div className="flex items-center text-center lg:row-[3/4] lg:col-[3/5] sm:row-[4/5] sm:col-[2/3] space-x-1 text-greenPrimary sm:justify-self-end sm:mr-2 sm:mb-3  ">
                     <MinusIcon
                       onClick={() => handleDecrease(i)}
                       className="bg-greenPrimary/20 hover:bg-greenPrimary/40 p-1  lg:!text-[1.9rem] md:!text-[1.9rem]   sm:!text-[1.85rem] !text-drawerHeader cursor-pointer rounded-md"
                     />
-                    <p className="text-[1.2rem] text-drawerHeader md:mb-[3px] font-semibold  w-[40px]  ">
+                    <p className={"text-[1.2rem] text-drawerHeader md:mb-[3px] font-semibold  w-[40px]  "+ 
+                      (data.active ?"!text-red-600":"")}>                     
                       {data.NumberOfOrders}
                     </p>
                     <PlusIcon
@@ -161,3 +183,7 @@ export default function TemporaryDrawer() {
     </div>
   );
 }
+
+
+
+
