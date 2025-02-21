@@ -100,10 +100,12 @@ function UserProfile() {
           aria-expanded={open ? "true" : undefined}
         >
           <Avatar sx={{ width: 32, height: 32 }} className="!bg-greenPrimary">
-            {localStorage
-              .getItem("firstName")
-              .match(/\w{1}/)[0]
-              .toLocaleUpperCase()}
+            {localStorage.getItem("firstName")
+              ? localStorage
+                  .getItem("firstName")
+                  .match(/\w{1}/)?.[0]
+                  .toLocaleUpperCase()
+              : localStorage.removeItem(true)}
           </Avatar>
         </IconButton>
       </Tooltip>
@@ -168,21 +170,23 @@ function UserProfile() {
                 </div>
                 {!imgLocalS ? (
                   <Avatar className="!p-0 !m-0 lg:!w-32 lg:!h-32 sm:!w-24 sm:!h-24 !text-4xl ">
-                    {localStorage
-                      .getItem("firstName")
-                      .match(/\w{1}/)[0]
-                      .toLocaleUpperCase()}
+                    {localStorage.getItem("firstName")
+                      ? localStorage
+                          .getItem("firstName")
+                          .match(/\w{1}/)?.[0]
+                          .toLocaleUpperCase()
+                      : localStorage.removeItem(true)}
                   </Avatar>
                 ) : (
                   <img
                     id="imgLocalStorage"
                     src={imgSrc}
-                    className=" w-24 h-24 rounded-full !object-scale-down "
+                    className=" lg:w-32 lg:h-32 lg:sm:w-24 sm:w-28 sm:h-28  rounded-full !object-cover "
                   ></img>
                 )}
               </div>
             </MenuItem>
-            <div className="flex justify-center text-center  mt-3 mb-5 text-greenPrimary font-karla   ">
+            <div className="flex justify-center text-center  mt-3 mb-3 text-greenPrimary font-karla   ">
               <p className="mr-2 text-black">Full Name:</p>
               {` ${localStorage.getItem("firstName")} ${localStorage.getItem(
                 "lastName"

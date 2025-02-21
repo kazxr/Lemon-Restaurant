@@ -1,6 +1,6 @@
 import Logo from "../assets/Logo.svg";
 import minilogo from "../assets/mini-logo.png";
-
+import Snackbar from "@mui/material/Snackbar";
 import HamMenu from "../assets/hambergerMenu.svg";
 import hamMenuCloser from "../assets/Xicon.svg";
 import { useEffect, useRef, useState } from "react";
@@ -29,6 +29,7 @@ import { useFormik } from "formik";
 import { useAddToBasket } from "../store/GlobalStates";
 import UserProfile from "./OnlineMenu/UserProfile";
 import Basket from "./CheckOut/Basket";
+
 function Header() {
   // this to trigger Login or sign Up from;
   let [login, setLogin] = useState(true);
@@ -182,6 +183,15 @@ function Header() {
     },
   });
 
+  useEffect(() => {
+    const x = localStorage.getItem("firstName") || "";
+    const y = localStorage.getItem("lastName") || "";
+    if (!login) {
+      formik.setFieldValue("firstName", x, false);
+      formik.setFieldValue("lastName", y, false);
+    }
+  }, [login]);
+
   const theme = createTheme({
     components: {
       MuiTextField: {
@@ -281,6 +291,31 @@ function Header() {
 
     return () => window.removeEventListener("resize", handleResize); // Cleanup
   }, []);
+
+  //alert
+  const CheckoutCompleted = useAddToBasket((state) => state.CheckoutCompleted);
+  const setCheckoutCompleted = useAddToBasket(
+    (state) => state.setCheckoutCompleted
+  );
+  useEffect(() => {
+    if (CheckoutCompleted) {
+      handleClickSnack();
+      setCheckoutCompleted(false);
+    }
+  }, [CheckoutCompleted]);
+  const [openSnack, setOpenSnack] = useState(false);
+
+  const handleClickSnack = () => {
+    setOpenSnack(true);
+  };
+
+  const handleCloseSnack = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSnack(false);
+  };
   return (
     <>
       <header
@@ -418,12 +453,10 @@ function Header() {
         </DialogTitle>
         <DialogContent>
           <form noValidate autoComplete="off" onSubmit={formik.handleSubmit}>
-            <DialogContentText className="!mb-5 text-center !text-black ">
-              <div className="text-greenPrimary ml-[3px] mb-5 ">
-                {login
-                  ? "To add items to Basket you need to Login"
-                  : "To add items to Basket you need to Sign Up:"}
-              </div>
+            <DialogContentText className="!mb-5 !text-greenPrimary !ml-[3px] text-center ">
+              {login
+                ? "To add items to Basket you need to Login"
+                : "To add items to Basket you need to Sign Up:"}
             </DialogContentText>
 
             <ThemeProvider theme={theme}>
@@ -438,8 +471,12 @@ function Header() {
                     variant="outlined"
                     onChange={formik.handleChange}
                     value={formik.values.firstName}
-                    error={!!formik.errors.firstName}
-                    helperText={formik.errors.firstName}
+                    error={
+                      formik.touched.firstName && !!formik.errors.firstName
+                    }
+                    helperText={
+                      formik.errors.firstName ? formik.errors.firstName : ""
+                    }
                   />
                   <TextField
                     margin="dense"
@@ -450,8 +487,10 @@ function Header() {
                     variant="outlined"
                     onChange={formik.handleChange}
                     value={formik.values.lastName}
-                    error={!!formik.errors.lastName}
-                    helperText={formik.errors.lastName}
+                    error={formik.touched.lastName && !!formik.errors.lastName}
+                    helperText={
+                      formik.errors.lastName ? formik.errors.lastName : ""
+                    }
                   />
                 </div>
               ) : (
@@ -567,6 +606,23 @@ function Header() {
           </form>
         </DialogContent>
       </Dialog>
+      <Snackbar
+        open={openSnack}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        autoHideDuration={6000}
+        onClose={handleCloseSnack}
+      >
+        <Alert
+          onClose={handleCloseSnack}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          Your orders will be delivered as soon as possible
+        </Alert>
+      </Snackbar>
     </>
   );
 }

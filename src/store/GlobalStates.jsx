@@ -8,6 +8,7 @@ export const useAddToBasket = create((set) => ({
   setToggleDrawer: (bool) => set(() => ({ toggleDrawerBool: bool })),
 
   addToBasket: [],
+  ClearBasket : ()=>set(()=>({addToBasket:[]})),
   setAddToBasket: (data, str) =>
   set(
     produce((state) => {
@@ -62,6 +63,11 @@ export const useAddToBasket = create((set) => ({
         state.FinalPrice = Result.toFixed(2);
       })
     ),
+
+    ThisToTakeLocationLongAndAlt:"",
+    setTakeLocationLongAndAlt: (Location)=>set(()=>({ThisToTakeLocationLongAndAlt:Location})),
+    CheckoutCompleted : false,
+    setCheckoutCompleted: (Location)=>set(()=>({CheckoutCompleted:Location})),
 
   makeNavGoDown: false,
   setMakeNavGoDown: (bool) => set(() => ({ makeNavGoDown: bool })),

@@ -51,7 +51,6 @@ function AboutPage() {
       for (let key in obj) {
         sessionStorage.setItem(key, obj[key]);
       }
-
       navigate("userDetails");
     },
   });

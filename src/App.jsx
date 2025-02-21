@@ -15,6 +15,8 @@ import Dinner from "./components/OnlineMenu/Dinner";
 import BreakFast from "./components/OnlineMenu/BreakFast";
 import Specials from "./components/OnlineMenu/Specials";
 import MainLayout from "./pages/RootLayoutPage";
+import CheckOut from "./components/CheckOut/CheckoutPage";
+import CheckOutRoot from './pages/CheckoutPage'
 import {
   Route,
   createBrowserRouter,
@@ -49,10 +51,10 @@ function App() {
           <Route path="Dinner" element={<Dinner />} />
           <Route path="Specials" element={<Specials />} />
         </Route>
+        <Route path="CheckOut" element={<CheckOutRoot/>}>
+          <Route index element={<CheckOut />} />
+        </Route>
       </Route>
-      
-      
-      
     )
   );
 
