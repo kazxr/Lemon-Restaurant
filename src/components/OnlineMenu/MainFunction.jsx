@@ -1,4 +1,5 @@
 import data from "../../API/dishes.json";
+import { useAddToBasket } from "../../store/GlobalStates.jsx";
 import Card from "./Dishes-Cards.jsx";
 import Pagination from "@mui/material/Pagination";
 import { useState, useEffect, useRef } from "react";
@@ -24,7 +25,6 @@ function MainOnlineMenuFunc({ Type, x0, y0 }) {
       e.target.ariaLabel === "Go to previous page"
     ) {
       if (memorizeLastNum.current > 1) {
-
         setVal(memorizeLastNum.current - 1);
         memorizeLastNum.current -= 1;
       }
@@ -39,7 +39,6 @@ function MainOnlineMenuFunc({ Type, x0, y0 }) {
       top: 0,
     });
   };
-
   useEffect(() => {
     if (val == 1) {
       setX(x0);
@@ -53,13 +52,33 @@ function MainOnlineMenuFunc({ Type, x0, y0 }) {
     }
   }, [val]);
 
+  let pagination = useRef(null);
   let lunchData = data[Type] || [];
-  let count = Math.ceil(lunchData.length / y0);
+  let [newData, setNewData] = useState(lunchData);
+  const searchInput = useAddToBasket((state) => state.searchInput);
+  let [count, SetCount] = useState(Math.ceil(newData.length / y0));
+  useEffect(() => {
+    if (searchInput) {
+      pagination.current.children[0].children[1].children[0].click();
+      const arr = lunchData.filter((obj) => {
+        let regex = new RegExp(searchInput, "ig");
+        return regex.test(obj.title);
+      });
+      setNewData(arr);
+      SetCount(Math.ceil(arr.length / y0));
+    } else {
+      setNewData(() => {
+        SetCount(Math.ceil(lunchData.length / y0));
+        return lunchData;
+      });
+    }
+  }, [searchInput]);
+ 
   return (
     <main className="  py-3">
       <section className="max-w-[1300px]  mx-auto">
         <div className="flex flex-wrap mx-5 justify-evenly items-center">
-          {lunchData.slice(x, y).map((values, i) => {
+          {newData.slice(x,y).map((values, i) => {
             return <Card key={i} data={values} />;
           })}
         </div>
@@ -69,6 +88,7 @@ function MainOnlineMenuFunc({ Type, x0, y0 }) {
             size="large"
             onChange={handler}
             value={val}
+            ref={pagination}
           />
         </div>
       </section>

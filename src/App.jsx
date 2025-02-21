@@ -1,5 +1,5 @@
 // import Header from "./components/Header";
-import Main from "./components/Main";
+import Main from "./components/MainComponent";
 import Cards from "./components/Cards";
 import Reviews from "./components/Reviews";
 import Footer from "./components/Footer";

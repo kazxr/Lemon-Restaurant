@@ -9,7 +9,7 @@ function Main() {
   let handler = ()=>{
     setToggleLoginMenu(true)
   }
-
+ 
   return (
     <section id="home" className="pt-[150px] pb-14 w-full bg-greenPrimary">
       <div className="w-full max-w-[1240px] mx-auto flex-desktop xl:px-1 px-5">
@@ -26,7 +26,7 @@ function Main() {
             <Button className="primary-btn xl:!text-[1.15rem] ">Reserve Now</Button>
           </NavLink>
         </div>
-        <div className="" onClick={handler}>
+        <div className="" onClick={handler} >
           <img src={heroImg0} alt="" className="img-width-hero" />
         </div>
       </div>

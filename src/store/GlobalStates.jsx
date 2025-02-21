@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { produce } from "immer";
+import { Search } from "@mui/icons-material";
 
 export const useAddToBasket = create((set) => ({
   loginChecker: JSON.parse(localStorage.getItem("UserProfile")) || false,
@@ -73,4 +74,9 @@ export const useAddToBasket = create((set) => ({
   setMakeNavGoDown: (bool) => set(() => ({ makeNavGoDown: bool })),
   toggleLoginMenu: false,
   setToggleLoginMenu: (bool) => set(() => ({ toggleLoginMenu: bool })),
+
+
+  searchInput: "",
+  setSearchInput: (value) => set(() => ({ searchInput: value })),
+   ClearSearchInput: () => set(() => ({ searchInput: "" })),
 }));

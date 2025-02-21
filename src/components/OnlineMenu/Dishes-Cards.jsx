@@ -62,7 +62,7 @@ function Card({ data }) {
         id={"card" + data.id}
         className="Card xl:w-[300px] lg:w-[300px]  md:w-[290px]   sm:w-[230px] 
         
-            mb-20 mt-5 mx-2 pb-4 rounded-md bg-graySecondary  hover:ring-2 hover:ring-orangeSecondary  "
+            mb-20 mt-5 mx-2 pb-4 rounded-md !bg-graySecondary  hover:ring-2 hover:ring-orangeSecondary  "
       >
         <img
           src={data.image}
@@ -85,7 +85,7 @@ function Card({ data }) {
           </div>
           <div
             onClick={AddToBasketHandler}
-            className=" text-center hover:bg-yellowPrimary  p-1 px-2 rounded-lg cursor-pointer
+            className="  text-center hover:bg-yellowPrimary  p-1 px-2 rounded-lg cursor-pointer
           lg:text-[1rem] sm:text-[0.8rem]
           "
           >
