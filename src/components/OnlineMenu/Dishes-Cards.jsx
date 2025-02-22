@@ -56,11 +56,21 @@ function Card({ data }) {
     setOpen(false);
   };
 
+  let [MouseIN,SetMouseIN]=useState(false)
+  let MouseINHandler = ()=>{
+    SetMouseIN(true)
+  }
+  let MouseLeaveHandler = ()=>{
+    SetMouseIN(false)
+  }
+
   return (
     <>
       <div
         id={"card" + data.id}
-        className="Card xl:w-[300px] lg:w-[300px]  md:w-[290px]   sm:w-[230px] 
+        onMouseEnter={MouseINHandler}
+        onMouseLeave={MouseLeaveHandler}
+        className=" Card xl:w-[300px] lg:w-[300px] cursor-default md:w-[290px]   sm:w-[230px] 
         
             mb-20 mt-5 mx-2 pb-4 rounded-md !bg-graySecondary  hover:ring-2 hover:ring-orangeSecondary  "
       >
@@ -84,12 +94,12 @@ function Card({ data }) {
             <h1 className="mr-2 text-yellow-500 text-2xl">{data.rating}</h1>
           </div>
           <div
+          
             onClick={AddToBasketHandler}
-            className="  text-center hover:bg-yellowPrimary  p-1 px-2 rounded-lg cursor-pointer
-          lg:text-[1rem] sm:text-[0.8rem]
-          "
+            className={" cursor-pointer  text-center hover:bg-yellowPrimary  p-1 px-2 rounded-lg cursor-pointer"+
+          "lg:text-[1rem] sm:text-[0.8rem] "+(MouseIN?"bg-slate-50":"") }
           >
-            <img src={basket} alt="" className="lg:w-10 sm:w-10 text-center" />
+            <img src={basket} alt="" className="lg:w-10 sm:w-10 text-center " />
           </div>
         </div>
       </div>

@@ -189,13 +189,14 @@
       "rating": "★★★☆☆"
     },
     {
-      "id": 4,
-      "title": "Sushi Roll",
-      "description": "Fresh fish rolled in rice and seaweed with soy sauce. A delicious and satisfying choice for your meal.",
-      "price": 15.99,
-      "image": "../src/API/DishesImgs/Sushi-Roll.webp",
-      "rating": "★★★★★"
+      "id": 10,
+      "title": "Miso Soup",
+      "description": "Soybean paste soup with tofu and seaweed. A delicious and satisfying choice for your meal.",
+      "price": 9.5,
+      "image": "../src/API/DishesImgs/Miso-Soup.webp",
+      "rating": "★★★☆☆"
     },
+
     {
       "id": 5,
       "title": "Steak Sandwich",
@@ -238,14 +239,7 @@
       "image": "../src/API/DishesImgs/ChickenWrap.webp",
       "rating": "★★★★☆"
     },
-    {
-      "id": 10,
-      "title": "Miso Soup",
-      "description": "Soybean paste soup with tofu and seaweed. A delicious and satisfying choice for your meal.",
-      "price": 9.5,
-      "image": "../src/API/DishesImgs/Miso-Soup.webp",
-      "rating": "★★★☆☆"
-    },
+
     {
       "id": 11,
       "title": "Falafel Wrap",
@@ -308,6 +302,14 @@
       "description": "Mixed grains with roasted veggies and tahini. A delicious and satisfying choice for your meal.",
       "price": 13.25,
       "image": "../src/API/DishesImgs/Vegan-Bowl.webp",
+      "rating": "★★★★★"
+    },
+    {
+      "id": 4,
+      "title": "Sushi Roll",
+      "description": "Fresh fish rolled in rice and seaweed with soy sauce. A delicious and satisfying choice for your meal.",
+      "price": 15.99,
+      "image": "../src/API/DishesImgs/Sushi-Roll.webp",
       "rating": "★★★★★"
     },
     {

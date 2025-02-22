@@ -386,7 +386,7 @@ body {
   );
   height: 800px;
   width: 100px;
-  transform: translate(100px, -310px) rotate(-60deg);
+  transform: translate(100px, -310px) rotate(-65deg);
   transition: 1s ease-in-out;
   top: -40%;
   left: 100%;
@@ -405,7 +405,7 @@ body {
   );
   opacity: 0.3;
   transition: 1s ease-in-out;
-  transform: rotate(-55deg);
+  transform: rotate(-60deg);
   top: 80%;
   left: -30%;
 }
