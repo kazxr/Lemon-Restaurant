@@ -110,7 +110,7 @@ body {
 
 .primary-btn {
   @apply !py-2 !px-3 !font-karla !text-black xl:!text-[1.2rem] lg:!text-[1.15rem] md:!text-[1.1rem] sm:!text-[0.75rem]  !bg-yellowPrimary !rounded-xl;
-  @apply  hover:!shadow-[0px_0px_3px_0px] hover:!shadow-yellowPrimary !text-nowrap;
+  @apply hover:!shadow-[0px_0px_3px_0px] hover:!shadow-yellowPrimary !text-nowrap;
 }
 
 .img-width-hero {
@@ -284,16 +284,15 @@ body {
 
 /*!         -------- form style */
 
-#submit-btn{
+#submit-btn {
   @apply w-[200px] p-2  mt-8 bg-yellowPrimary text-black hover:text-greenPrimary;
 }
 
-
 /* ------------calendar style */
 
-.MuiPickersDay-root, .MuiPickersDay-dayWithMargin {
+.MuiPickersDay-root,
+.MuiPickersDay-dayWithMargin {
   @apply hover:!bg-greenPrimary/40;
-
 }
 .Mui-selected {
   @apply !bg-greenPrimary/40;
@@ -302,78 +301,112 @@ body {
 .Mui-selected.MuiPickersDay-root {
   @apply !bg-greenPrimary/100;
 }
- 
-.MuiPickersDay-today{
-    @apply !bg-transparent !border-none;
+
+.MuiPickersDay-today {
+  @apply !bg-transparent !border-none;
 }
 
 /* ---------------------------------------------------------- */
 
-
-#submit-page p{
-  @apply  mr-3 text-greenPrimary font-bold;
+#submit-page p {
+  @apply mr-3 text-greenPrimary font-bold;
 }
-#submit-page div{
-  @apply  ml-5 justify-start w-full;
+#submit-page div {
+  @apply ml-5 justify-start w-full;
 }
 
 /* #submit-page {
   @apply font-karla lg:text-[1.2rem] sm:text-[1rem] text-greenPrimary ;
 } */
 
-
-
-
 #drawerCardsParent::-webkit-scrollbar {
   width: 8px;
 }
 
-
 #drawerCardsParent::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-  border-radius: 10px; 
+  background: #f1f1f1;
+  border-radius: 10px;
 }
 
-
 #drawerCardsParent::-webkit-scrollbar-thumb {
-  background: #8888888b; 
-  border-radius: 10px; 
+  background: #8888888b;
+  border-radius: 10px;
 }
 
 #drawerCardsParent::-webkit-scrollbar-thumb:hover {
   background: #888888;
 }
 
+/* drawer style  */
 
+.text-drawerHeader {
+  @apply xl:text-[1.3rem] lg:text-[1.2rem] md:text-[1.15rem] sm:text-[1.05rem];
+}
 
- /* drawer style  */
+.text-drawerP {
+  @apply xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem];
+}
+.text-drawerX {
+  @apply xl:text-[1.2rem] lg:text-[1.1rem] md:text-[1.05rem] sm:text-[.96rem];
+}
 
- .text-drawerHeader{
-  @apply xl:text-[1.3rem] lg:text-[1.2rem] md:text-[1.15rem] sm:text-[1.05rem]
- }
-
- .text-drawerP{
-  @apply xl:text-[1.1rem] lg:text-[1.05rem] md:text-[0.9rem] sm:text-[0.8rem]
- }
- .text-drawerX{
-  @apply xl:text-[1.2rem] lg:text-[1.1rem] md:text-[1.05rem] sm:text-[.96rem]
- }
-
-
- /* // drawer Cards  */
- #drawerCards{
-  background-color:white;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+/* // drawer Cards  */
+#drawerCards {
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 /* tooltip */
-.css-1eex93v-MuiTooltip-tooltip{
- @apply !bg-white ;
+.css-1eex93v-MuiTooltip-tooltip {
+  @apply !bg-white;
 }
 /* tooltip arrow */
-.MuiTooltip-arrow.css-iglfhh-MuiTooltip-arrow{
-   @apply !text-white ;
+.MuiTooltip-arrow.css-iglfhh-MuiTooltip-arrow {
+  @apply !text-white;
 }
 
+/* // this for hero section main page img */
+#parentIBKJV:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+#parentIBKJV {
+   transition: 0.3s;
+}
 
-/* // this for Menu Cards  */
+#parentIBKJV:hover::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    to top,
+    transparent,
+    transparent 30%,
+    rgb(255, 255, 255)
+  );
+  height: 800px;
+  width: 100px;
+  transform: translate(100px, -310px) rotate(-60deg);
+  transition: 1s ease-in-out;
+  top: -40%;
+  left: 100%;
+  opacity: 0.3;
+}
+#parentIBKJV::after {
+  content: "";
+  position: absolute;
+  height: 800px;
+  width: 100px;
+  background: linear-gradient(
+    to top,
+    transparent,
+    transparent 30%,
+    rgb(255, 255, 255)
+  );
+  opacity: 0.3;
+  transition: 1s ease-in-out;
+  transform: rotate(-55deg);
+  top: 80%;
+  left: -30%;
+}
+
