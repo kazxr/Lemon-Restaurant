@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 function ReservationCongrat() {
-  let [counter, setCounter] = useState(10);
+  let [counter, setCounter] = useState(5);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function ReservationCongrat() {
       </section>
       <Snackbar
         open={open}
-        autoHideDuration={1000}
+        autoHideDuration={1500}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         onClose={handleClose}
       >

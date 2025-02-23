@@ -128,7 +128,7 @@ function AboutPage() {
 
   return (
     <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
-      <section className="max-w-[400px] mx-auto flex  justify-center py-5 rounded-lg ">
+      <section className="max-w-[500px] mx-auto flex  justify-center py-5 rounded-lg ">
         <form
           noValidate
           autoComplete="off"

@@ -25,8 +25,8 @@ function ReserveUserDetails() {
   }, []);
 
   const validationSchema = yup.object({
-    firstName: yup.string().required("Please type your First name"),
-    lastName: yup.string().required("Please type your Lirst name"),
+    firstName: yup.string().required("First name is Required"),
+    lastName: yup.string().required("Last name is Required"),
     phone: yup
       .string()
       .matches(
@@ -99,13 +99,13 @@ function ReserveUserDetails() {
   
   return (
     <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
-      <section className="max-w-[400px] mx-auto flex  justify-center py-5 rounded-lg ">
+      <section className="max-w-[500px] mx-auto flex  py-5 rounded-lg ">
         <form
           noValidate
           autoComplete="off"
           onSubmit={formik.handleSubmit}
           action=""
-          className="flex flex-col w-full sm:mx-5 relative form-style  p-10 pb-8 rounded-md bg-graySecondary "
+          className="flex flex-col  w-full sm:mx-5 relative form-style  p-10 pb-8 rounded-md bg-graySecondary "
         >
           {" "}
           <Link to="/Reserve/">
@@ -116,48 +116,48 @@ function ReserveUserDetails() {
             />
           </Link>
           <ProgressBar stepper={1} />
-          <div className="flex space-x-2 max-w-[350px] mt-14">
+          <div className="flex  space-x-5 max-w-[450px] mt-14">
             <ThemeProvider theme={theme}>
               <TextField
-                id="outlined-basic"
+                id="firstName"
                 label="First name"
                 variant="outlined"
                 {...formik.getFieldProps("firstName")}
                 error={Boolean(
                   formik.touched.firstName && formik.errors.firstName
                 )}
-                helperText={formik.errors.firstName}
+                helperText={formik.touched.firstName && formik.errors.firstName}
               />
               <TextField
-                id="outlined-basic"
+                id="lastName"
                 label="Last name"
                 variant="outlined"
                 {...formik.getFieldProps("lastName")}
                 error={Boolean(
                   formik.touched.lastName && formik.errors.lastName
                 )}
-                helperText={formik.errors.lastName}
+                helperText={formik.touched.lastName && formik.errors.lastName}
               />
             </ThemeProvider>
           </div>
           <ThemeProvider theme={theme}>
             <TextField
               className="!mt-5"
-              id="outlined-basic"
+              id="email"
               label="Email "
               variant="outlined"
               {...formik.getFieldProps("email")}
               error={Boolean(formik.touched.email && formik.errors.email)}
-              helperText={formik.errors.email}
+              helperText={formik.touched.email && formik.errors.email}
             />
             <TextField
               className="!mt-5"
-              id="outlined-basic"
+              id="phone"
               label="Phone number"
               variant="outlined"
               {...formik.getFieldProps("phone")}
               error={Boolean(formik.touched.phone && formik.errors.phone)}
-              helperText={<>{formik.errors.phone}</>}
+              helperText={formik.touched.phone && formik.errors.phone}
             />
             <TextField
               className="!mt-5"
@@ -176,7 +176,6 @@ function ReserveUserDetails() {
             id="submit-btn"
             type="submit"
             className="text-center self-center rounded-md cursor-pointer "
-            {...formik.getFieldProps("firstName")}
           >
             Submit your data
           </button>

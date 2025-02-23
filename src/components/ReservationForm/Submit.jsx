@@ -46,8 +46,8 @@ function ReserveSubmit() {
 
   return (
     <main className="w-full min-h-[100vh] lg:pt-[170px] sm:pt-[120px] bg-greenPrimary">
-      <section className="max-w-[400px] mx-auto flex  justify-center py-5 rounded-lg ">
-        <div className="flex flex-col w-full sm:mx-5 relative form-style  p-10 pb-8 rounded-md bg-graySecondary ">
+      <section className="max-w-[450px]  mx-auto flex  justify-center py-5 rounded-lg ">
+        <div className="flex flex-col   w-full sm:mx-5 relative form-style  p-10 pb-8 rounded-md bg-graySecondary ">
           <Link to="/Reserve/userDetails">
             <img
               src={xx}
@@ -57,13 +57,13 @@ function ReserveSubmit() {
           </Link>
           <ProgressBar stepper={2} />
 
-          <div className="mt-5 w-full">
+          <div className="mt-5 w-full ">
             <div
               id="submit-page"
               className="flex  flex-col items-center my-5 justify-center text-gray-900"
             >
               <hr className="border-t-2 mt-5  border-gray-300 w-full" />
-              <div className="flex mt-3  justify-center space-x-2 items-center">
+              <div className="flex mt-3   justify-center space-x-2 items-center">
                 <p>FullName:</p>
                 {sessionStorage.getItem("firstName") +
                   " " +

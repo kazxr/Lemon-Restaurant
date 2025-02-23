@@ -70,6 +70,8 @@ const MyMap = () => {
   // Handle geolocation updates
   const updateUserLocation = useCallback((coords) => {
     const newLocation = [coords.latitude, coords.longitude];
+    setInputValue(newLocation);
+
     if (userMarkerRef.current) {
       userMarkerRef.current.setLatLng(newLocation);
     } else {
@@ -105,12 +107,12 @@ const MyMap = () => {
   }, [geolocationEnabled, updateUserLocation]);
 
   //this to pass location to Checkout form;
-  const setTakeLocationLongAndAlt= useAddToBasket(
-  (state) => state.setTakeLocationLongAndAlt
+  const setTakeLocationLongAndAlt = useAddToBasket(
+    (state) => state.setTakeLocationLongAndAlt
   );
-  useEffect(()=>{
- setTakeLocationLongAndAlt(inputValue)
-  },[inputValue])
+  useEffect(() => {
+    setTakeLocationLongAndAlt(inputValue);
+  }, [inputValue, setTakeLocationLongAndAlt]);
 
   return (
     <div className="w-full h-96 relative rounded-lg z-10 overflow-hidden shadow-lg">

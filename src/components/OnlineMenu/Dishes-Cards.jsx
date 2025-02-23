@@ -96,7 +96,7 @@ function Card({ data }) {
           <div
           
             onClick={AddToBasketHandler}
-            className={" cursor-pointer  text-center hover:bg-yellowPrimary  p-1 px-2 rounded-lg cursor-pointer"+
+            className={" cursor-pointer  text-center hover:bg-yellowPrimary  p-1 px-2 rounded-lg cursor-pointer "+
           "lg:text-[1rem] sm:text-[0.8rem] "+(MouseIN?"bg-slate-50":"") }
           >
             <img src={basket} alt="" className="lg:w-10 sm:w-10 text-center " />
