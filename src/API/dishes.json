@@ -482,7 +482,7 @@
     {
       "id": 0,
       "description": " Crisp lettuce, peppers, olives, feta, garlic, and croutons. A fresh, flavorful classic ",
-      "image": "../src/assets/salad0.png",
+      "image": "../src/assets/salad0.webp",
       "title": "Greek Salad",
       "price": 12.99,
       "rating": "★★★★★"
@@ -490,7 +490,7 @@
     {
       "id": 1,
       "description": "Grilled bread with garlic, salt, and olive oil. Simple yet delicious.",
-      "image": "../src/assets/bruchetta.png",
+      "image": "../src/assets/bruchetta.webp",
       "title": "Bruchetta",
       "rating": "★★★★★",
       "price": 8.99
@@ -498,7 +498,7 @@
     {
       "id": 2,
       "description": " Grandma’s authentic recipe, made with the finest ingredients.",
-      "image": "../src/assets/lemondessert.jpg",
+      "image": "../src/assets/lemondessert.webp",
       "title": "Lemon Dessert",
       "price": 3.99,
       "rating": "★★★★★"
