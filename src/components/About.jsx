@@ -1,5 +1,5 @@
-import pic1 from "../assets/about1.png";
-import pic2 from "../assets/about-bg.png";
+import pic1 from "../assets/about1.webp";
+import pic2 from "../assets/about-bg.webp";
 import { useRef } from "react";
 
 function About() {
