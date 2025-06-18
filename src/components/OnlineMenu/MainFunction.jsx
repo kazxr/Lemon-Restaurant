@@ -82,7 +82,7 @@ function MainOnlineMenuFunc({ Type, x0, y0 }) {
             return <Card key={i} data={values} />;
           })}
         </div>
-        <div className="mb-10 mt-0 justify-self-center">
+        <div className="mb-10 mt-0 flex justify-center">
           <Pagination
             count={count}
             size="large"

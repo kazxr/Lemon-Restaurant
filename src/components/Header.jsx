@@ -89,7 +89,7 @@ function Header() {
   let headerElement = useRef(null);
   let ScrollHandler = () => {
     let currentVal = window.scrollY;
-    if (header.current < currentVal) {
+    if (header.current < currentVal && currentVal>100) {
       headerElement.current.classList.add("scrollHidden");
     } else {
       headerElement.current.classList.remove("scrollHidden");
@@ -321,7 +321,7 @@ function Header() {
       <header
         ref={headerElement}
         id="header"
-        className="w-full z-[100] font-markazi fixed hover:bg-slate-50 bg-white transition-all duration-300 ease-out"
+        className="w-full z-[990] font-markazi fixed hover:bg-slate-50 bg-white transition-all duration-300 ease-out"
       >
         <nav className="nav-container w-full max-w-[1260px] mx-auto flex-desktop nav-size">
           <div className="div-img py-6 px-3 flex-desktop lg:w-auto sm:w-full ">
@@ -347,7 +347,7 @@ function Header() {
               className="hidden-desktop cursor-pointer w-14 h-12 py-1 px-3 rounded-sm hover:bg-slate-100 duration-150 ease-in-out "
             />
           </div>
-          <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6">
+          <ul className="nav-ul hidden-phone-special lg:flex-desktop xl:space-x-6 lg:space-x-4 py-6 ">
             <li onClick={() => scrollIntoSection("home")}>
               <Link
                 className=" lg:px-[2px] lg:py-[5px] md:px-[100px] md:py-[10px] sm:px-[90px] sm:py-[10px]"
