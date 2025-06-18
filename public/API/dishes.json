@@ -1,11 +1,11 @@
 {
-  "breakfast": [
+ "breakfast": [
     {
       "id": 3,
       "title": "Matcha Latte",
       "description": "Frothy matcha with steamed almond milk. A delicious and satisfying choice for your meal.",
       "price": 7.0,
-      "image": "../src/API/DishesImgs/Matcha-Latte.webp",
+      "image": "/API/DishesImgs/Matcha-Latte.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -13,7 +13,7 @@
       "title": "Chia Pudding",
       "description": "Chia seeds soaked in coconut almond milk. A delicious and satisfying choice for your meal.",
       "price": 6.5,
-      "image": "../src/API/DishesImgs/Chia-Pudding.webp",
+      "image": "/API/DishesImgs/Chia-Pudding.webp",
       "rating": "★★★★☆"
     },
     {
@@ -21,7 +21,7 @@
       "title": "Banana Pancakes",
       "description": "Fluffy pancakes served with fresh bananas. A delicious and satisfying choice for your meal.",
       "price": 8.75,
-      "image": "../src/API/DishesImgs/Banana-Pancakes.webp",
+      "image": "/API/DishesImgs/Banana-Pancakes.webp",
       "rating": "★★★★★"
     },
     {
@@ -29,7 +29,7 @@
       "title": "Avocado Toast",
       "description": "Creamy avocado on crispy artisan bread. A delicious and satisfying choice for your meal.",
       "price": 9.99,
-      "image": "../src/API/DishesImgs/Avocado-Toast.webp",
+      "image": "/API/DishesImgs/Avocado-Toast.webp",
       "rating": "★★★★★"
     },
     {
@@ -37,7 +37,7 @@
       "title": "Acai Bowl",
       "description": "Blended acai topped with granola and fruit. A delicious and satisfying choice for your meal.",
       "price": 8.5,
-      "image": "../src/API/DishesImgs/Acai-Bowl.webp",
+      "image": "/API/DishesImgs/Acai-Bowl.webp",
       "rating": "★★★★☆"
     },
     {
@@ -45,16 +45,15 @@
       "title": "Egg Benedict",
       "description": "Poached eggs with creamy hollandaise sauce. A delicious and satisfying choice for your meal.",
       "price": 12.99,
-      "image": "../src/API/DishesImgs/Egg-Benedict.webp",
+      "image": "/API/DishesImgs/Egg-Benedict.webp",
       "rating": "★★★★★"
     },
-
     {
       "id": 6,
       "title": "Smoothie Bowl",
       "description": "Thick smoothie base with toppings galore. A delicious and satisfying choice for your meal.",
       "price": 9.5,
-      "image": "../src/API/DishesImgs/Smoothie-Bowl.webp",
+      "image": "/API/DishesImgs/Smoothie-Bowl.webp",
       "rating": "★★★★★"
     },
     {
@@ -62,7 +61,7 @@
       "title": "Oatmeal Bowl",
       "description": "Warm oatmeal topped with nuts and berries. A delicious and satisfying choice for your meal.",
       "price": 7.25,
-      "image": "../src/API/DishesImgs/Oatmeal-Bowl.webp",
+      "image": "/API/DishesImgs/Oatmeal-Bowl.webp",
       "rating": "★★★★☆"
     },
     {
@@ -70,7 +69,7 @@
       "title": "Bagel Sandwich",
       "description": "Toasted bagel with cream cheese and smoked salmon. A delicious and satisfying choice for your meal.",
       "price": 10.99,
-      "image": "../src/API/DishesImgs/Bagel-Sandwich.webp",
+      "image": "/API/DishesImgs/Bagel-Sandwich.webp",
       "rating": "★★★★★"
     },
     {
@@ -78,7 +77,7 @@
       "title": "Greek Yogurt",
       "description": "Thick yogurt with honey drizzle and nuts. A delicious and satisfying choice for your meal.",
       "price": 6.75,
-      "image": "../src/API/DishesImgs/Greek-Yogurt.webp",
+      "image": "/API/DishesImgs/Greek-Yogurt.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -86,7 +85,7 @@
       "title": "Breakfast Burrito",
       "description": "Scrambled eggs wrapped in warm tortilla. A delicious and satisfying choice for your meal.",
       "price": 11.5,
-      "image": "../src/API/DishesImgs/Breakfast-Burrito.webp",
+      "image": "/API/DishesImgs/Breakfast-Burrito.webp",
       "rating": "★★★★☆"
     },
     {
@@ -94,7 +93,7 @@
       "title": "Waffles",
       "description": "Crispy waffles with maple syrup and butter. A delicious and satisfying choice for your meal.",
       "price": 8.99,
-      "image": "../src/API/DishesImgs/Waffles.webp",
+      "image": "/API/DishesImgs/Waffles.webp",
       "rating": "★★★★★"
     },
     {
@@ -102,7 +101,7 @@
       "title": "French Toast",
       "description": "Golden toast served with powdered sugar. A delicious and satisfying choice for your meal.",
       "price": 9.25,
-      "image": "../src/API/DishesImgs/French-Toast.webp",
+      "image": "/API/DishesImgs/French-Toast.webp",
       "rating": "★★★★★"
     },
     {
@@ -110,7 +109,7 @@
       "title": "Quinoa Bowl",
       "description": "Quinoa mixed with veggies and tahini sauce. A delicious and satisfying choice for your meal.",
       "price": 10.0,
-      "image": "../src/API/DishesImgs/Quinoa-Bowl.webp",
+      "image": "/API/DishesImgs/Quinoa-Bowl.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -118,7 +117,7 @@
       "title": "Peanut Butter",
       "description": "Peanut butter spread on whole grain toast. A delicious and satisfying choice for your meal.",
       "price": 6.5,
-      "image": "../src/API/DishesImgs/Peanut-Butter.webp",
+      "image": "/API/DishesImgs/Peanut-Butter.webp",
       "rating": "★★★★☆"
     },
     {
@@ -126,7 +125,7 @@
       "title": "Granola Parfait",
       "description": "Yogurt layered with granola and fresh berries. A delicious and satisfying choice for your meal.",
       "price": 7.75,
-      "image": "../src/API/DishesImgs/Granola-Parfait.webp",
+      "image": "/API/DishesImgs/Granola-Parfait.webp",
       "rating": "★★★★★"
     },
     {
@@ -134,7 +133,7 @@
       "title": "Protein Shake",
       "description": "Shake made with protein powder and almond milk. A delicious and satisfying choice for your meal.",
       "price": 8.0,
-      "image": "../src/API/DishesImgs/Protein-Shake.webp",
+      "image": "/API/DishesImgs/Protein-Shake.webp",
       "rating": "★★★★☆"
     },
     {
@@ -142,7 +141,7 @@
       "title": "Vegan Pancakes",
       "description": "Fluffy pancakes made without any animal products. A delicious and satisfying choice for your meal.",
       "price": 9.0,
-      "image": "../src/API/DishesImgs/Vegan-Pancakes.webp",
+      "image": "/API/DishesImgs/Vegan-Pancakes.webp",
       "rating": "★★★★★"
     },
     {
@@ -150,7 +149,7 @@
       "title": "Tofu Scramble",
       "description": "Scrambled tofu with spices and fresh veggies. A delicious and satisfying choice for your meal.",
       "price": 10.5,
-      "image": "../src/API/DishesImgs/Tofu-Scramble.webp",
+      "image": "/API/DishesImgs/Tofu-Scramble.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -158,26 +157,25 @@
       "title": "Berry Smoothie",
       "description": "Blended berries with banana and almond milk. A delicious and satisfying choice for your meal.",
       "price": 7.5,
-      "image": "../src/API/DishesImgs/Berry-Smoothie.webp",
+      "image": "/API/DishesImgs/Berry-Smoothie.webp",
       "rating": "★★★★☆"
     }
   ],
-  "lunch": [
+   "lunch": [
     {
       "id": 0,
       "title": "Grilled Chicken",
       "description": "Juicy chicken breast served with greens. A delicious and satisfying choice for your meal.",
       "price": 14.99,
-      "image": "../src/API/DishesImgs/Grilled-Chicken.webp",
+      "image": "/API/DishesImgs/Grilled-Chicken.webp",
       "rating": "★★★★★"
     },
-
     {
       "id": 2,
       "title": "Beef Tacos",
       "description": "Spiced beef tacos with guacamole and cheese. A delicious and satisfying choice for your meal.",
       "price": 13.99,
-      "image": "../src/API/DishesImgs/Beef-Tacos.webp",
+      "image": "/API/DishesImgs/Beef-Tacos.webp",
       "rating": "★★★★★"
     },
     {
@@ -185,7 +183,7 @@
       "title": "Caesar Salad",
       "description": "Romaine lettuce with parmesan and croutons. A delicious and satisfying choice for your meal.",
       "price": 12.5,
-      "image": "../src/API/DishesImgs/Caesar-Salad.webp",
+      "image": "/API/DishesImgs/Caesar-Salad.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -193,25 +191,23 @@
       "title": "Miso Soup",
       "description": "Soybean paste soup with tofu and seaweed. A delicious and satisfying choice for your meal.",
       "price": 9.5,
-      "image": "../src/API/DishesImgs/Miso-Soup.webp",
+      "image": "/API/DishesImgs/Miso-Soup.webp",
       "rating": "★★★☆☆"
     },
-
     {
       "id": 5,
       "title": "Steak Sandwich",
       "description": "Thinly sliced steak on a toasted baguette. A delicious and satisfying choice for your meal.",
       "price": 14.75,
-      "image": "../src/API/DishesImgs/Steak-Sandwich.webp",
+      "image": "/API/DishesImgs/Steak-Sandwich.webp",
       "rating": "★★★★☆"
     },
-
     {
       "id": 6,
       "title": "Quinoa Salad",
       "description": "Quinoa tossed with veggies and lemon dressing. A delicious and satisfying choice for your meal.",
       "price": 11.75,
-      "image": "../src/API/DishesImgs/Quinoa-Salad.webp",
+      "image": "/API/DishesImgs/Quinoa-Salad.webp",
       "rating": "★★★★★"
     },
     {
@@ -219,16 +215,15 @@
       "title": "Turkey Burger",
       "description": "Juicy turkey patty served with lettuce and tomato. A delicious and satisfying choice for your meal.",
       "price": 13.5,
-      "image": "../src/API/DishesImgs/Turkey-Burger.webp",
+      "image": "/API/DishesImgs/Turkey-Burger.webp",
       "rating": "★★★☆☆"
     },
-
     {
       "id": 8,
       "title": "Pasta Primavera",
       "description": "Pasta tossed with fresh seasonal vegetables. A delicious and satisfying choice for your meal.",
       "price": 14.0,
-      "image": "../src/API/DishesImgs/Pasta-Primavera.webp",
+      "image": "/API/DishesImgs/Pasta-Primavera.webp",
       "rating": "★★★★★"
     },
     {
@@ -236,16 +231,15 @@
       "title": "Chicken Wrap",
       "description": "Grilled chicken wrapped in a soft tortilla. A delicious and satisfying choice for your meal.",
       "price": 12.99,
-      "image": "../src/API/DishesImgs/ChickenWrap.webp",
+      "image": "/API/DishesImgs/ChickenWrap.webp",
       "rating": "★★★★☆"
     },
-
     {
       "id": 11,
       "title": "Falafel Wrap",
       "description": "Crispy falafel wrapped in a soft pita bread. A delicious and satisfying choice for your meal.",
       "price": 11.25,
-      "image": "../src/API/DishesImgs/Falafel-Wrap.webp",
+      "image": "/API/DishesImgs/Falafel-Wrap.webp",
       "rating": "★★★★★"
     },
     {
@@ -253,7 +247,7 @@
       "title": "Ramen Bowl",
       "description": "Noodles in savory broth with soft-boiled egg. A delicious and satisfying choice for your meal.",
       "price": 14.99,
-      "image": "../src/API/DishesImgs/Ramen-Bowl.webp",
+      "image": "/API/DishesImgs/Ramen-Bowl.webp",
       "rating": "★★★★☆"
     },
     {
@@ -261,7 +255,7 @@
       "title": "Veggie Wrap",
       "description": "Fresh veggies wrapped in a soft tortilla. A delicious and satisfying choice for your meal.",
       "price": 11.5,
-      "image": "../src/API/DishesImgs/Veggie-Wrap.webp",
+      "image": "/API/DishesImgs/Veggie-Wrap.webp",
       "rating": "★★★★☆"
     },
     {
@@ -269,7 +263,7 @@
       "title": "Caprese Salad",
       "description": "Tomato and mozzarella with balsamic glaze. A delicious and satisfying choice for your meal.",
       "price": 10.75,
-      "image": "../src/API/DishesImgs/Caprese-Salad.webp",
+      "image": "/API/DishesImgs/Caprese-Salad.webp",
       "rating": "★★★★★"
     },
     {
@@ -277,7 +271,7 @@
       "title": "Banh Mi",
       "description": "Vietnamese sandwich with pork and pickled veggies. A delicious and satisfying choice for your meal.",
       "price": 10.99,
-      "image": "../src/API/DishesImgs/Banh-Mi.webp",
+      "image": "/API/DishesImgs/Banh-Mi.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -285,7 +279,7 @@
       "title": "Grilled Salmon",
       "description": "Salmon fillet grilled with herbs and spices. A delicious and satisfying choice for your meal.",
       "price": 16.5,
-      "image": "../src/API/DishesImgs/Grilled-Salmon.webp",
+      "image": "/API/DishesImgs/Grilled-Salmon.webp",
       "rating": "★★★★★"
     },
     {
@@ -293,7 +287,7 @@
       "title": "Shrimp Tacos",
       "description": "Spicy shrimp tacos with lime crema sauce. A delicious and satisfying choice for your meal.",
       "price": 15.0,
-      "image": "../src/API/DishesImgs/Shrimp-Tacos.webp",
+      "image": "/API/DishesImgs/Shrimp-Tacos.webp",
       "rating": "★★★★☆"
     },
     {
@@ -301,7 +295,7 @@
       "title": "Vegan Bowl",
       "description": "Mixed grains with roasted veggies and tahini. A delicious and satisfying choice for your meal.",
       "price": 13.25,
-      "image": "../src/API/DishesImgs/Vegan-Bowl.webp",
+      "image": "/API/DishesImgs/Vegan-Bowl.webp",
       "rating": "★★★★★"
     },
     {
@@ -309,7 +303,7 @@
       "title": "Sushi Roll",
       "description": "Fresh fish rolled in rice and seaweed with soy sauce. A delicious and satisfying choice for your meal.",
       "price": 15.99,
-      "image": "../src/API/DishesImgs/Sushi-Roll.webp",
+      "image": "/API/DishesImgs/Sushi-Roll.webp",
       "rating": "★★★★★"
     },
     {
@@ -317,26 +311,25 @@
       "title": "Pad Thai",
       "description": "Stir-fried noodles with peanuts and lime. A delicious and satisfying choice for your meal.",
       "price": 15.5,
-      "image": "../src/API/DishesImgs/Pad-Thai.webp",
+      "image": "/API/DishesImgs/Pad-Thai.webp",
       "rating": "★★★☆☆"
     }
   ],
-  "dinner": [
+   "dinner": [
     {
       "id": 5,
       "title": "Seafood Paella",
       "description": "Paella loaded with shrimp, clams, and mussels. A delicious and satisfying choice for your meal.",
       "price": 28.99,
-      "image": "../src/API/DishesImgs/Seafood-Paella.webp",
+      "image": "/API/DishesImgs/Seafood-Paella.webp",
       "rating": "★★★★☆"
     },
-
     {
       "id": 3,
       "title": "Lamb Chops",
       "description": "Grilled lamb chops with mint chimichurri. A delicious and satisfying choice for your meal.",
       "price": 27.99,
-      "image": "../src/API/DishesImgs/Lamb-Chops.webp",
+      "image": "/API/DishesImgs/Lamb-Chops.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -344,25 +337,23 @@
       "title": "Truffle Risotto",
       "description": "Creamy risotto infused with black truffle oil. A delicious and satisfying choice for your meal.",
       "price": 26.5,
-      "image": "../src/API/DishesImgs/Truffle-Risotto.webp",
+      "image": "/API/DishesImgs/Truffle-Risotto.webp",
       "rating": "★★★★★"
     },
-
     {
       "id": 1,
       "title": "Lobster Pasta",
       "description": "Lobster tossed in creamy garlic pasta. A delicious and satisfying choice for your meal.",
       "price": 29.99,
-      "image": "../src/API/DishesImgs/Lobster-Pasta.webp",
+      "image": "/API/DishesImgs/Lobster-Pasta.webp",
       "rating": "★★★★☆"
     },
-
     {
       "id": 6,
       "title": "Filet Mignon",
       "description": "Tender filet mignon with garlic butter. A delicious and satisfying choice for your meal.",
       "price": 34.99,
-      "image": "../src/API/DishesImgs/Filet-Mignon.webp",
+      "image": "/API/DishesImgs/Filet-Mignon.webp",
       "rating": "★★★★★"
     },
     {
@@ -370,7 +361,7 @@
       "title": "Duck Confit",
       "description": "Slow-cooked duck leg with orange glaze. A delicious and satisfying choice for your meal.",
       "price": 31.5,
-      "image": "../src/API/DishesImgs/Duck-Confit.webp",
+      "image": "/API/DishesImgs/Duck-Confit.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -378,7 +369,7 @@
       "title": "Grilled Steak",
       "description": "Juicy steak grilled to perfection with sides. A delicious and satisfying choice for your meal.",
       "price": 24.99,
-      "image": "../src/API/DishesImgs/Grilled-Steak.webp",
+      "image": "/API/DishesImgs/Grilled-Steak.webp",
       "rating": "★★★★★"
     },
     {
@@ -386,7 +377,7 @@
       "title": "Beef Wellington",
       "description": "Beef wrapped in puff pastry with mushrooms. A delicious and satisfying choice for your meal.",
       "price": 36.99,
-      "image": "../src/API/DishesImgs/Beef-Wellington.webp",
+      "image": "/API/DishesImgs/Beef-Wellington.webp",
       "rating": "★★★★★"
     },
     {
@@ -394,7 +385,7 @@
       "title": "Shrimp Scampi",
       "description": "Shrimp sautéed in garlic butter with linguine. A delicious and satisfying choice for your meal.",
       "price": 25.99,
-      "image": "../src/API/DishesImgs/Shrimp-Scampi.webp",
+      "image": "/API/DishesImgs/Shrimp-Scampi.webp",
       "rating": "★★★★☆"
     },
     {
@@ -402,7 +393,7 @@
       "title": "Vegetable Curry",
       "description": "Coconut curry with mixed seasonal vegetables. A delicious and satisfying choice for your meal.",
       "price": 22.5,
-      "image": "../src/API/DishesImgs/Vegetable-Curry.webp",
+      "image": "/API/DishesImgs/Vegetable-Curry.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -410,7 +401,7 @@
       "title": "Osso Buco",
       "description": "Braised veal shanks with gremolata sauce. A delicious and satisfying choice for your meal.",
       "price": 33.5,
-      "image": "../src/API/DishesImgs/Osso-Buco.webp",
+      "image": "/API/DishesImgs/Osso-Buco.webp",
       "rating": "★★★★★"
     },
     {
@@ -418,7 +409,7 @@
       "title": "Salmon Teriyaki",
       "description": "Grilled salmon glazed with teriyaki sauce. A delicious and satisfying choice for your meal.",
       "price": 24.99,
-      "image": "../src/API/DishesImgs/Salmon-Teriyaki.webp",
+      "image": "/API/DishesImgs/Salmon-Teriyaki.webp",
       "rating": "★★★★☆"
     },
     {
@@ -426,7 +417,7 @@
       "title": "Chicken Parmesan",
       "description": "Breaded chicken with marinara and mozzarella. A delicious and satisfying choice for your meal.",
       "price": 23.99,
-      "image": "../src/API/DishesImgs/Chicken-Parmesan.webp",
+      "image": "/API/DishesImgs/Chicken-Parmesan.webp",
       "rating": "★★★★★"
     },
     {
@@ -434,7 +425,7 @@
       "title": "Mushroom Risotto",
       "description": "Creamy risotto with wild mushrooms and thyme. A delicious and satisfying choice for your meal.",
       "price": 25.5,
-      "image": "../src/API/DishesImgs/Mushroom-Risotto.webp",
+      "image": "/API/DishesImgs/Mushroom-Risotto.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -442,7 +433,7 @@
       "title": "Steak Frites",
       "description": "Grilled steak served with crispy fries. A delicious and satisfying choice for your meal.",
       "price": 30.99,
-      "image": "../src/API/DishesImgs/Steak-Frites.webp",
+      "image": "/API/DishesImgs/Steak-Frites.webp",
       "rating": "★★★★★"
     },
     {
@@ -450,7 +441,7 @@
       "title": "Sushi Platter",
       "description": "Assorted sushi rolls with soy sauce. A delicious and satisfying choice for your meal.",
       "price": 32.5,
-      "image": "../src/API/DishesImgs/Sushi-Platter.webp",
+      "image": "/API/DishesImgs/Sushi-Platter.webp",
       "rating": "★★★★★"
     },
     {
@@ -458,7 +449,7 @@
       "title": "Thai Curry",
       "description": "Spicy curry with coconut milk and veggies. A delicious and satisfying choice for your meal.",
       "price": 24.5,
-      "image": "../src/API/DishesImgs/Thai-Curry.webp",
+      "image": "/API/DishesImgs/Thai-Curry.webp",
       "rating": "★★★★☆"
     },
     {
@@ -466,7 +457,7 @@
       "title": "Ratatouille",
       "description": "Roasted veggies in a rich tomato sauce. A delicious and satisfying choice for your meal.",
       "price": 21.99,
-      "image": "../src/API/DishesImgs/Ratatouille.webp",
+      "image": "/API/DishesImgs/Ratatouille.webp",
       "rating": "★★★☆☆"
     },
     {
@@ -474,7 +465,7 @@
       "title": "Lemon Herb Chicken",
       "description": "Chicken marinated with lemon and fresh herbs. A delicious and satisfying choice for your meal.",
       "price": 22.99,
-      "image": "../src/API/DishesImgs/Lemon-Herb-Chicken.webp",
+      "image": "/API/DishesImgs/Lemon-Herb-Chicken.webp",
       "rating": "★★★★★"
     }
   ],
@@ -490,7 +481,7 @@
     {
       "id": 1,
       "description": "Grilled bread with garlic, salt, and olive oil. Simple yet delicious.",
-      "image": "../src/assets/bruchetta.webp",
+      "image": "../../src/assets/bruchetta.webp",
       "title": "Bruchetta",
       "rating": "★★★★★",
       "price": 8.99

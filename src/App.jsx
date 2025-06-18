@@ -62,3 +62,25 @@ function App() {
 }
 
 export default App;
+
+
+
+//!   if we have a fixed array.length ex: 10k then the time complexity:
+//!   O(10K) = 0(1), but in this case the arra.length is unknown,
+//!   its depend on each array, which gives O(n), means time will depend on n;
+
+//!  exclaimer: O(1) doesnt mean instantly it means the fastest solution 
+
+//!   n =  array.length both has the same so n^2
+
+
+function target (g,y){
+   [g,y]= [0,array.length]
+   while(g>=y){
+    let mid= math.floor(g+y/2)
+    if (mid==target)return mid;
+    if(mid<target)g=mid;
+    else{y=mid}
+   }
+
+}

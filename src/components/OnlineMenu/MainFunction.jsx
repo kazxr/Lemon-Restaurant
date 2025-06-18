@@ -1,4 +1,4 @@
-import data from "../../API/dishes.json";
+import data from "../../../public/API/dishes.json";
 import { useAddToBasket } from "../../store/GlobalStates.jsx";
 import Card from "./Dishes-Cards.jsx";
 import Pagination from "@mui/material/Pagination";

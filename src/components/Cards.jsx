@@ -1,4 +1,4 @@
-import data from "../data/cardsData.json";
+import data from "../data/cardsData.js";
 import Card from "./card";
 import right from "../assets/right1.png";
 import left from "../assets/left1.png";

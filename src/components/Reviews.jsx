@@ -1,4 +1,4 @@
-import data from "../data/reviewsData.json";
+import data from "../data/reviewsData.js";
 import right from "../assets/right1.png";
 import left from "../assets/left1.png";
 
