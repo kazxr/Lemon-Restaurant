@@ -1,6 +1,6 @@
 import saladImg from '../assets/salad0.webp';
 import bruchettaImg from '../assets/bruchetta.webp';
-import lemonImg from '../assets/lemondessert.webp';
+import lemonImg from '../assets/lemonDessert.webp';
 
 const dishes = [
   {
